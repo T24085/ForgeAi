@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raindance Player Stats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070818;
+      --panel: #0f1333;
+      --panel-2: #0b0f2a;
+      --accent: #ff2bd6;
+      --accent-2: #00f5ff;
+      --text: #f7f7ff;
+      --muted: #b9b6e3;
+      --stroke: rgba(255, 255, 255, 0.14);
+      --shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: radial-gradient(circle at 10% 15%, rgba(255, 43, 214, 0.25), transparent 42%),
+        radial-gradient(circle at 85% 12%, rgba(0, 245, 255, 0.22), transparent 45%),
+        linear-gradient(145deg, #060719 0%, #0d1030 45%, #05061a 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 48px 6vw 24px;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, rgba(255, 43, 214, 0.24), transparent 60%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin: 0 0 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 1.05rem;
+    }
+
+    main {
+      padding: 0 6vw 64px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      font-family: "Unbounded", sans-serif;
+      font-size: 1.4rem;
+    }
+
+    .panel p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .upload {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px;
+      background: var(--panel-2);
+      border-radius: 16px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+    }
+
+    .upload input[type="file"] {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(255, 43, 214, 0.22), rgba(0, 245, 255, 0.16));
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-card h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat-card span {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    input, select, button, textarea {
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(8, 12, 22, 0.9);
+      color: var(--text);
+    }
+
+    button {
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #11101b;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button.secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .controls {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .table-wrap {
+      max-height: 420px;
+      overflow: auto;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 14, 24, 0.95);
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 43, 214, 0.2);
+      border: 1px solid rgba(255, 43, 214, 0.5);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .chart-wrap {
+      background: rgba(8, 12, 22, 0.7);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .chart-wrap.expandable {
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .chart-wrap.expandable:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+    }
+
+    .chart-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 6, 5, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 50;
+    }
+
+    .chart-modal.active {
+      display: flex;
+    }
+
+    .chart-modal .modal-content {
+      width: min(1100px, 92vw);
+      height: min(720px, 85vh);
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .chart-modal .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .inline {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: rgba(0, 245, 255, 0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 245, 255, 0.4);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 32px 6vw 16px;
+      }
+      .panel {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Raindance Player Stats Hub</h1>
+    <p class="subtitle">Stats loaded directly from the 10 CSV files in this folder. Totals and per-minute rates are computed using Round Times.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Overview</h2>
+      <div class="grid two">
+        <div class="stat-card">
+          <h3>Roster Players</h3>
+          <span id="timesPlayers">—</span>
+        </div>
+        <div class="stat-card">
+          <h3>Stat Names</h3>
+          <span id="rawPlayers">—</span>
+        </div>
+        <div class="stat-card">
+          <h3>Matched Players</h3>
+          <span id="mergedPlayers">—</span>
+        </div>
+        <div class="stat-card">
+          <h3>Rounds</h3>
+          <span id="roundCount">—</span>
+        </div>
+        <div class="stat-card">
+          <h3>Total Minutes</h3>
+          <span id="totalMinutes">—</span>
+        </div>
+      </div>
+      <p class="muted" id="loadStatus">Loading embedded CSVs…</p>
+    </section>
+
+    <section class="panel">
+      <h2>Overall Player Ranks</h2>
+      <div class="controls">
+        <div>
+          <label for="rankSortBy">Rank by</label>
+          <select id="rankSortBy">
+            <option value="overall">Overall (avg per‑minute)</option>
+            <option value="score">Score/Min</option>
+            <option value="kills">Kills/Min</option>
+            <option value="assists">Assists/Min</option>
+            <option value="captures">Captures/Min</option>
+            <option value="returns">Returns/Min</option>
+            <option value="minutes">Minutes Played</option>
+          </select>
+        </div>
+        <div>
+          <label for="rankLimit">Show top</label>
+          <select id="rankLimit">
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="9999">All</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin-top: 16px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Minutes</th>
+              <th>Overall</th>
+              <th>Score/Min</th>
+              <th>Kills/Min</th>
+              <th>Assists/Min</th>
+              <th>Captures/Min</th>
+              <th>Returns/Min</th>
+            </tr>
+          </thead>
+          <tbody id="ranksTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Player Production Rates</h2>
+      <div class="controls">
+        <div>
+          <label for="playerSearch">Find player</label>
+          <input type="text" id="playerSearch" placeholder="Type a player name..." />
+        </div>
+        <div>
+          <label for="rateSortBy">Sort by</label>
+          <select id="rateSortBy">
+            <option value="score">Score/Min</option>
+            <option value="kills">Kills/Min</option>
+            <option value="assists">Assists/Min</option>
+            <option value="captures">Captures/Min</option>
+            <option value="returns">Returns/Min</option>
+            <option value="minutes">Minutes</option>
+          </select>
+        </div>
+        <div>
+          <label for="rateSortDir">Order</label>
+          <select id="rateSortDir">
+            <option value="desc">High → Low</option>
+            <option value="asc">Low → High</option>
+          </select>
+        </div>
+      </div>
+      <p class="muted">Per-minute production using Round Times.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Minutes</th>
+              <th>Score/Min</th>
+              <th>Kills/Min</th>
+              <th>Assists/Min</th>
+              <th>Captures/Min</th>
+              <th>Returns/Min</th>
+            </tr>
+          </thead>
+          <tbody id="ratesTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Scatter Insights</h2>
+      <p class="muted">Each dot is a player. Use this to spot high‑impact outliers.</p>
+      <div class="grid two">
+        <div class="chart-wrap expandable" data-chart="scatterScoreKills">
+          <canvas id="scatterScoreKills" height="180"></canvas>
+        </div>
+        <div class="chart-wrap expandable" data-chart="scatterAssistsCaptures">
+          <canvas id="scatterAssistsCaptures" height="180"></canvas>
+        </div>
+        <div class="chart-wrap expandable" data-chart="scatterReturnsScore">
+          <canvas id="scatterReturnsScore" height="180"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <div class="chart-modal" id="chartModal">
+      <div class="modal-content">
+        <button class="close-btn" id="closeModal">Close</button>
+        <canvas id="scatterModalCanvas"></canvas>
+      </div>
+    </div>
+
+    <section class="panel">
+      <h2>Kill Share by Team</h2>
+      <p class="muted">Team data is not present in the provided CSVs, so kill share is unavailable.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Best Performers</h2>
+      <p class="muted">Top players across core per-minute efficiency metrics.</p>
+      <div class="grid two" id="bestList"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Player Totals</h2>
+      <div class="controls">
+        <div>
+          <label for="sortBy">Sort by</label>
+          <select id="sortBy">
+            <option value="score">Score</option>
+            <option value="kills">Kills</option>
+            <option value="assists">Assists</option>
+            <option value="captures">Captures</option>
+            <option value="returns">Returns</option>
+          </select>
+        </div>
+        <div>
+          <label for="topLimit">Show top</label>
+          <select id="topLimit">
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="9999">All</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin-top: 16px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Minutes</th>
+              <th>Score</th>
+              <th>Kills</th>
+              <th>Assists</th>
+              <th>Captures</th>
+              <th>Returns</th>
+              <th>Kills/Min</th>
+              <th>Assists/Min</th>
+              <th>Score/Min</th>
+              <th>Captures/Min</th>
+              <th>Returns/Min</th>
+            </tr>
+          </thead>
+          <tbody id="totalsTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Player Explorer</h2>
+      <div class="controls">
+        <div>
+          <label for="playerSelect">Player</label>
+          <select id="playerSelect"></select>
+        </div>
+        <div>
+          <label for="statSelect">Stat</label>
+          <select id="statSelect">
+            <option value="score">Score</option>
+            <option value="kills">Kills</option>
+            <option value="assists">Assists</option>
+            <option value="captures">Captures</option>
+            <option value="returns">Returns</option>
+          </select>
+        </div>
+        <div>
+          <label class="inline">
+            <input type="checkbox" id="perMinute" />
+            <span>Show per-minute</span>
+          </label>
+        </div>
+        <div>
+          <label class="inline">
+            <input type="checkbox" id="cumulative" />
+            <span>Show cumulative total</span>
+          </label>
+        </div>
+      </div>
+      <div class="chart-wrap" style="margin-top: 16px;">
+        <canvas id="trendChart" height="140"></canvas>
+      </div>
+      <div class="table-wrap" style="margin-top: 16px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Round</th>
+              <th>Minutes</th>
+              <th>Score</th>
+              <th>Kills</th>
+              <th>Assists</th>
+              <th>Captures</th>
+              <th>Returns</th>
+              <th>Kills/Min</th>
+              <th>Assists/Min</th>
+              <th>Score/Min</th>
+              <th>Captures/Min</th>
+              <th>Returns/Min</th>
+            </tr>
+          </thead>
+          <tbody id="roundTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script>
+    const loadStatus = document.getElementById("loadStatus");
+    const rawPlayersEl = document.getElementById("rawPlayers");
+    const timesPlayersEl = document.getElementById("timesPlayers");
+    const mergedPlayersEl = document.getElementById("mergedPlayers");
+    const roundCountEl = document.getElementById("roundCount");
+    const totalMinutesEl = document.getElementById("totalMinutes");
+    const totalsTable = document.getElementById("totalsTable");
+    const ratesTable = document.getElementById("ratesTable");
+    const bestList = document.getElementById("bestList");
+    const ranksTable = document.getElementById("ranksTable");
+    const playerSelect = document.getElementById("playerSelect");
+    const statSelect = document.getElementById("statSelect");
+    const sortBy = document.getElementById("sortBy");
+    const topLimit = document.getElementById("topLimit");
+    const playerSearch = document.getElementById("playerSearch");
+    const rateSortBy = document.getElementById("rateSortBy");
+    const rateSortDir = document.getElementById("rateSortDir");
+    const rankSortBy = document.getElementById("rankSortBy");
+    const rankLimit = document.getElementById("rankLimit");
+    const perMinute = document.getElementById("perMinute");
+    const cumulative = document.getElementById("cumulative");
+    const roundTable = document.getElementById("roundTable");
+    const scatterScoreKills = document.getElementById("scatterScoreKills");
+    const scatterAssistsCaptures = document.getElementById("scatterAssistsCaptures");
+    const scatterReturnsScore = document.getElementById("scatterReturnsScore");
+    const chartModal = document.getElementById("chartModal");
+    const closeModal = document.getElementById("closeModal");
+    const scatterModalCanvas = document.getElementById("scatterModalCanvas");
+
+    const embeddedFiles = {"One Last Raindance Scores - Round Times.csv": "Player,Rd 1 Score,Rd 1 Time,Rd 2 Score,Rd 2 Time,Rd 3 Score,Rd 3 Time,Rd 4 Score,Rd 4 Time,Rd 5 Score,Rd 5 Time,Rd 6 Score,Rd 6 Time,Rd 7 Score,Rd 7 Time,Rd 8 Score,Rd 8 Time,Rd 9 Score,Rd 9 Time,Total Playtime\nHydroXide,7705,18:18,4470,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nNikeBeamz,7535,18:18,5020,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nPandora,6055,18:18,3680,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nConvik/Silyn,4945,18:18,3520,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\ncym3,4870,18:18,3165,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nSmokin,2665,18:18,2480,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nBlitz,1880,18:18,1390,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nDarkness93,1470,18:18,1095,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nRyan,1470,18:18,2105,13:00,,15:00,,16:43,,15:00,,15:00,,BYE,,17:51,,15:00,125:52:00\nDugong,6360,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nVisis,6085,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nRebeltrooper,5700,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nNightstar,5375,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nwafleking,4675,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nsajent,3850,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nClapmatic,2980,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nzsamot8,2660,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nLethalScout,1015,18:18,,14:42,,15:00,,BYE,,13:31,,15:00,,8:21,,12:06,,15:00,111:57:00\nJive,5685,16:34,4475,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nMikea(x2),5315,16:34,3620,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nSplitSecond,5100,16:34,4420,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nGnome,4815,16:34,4415,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nKatar Xwokark,4480,16:34,2925,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nloot,3945,16:34,4820,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nHowsya,3200,16:34,2645,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\n_oahra,3175,16:34,3545,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nNovA,2140,16:34,2765,15:00,,BYE,,9:46,,15:00,,15:00,,7:39,,12:06,,10:02,101:07:00\nLord Buschguy,7090,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nSlyce,5465,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nPrizzo,4345,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nHosh,4290,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nmore_horchata,3900,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nkwago,3530,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nAPC,2785,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nRednecK,2445,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nNemesis,2210,16:34,,13:23,,15:00,,11:28,,13:58,,15:00,,16:01,,BYE,,13:58,\nMikesters,4935,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nnomlfir,4460,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nWriggles,4085,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nTritium Jones,3900,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nNyan,3785,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nKilshot,2425,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nbgkillas,2265,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nRoamenCota,1635,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nShinen,960,15:04,,13:23,,15:00,,9:46,,BYE,,15:00,,15:00,,15:00,,15:00,\nIceWinds,6125,15:04,4125,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\nTribalChief,6050,15:04,4165,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\npLaybox!,4795,15:04,2695,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\ntonyd169,4180,15:04,3105,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\nerInys,4085,15:04,4230,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\nBag,3660,15:04,3665,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\nColonelFatso,3175,15:04,3135,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\nGigabyte,2875,15:04,2050,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\nemma,1330,15:04,1425,13:00,,18:41,,12:44,,13:31,,BYE,,16:01,,15:00,,10:02,114.03\nShady,5700,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nVorpal,5670,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nnato,4720,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nContigencyPlan,3730,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nString,3335,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nanthing,3125,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nAnnaberries,2960,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nDeadManWalking,2270,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nHiredgun,660,15:00,,14:42,,18:41,,11:28,,20:00,,15:00,,15:00,,17:51,,BYE,127.42\nBeldark,5165,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nDean,4660,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nDidjital,4485,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nG W E J,4055,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nBizow,3380,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nSulliedSoc,2020,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nMansku,1775,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nZao,1565,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nFiftycal,860,15:00,,BYE,,15:00,,12:44,,13:58,,15:00,,7:39,,15:00,,15:00,\nGGGLYGY,,BYE,4895,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nPROJ,,BYE,4415,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nBakaToma,,BYE,4350,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nbizzy,,BYE,4320,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nLightning McMeme,,BYE,3495,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nn3mz,,BYE,3095,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nBooleanaire,,BYE,3060,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nTorment,,BYE,2070,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,\nDRAGON XIII,,BYE,1690,15:00,,15:00,,16:43,,20:00,,15:00,,8:21,,15:00,,13:58,", "One Last Raindance Scores - Round 1 Stats.csv": "Player,Score,Kills,Assists,Caps,Returns\nHydroXide,\"7,705\",43,28,0,2\nNikeBeamz,\"7,535\",37,29,0,4\nPandora,\"6,055\",25,38,0,3\nConvik/Silyn,\"4,945\",24,4,0,0\ncym3,\"4,870\",18,34,0,0\nSmokin,\"2,665\",11,7,0,1\nBlitz,\"1,880\",2,3,1,1\nDarkness93,\"1,470\",4,4,0,0\nRyan,\"1,470\",0,4,1,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nDugong,\"6,360\",22,25,0,9\nVisis,\"6,085\",27,18,1,1\nRebeltrooper,\"5,700\",29,16,0,2\nNightstar,\"5,375\",20,25,0,2\nwafleking,\"4,675\",23,13,0,1\nsajent,\"3,850\",14,22,0,2\nClapmatic,\"2,980\",6,12,0,2\nzsamot8,\"2,660\",10,15,0,0\nLethalScout,\"1,015\",1,2,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nJive,\"5,685\",26,29,0,1\nMikea(x2),\"5,315\",23,15,2,0\nSplitSecond,\"5,100\",25,23,0,1\nGnome,\"4,815\",16,17,0,7\nKatar Xwokark,\"4,480\",23,18,0,0\nloot,\"3,945\",17,26,0,0\nHowsya,\"3,200\",11,11,0,1\n_oahra,\"3,175\",8,11,2,0\nNovA,\"2,140\",5,7,1,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nLord Buschguy,\"7,090\",31,22,2,0\nSlyce,\"5,465\",30,17,0,0\nPrizzo,\"4,345\",20,18,0,0\nHosh,\"4,290\",23,17,0,0\nmore_horchata,\"3,900\",16,6,0,2\nkwago,\"3,530\",15,6,0,3\nAPC,\"2,785\",2,5,2,3\nRednecK,\"2,445\",7,16,0,0\nNemesis,\"2,210\",7,5,0,2\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nMikesters,\"4,935\",24,14,1,1\nnomlfir,\"4,460\",22,16,0,1\nWriggles,\"4,085\",16,14,1,1\nTritium Jones,\"3,900\",13,15,0,5\nNyan,\"3,785\",14,16,0,3\nKilshot,\"2,425\",6,10,0,0\nbgkillas,\"2,265\",2,6,1,3\nRoamenCota,\"1,635\",4,4,0,0\nShinen,960,1,4,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nIceWinds,\"6,125\",34,20,0,2\nTribalChief,\"6,050\",35,20,0,1\npLaybox!,\"4,795\",23,18,0,0\ntonyd169,\"4,180\",19,11,0,1\nerInys,\"4,085\",12,21,1,0\nBag,\"3,660\",13,14,0,4\nColonelFatso,\"3,175\",8,15,1,2\nGigabyte,\"2,875\",12,10,0,0\nemma,\"1,330\",3,7,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nShady,\"5,700\",20,16,1,7\nVorpal,\"5,670\",34,9,0,2\nnato,\"4,720\",20,24,0,3\nContigencyPlan,\"3,730\",11,9,1,3\nString,\"3,335\",14,10,0,0\nanthing,\"3,125\",9,11,1,2\nAnnaberries,\"2,960\",14,10,0,0\nDeadManWalking,\"2,270\",7,4,0,1\nHiredgun,660,0,0,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nBeldark,\"5,165\",21,17,0,6\nDean,\"4,660\",19,24,0,3\nDidjital,\"4,485\",21,17,0,2\nG W E J,\"4,055\",19,15,0,1\nBizow,\"3,380\",15,7,0,0\nSulliedSoc,\"2,020\",9,4,0,0\nMansku,\"1,775\",3,6,1,0\nZao,\"1,565\",5,7,0,0\nFiftycal,860,0,5,0,0", "One Last Raindance Scores - Round 2 Stats.csv": "Player,Score,Kills,Assists,Captures,Returns,,\nNikeBeamz,\"5,020\",19,16,2,2,,\nHydroXide,\"4,470\",22,15,0,2,,\nPandora,\"3,680\",14,19,0,3,,\nSilyn,\"3,520\",12,10,1,2,,\ncym3,\"3,165\",13,16,0,0,,\nSmokin,\"2,480\",14,4,0,0,,\nRyan,\"2,105\",3,4,2,0,,\nBlitz,\"1,390\",5,3,0,0,,\nDarkness93,\"1,095\",1,5,0,1,,\n,,,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns,,\nerInys,\"4,230\",20,10,0,3,,\nTribalChief,\"4,165\",15,13,2,1,,\nIceWinds,\"4,125\",17,17,0,3,,\nBag,\"3,665\",11,13,0,6,,\nColonelFatso,\"3,135\",9,11,0,5,,\ntonyd169,\"3,105\",13,14,0,0,,\npLaybox!,\"2,695\",12,10,0,0,,\nGigabyte,\"2,050\",9,7,0,0,,\nemma,\"1,425\",3,7,0,1,,\n,,,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns,,\nloot,\"4,820\",21,23,1,0,,\nJive,\"4,475\",22,16,0,1,,\nSplitSecond,\"4,420\",22,15,0,2,,\nGnome,\"4,415\",15,17,0,6,,\nMikea(x2),\"3,620\",16,24,0,0,,\n_oahra,\"3,545\",13,14,1,1,,\nKatar Xwokark,\"2,925\",13,16,0,0,,\nNovA,\"2,765\",5,7,2,1,,\nHowsya,\"2,645\",9,14,0,0,,\n,,,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns,,\nGGGLYGY,\"4,895\",27,9,0,1,,\nPROJ,\"4,415\",19,12,1,2,,\nBakaToma,\"4,350\",18,16,0,4,,\nbizzy,\"4,320\",20,24,0,1,,\nLightning McMeme,\"3,495\",14,23,0,0,,\nn3mz,\"3,095\",7,24,0,3,,\nBooleanaire,\"3,060\",16,10,0,0,,\nTorment,\"2,070\",4,14,0,1,,\nDRAGON XIII,\"1,690\",2,2,1,1,,\n,,,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns,,\nLord Buschguy,\"6,250\",26,11,2,3,,\nPrizzo,\"5,420\",28,19,0,2,,\nSlyce,\"3,995\",19,13,0,1,,\nmore_horchata,\"3,830\",13,12,0,3,,\nHosh,\"3,560\",16,24,0,0,,\nNemesis,\"3,200\",12,10,1,1,,\nkwago,\"3,180\",8,17,1,2,,\nRednecK,\"3,140\",10,15,1,0,,\nAPC,\"1,855\",3,7,0,3,,\n,,,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns,,\nTritium Jones,\"3,620\",16,3,1,2,,Missing player\nnomlfir,\"3,580\",18,17,0,0,,\nKilshot,\"2,800\",6,10,0,0,,\nMikesters,\"2,775\",13,10,0,0,,\nNyan,\"2,155\",7,4,0,2,,\nWriggles,\"1,835\",7,9,0,0,,\nShinen,970,2,3,0,0,,\nbgkillas,965,1,1,0,1,,\n,,,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns,,\nShady,\"4,810\",22,20,0,3,,\nnato,\"4,680\",20,28,0,2,,\nanthing,\"4,300\",22,17,0,1,,\nContigencyPlan,\"3,920\",11,11,2,1,,\nAnnaberries,\"3,565\",16,7,0,2,,\nString,\"3,400\",16,11,0,0,,\nVorpal,\"2,565\",9,7,1,0,,\nDeadManWalking,\"2,335\",3,5,1,0,,\nHiredgun,\"1,365\",1,2,1,0,,\n,,,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns,,\nRebeltrooper,\"4,555\",28,8,0,0,,\nDugong,\"4,410\",20,14,0,3,,\nVisis,\"4,345\",18,17,1,0,,\nNightstar,\"4,300\",18,16,0,3,,\nsajent,\"3,655\",7,18,0,7,,\nwafleking,\"3,375\",11,16,0,2,,\nClapmatic,\"2,740\",11,12,0,0,,\nzsamot8,\"2,470\",10,14,0,0,,\nLethalScout,\"1,080\",2,4,0,0,,", "One Last Raindance Scores - Round 3 Stats.csv": "Player,Score,Kills,Assists,Captures,Returns\nBizow,\"5,480\",27,10,0,3\nDidjital,\"5,150\",25,22,0,2\nDean,\"5,120\",22,22,1,1\nG W E J,\"4,695\",27,13,0,0\nBeldark,\"3,480\",12,13,0,4\nSulliedSoc,\"2,110\",7,5,0,0\nZao,\"1,655\",3,3,1,0\nMansku,\"1,645\",1,4,1,1\nFiftycal,\"1,545\",2,4,0,2\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nRebeltrooper,\"8,080\",47,30,0,1\nVisis,\"5,840\",21,25,1,0\nNightstar,\"4,945\",21,28,0,0\nDugong,\"4,150\",19,26,0,0\nsajent,\"3,915\",9,18,0,7\nwafleking,\"3,800\",16,16,0,1\nClapmatic,\"3,180\",14,14,0,1\nzsamot8,\"2,785\",8,16,0,2\nLethalScout,865,1,2,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nIceWinds,\"6,605\",30,27,1,0\ntonyd169,\"6,470\",27,23,1,2\npLaybox!,\"5,940\",29,21,0,1\nBag,\"5,215\",14,21,0,9\nTribalChief,\"4,960\",27,9,0,2\nerInys,\"4,675\",14,19,0,2\nColonelFatso,\"4,785\",16,14,2,2\nGigabyte,\"3,160\",14,9,0,0\nemma,\"2,495\",6,13,0,2\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nShady,\"5,410\",21,14,0,7\nanthing,\"5,370\",24,14,0,1\nVorpal,\"5,130\",18,12,3,0\nString,\"5,030\",22,14,0,3\nnato,\"4,725\",20,25,0,2\nAnnaberries,\"4,355\",23,8,0,1\nContigencyPlan,\"3,440\",11,12,0,2\nDeadManWalking,\"3,505\",10,12,0,1\nHiredgun,\"1,065\",0,1,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nHydroXide,\"6,830\",34,19,0,5\nNikeBeamz,\"5,480\",25,17,0,4\nSilyn,\"4,625\",25,10,0,1\ncym3,\"4,605\",15,27,0,0\nPandora,\"4,175\",14,20,0,4\nSmokin,\"2,225\",8,10,0,0\nRyan,\"1,170\",3,3,0,0\nBlitz,\"1,000\",1,5,0,0\nDarkness93,880,1,2,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nHosh,\"6,850\",33,25,1,2\nPrizzo,\"6,800\",33,22,1,2\nLord Buschguy,\"6,430\",27,22,1,5\nkwago,\"3,660\",13,14,0,4\nRednecK,\"3,580\",10,17,0,1\nmore_horchata,\"3,540\",14,6,0,1\nAPC,\"3,460\",11,9,0,3\nSlyce,\"2,775\",12,10,0,1\nNemesis,\"1,860\",5,9,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nnomlfir,\"5,070\",22,11,1,1\nTritium Jones,\"4,900\",16,11,0,9\nWriggles,\"3,815\",8,18,0,1\nNyan,\"3,510\",11,14,0,4\nMikesters,\"2,815\",11,12,0,0\nRoamenCota,\"1,995\",7,4,0,0\nKilshot,\"1,725\",6,6,0,0\nbgkillas,\"1,525\",5,1,0,1\nShinen,\"1,115\",3,2,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nGGGLYGY,\"6,325\",33,11,1,0\nPROJ,\"5,860\",22,19,1,5\nBakaToma,\"5,410\",26,19,0,1\nbizzy,\"4,790\",26,22,0,0\nBooleanaire,\"4,335\",20,15,0,1\nLightning McMeme,\"3,420\",10,24,0,0\nTorment,\"2,495\",3,9,1,3\nn3mz,\"2,020\",8,9,0,0\nDRAGON XIII,865,1,2,0,0", "One Last Raindance Scores - Round 4 Stats.csv": "Player,Score,Kills,Assists,Captures,Returns\nBeldark,\"4,015\",17,8,0,5\nBizow,\"3,800\",18,12,0,1\nG W E J,\"3,750\",20,13,0,0\nDidjital,\"3,285\",15,16,0,1\nDean,\"3,040\",16,11,0,0\nSulliedSoc,\"2,200\",7,7,0,2\nZao,\"1,640\",6,8,0,0\nFiftycal,\"1,260\",3,6,0,0\nMansku,850,0,7,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nIceWinds,\"5,230\",30,19,0,0\nColonelFatso,\"4,900\",10,17,4,2\nBag,\"3,780\",10,9,0,8\npLaybox!,\"3,770\",20,10,0,0\ntonyd169,\"3,610\",9,14,1,3\nerInys,\"3,415\",12,16,0,2\nTribalChief,\"3,310\",12,11,0,4\nGigabyte,\"1,665\",5,8,0,0\nemma,\"1,230\",4,4,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nGnome,\"4,385\",14,15,2,3\nloot,\"3,945\",13,15,2,0\nJive,\"3,405\",10,12,1,1\nSplitSecond,\"3,200\",15,10,0,2\nKatar Xwokark,\"2,880\",13,13,0,0\nHowsya,\"2,790\",12,7,0,1\nMikea(x2),\"2,450\",11,16,0,0\n_oahra,\"1,710\",7,10,0,0\nNovA,845,2,4,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nnomlfir,\"3,255\",15,11,0,1\nWriggles,\"2,820\",7,15,1,1\nTritium Jones,\"2,745\",14,9,0,1\nNyan,\"2,165\",10,7,0,1\nMikesters,\"1,710\",7,10,0,0\nKilshot,\"1,405\",5,3,0,0\nRoamenCota,\"1,265\",3,2,0,0\nbgkillas,\"1,040\",1,2,0,2\nShinen,805,2,3,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nSlyce,\"5,025\",20,16,1,4\nHosh,\"4,475\",21,16,1,1\nPrizzo,\"4,695\",15,21,2,2\nLord Buschguy,\"4,020\",22,14,0,1\nRednecK,\"3,670\",17,11,1,0\nkwago,\"2,555\",9,8,0,3\nmore_horchata,\"2,510\",9,5,0,0\nNemesis,\"1,820\",6,9,0,1\nAPC,995,1,4,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nString,\"2,865\",15,7,0,1\nShady,\"2,680\",10,8,0,3\nContigencyPlan,\"2,300\",7,9,1,0\nVorpal,\"2,285\",11,5,0,1\nnato,\"2,270\",8,14,0,1\nDeadManWalking,\"2,075\",7,6,0,0\nanthing,\"1,880\",8,9,0,0\nHiredgun,550,0,1,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nPROJ,\"8,595\",33,18,0,15\nbizzy,\"6,815\",35,37,0,1\nLightning McMeme,\"5,135\",17,29,1,1\nBakaToma,\"5,020\",19,23,0,4\nGGGLYGY,\"4,855\",27,14,0,0\nBooleanaire,\"3,615\",14,21,0,1\nn3mz,\"3,030\",8,7,2,0\nTorment,\"2,350\",7,11,0,1\nDRAGON XIII,\"1,790\",0,1,2,0\n,,,,,\nPlayer,Score,Kills,Assists,Captures,Returns\nNikeBeamz,\"6,240\",29,18,0,5\nHydroXide,\"5,810\",22,25,1,4\ncym3,\"4,470\",14,24,1,0\nPandora,\"4,385\",21,18,0,1\nSilyn,\"3,810\",14,14,0,3\nSmokin,\"2,565\",11,6,0,1\nRyan,\"1,955\",1,2,2,0\nBlitz,\"1,810\",4,4,0,2\nDarkness93,870,0,3,0,0", "One Last Raindance Scores - Round 5 Stats.csv": "Player,Score,Kills,Assists,Caps,Returns\nVorpal,\"7,315\",37,21,0,4\nnato,\"7,250\",30,25,0,8\nShady,\"6,210\",22,24,0,8\nString,\"6,075\",32,20,0,0\nAnnaberries,\"5,090\",24,26,0,0\nanthing,\"4,335\",21,20,0,0\nContigencyPlan,\"4,135\",17,13,0,2\nDeadManWalking,\"3,640\",13,13,0,0\nHiredgun,\"1,350\",2,0,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nPROJ,\"9,295\",35,27,0,13\nbizzy,\"7,510\",38,36,0,2\nGGGLYGY,\"7,195\",43,23,0,0\nBakaToma,\"5,770\",22,18,0,7\nBooleanaire,\"4,895\",23,28,0,0\nLightning McMeme,\"4,230\",12,36,0,0\nTorment,\"3,515\",13,16,0,1\nn3mz,\"2,745\",9,18,0,0\nDRAGON XIII,\"1,270\",2,3,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nHydroXide,\"6,655\",40,18,0,1\nNikeBeamz,\"4,880\",19,23,1,2\nPandora,\"4,645\",14,23,1,4\nSilyn,\"4,400\",21,10,0,2\ncym3,\"3,765\",16,20,0,1\nSmokin,\"3,320\",17,8,0,1\nRyan,\"2,385\",2,4,1,4\nDarkness93,\"1,825\",6,5,0,1\nBlitz,\"1,790\",3,1,1,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nGnome,\"7,695\",22,14,1,16\nloot,\"5,620\",24,27,1,1\nSplitSecond,\"5,250\",27,15,0,3\nJive,\"5,020\",25,15,0,1\nKatar Xwokark,\"4,010\",20,19,0,0\nMikea(x2),\"3,180\",13,17,0,1\n_oahra,\"2,695\",12,13,0,0\nHowsya,\"2,365\",5,11,0,2\nNovA,\"1,490\",3,6,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nTribalChief,\"4,575\",27,10,0,1\nIceWinds,\"4,510\",23,19,0,1\ntonyd169,\"4,280\",17,12,1,1\npLaybox!,\"4,410\",18,14,1,1\nBag,\"3,400\",16,15,0,1\nColonelFatso,\"3,240\",8,11,2,1\nerInys,\"3,150\",14,20,0,0\nemma,\"2,595\",3,8,1,4\nGigabyte,\"2,160\",8,9,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nsajent,\"4,910\",22,14,0,5\nRebeltrooper,\"4,655\",27,17,0,0\nNightstar,\"3,850\",18,20,0,1\nVisis,\"3,060\",14,15,0,0\nClapmatic,\"2,810\",7,21,0,1\nwafleking,\"2,560\",10,14,0,0\nzsamot8,\"2,285\",10,10,0,0\nDugong,\"1,585\",5,9,0,0\nLethalScout,845,1,3,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nPrizzo,\"6,455\",40,21,0,0\nLord Buschguy,\"6,365\",32,30,0,2\nHosh,\"5,345\",22,32,1,1\nRednecK,\"3,805\",17,18,0,1\nSlyce,\"3,615\",17,15,0,1\nAPC,\"3,445\",6,7,2,4\nmore_horchata,\"3,030\",9,6,0,3\nkwago,\"2,925\",8,10,1,2\nNemesis,\"2,835\",8,8,1,2\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nDidjital,\"4,275\",23,11,0,0\nDean,\"3,960\",19,24,0,0\nG W E J,\"3,820\",17,19,0,1\nBizow,\"3,635\",20,13,0,0\nBeldark,\"3,380\",17,6,0,2\nSulliedSoc,\"2,355\",7,6,0,2\nZao,\"1,595\",4,7,0,1\nMansku,\"1,265\",2,5,0,1\nFiftycal,860,1,3,0,0", "One Last Raindance Scores - Round 6 Stats.csv": "Player,Score,Kills,Assists,Caps,Returns\nVorpal,\"6,030\",24,17,0,8\nShady,\"5,485\",23,20,0,5\nnato,\"5,190\",23,26,0,3\nAnnaberries,\"4,425\",23,15,0,1\nContigencyPlan,\"4,345\",13,19,1,3\nString,\"3,505\",16,17,0,0\nDeadManWalking,\"3,100\",13,5,0,0\nanthing,\"2,890\",11,21,0,0\nHiredgun,830,0,2,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nGnome,\"8,575\",28,30,0,16\nSplitSecond,\"7,375\",36,35,0,4\nJive,\"6,560\",25,35,1,1\nloot,\"6,100\",29,30,0,1\n_oahra,\"5,005\",26,22,0,1\nKatar Xwokark,\"4,725\",26,20,0,0\nMikea(x2),\"4,100\",17,20,1,0\nHowsya,\"3,310\",13,9,1,0\nNovA,\"1,165\",2,6,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nVisis,\"6,370\",36,20,0,0\nDugong,\"5,310\",27,20,0,2\nRebeltrooper,\"5,235\",27,30,0,0\nwafleking,\"5,135\",25,20,0,2\nsajent,\"5,015\",14,25,0,7\nNightstar,\"4,975\",23,23,0,1\nClapmatic,\"2,965\",13,17,0,0\nzsamot8,\"2,505\",9,18,0,0\nLethalScout,\"1,715\",4,12,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nLord Buschguy,\"8,195\",35,44,2,2\nPrizzo,\"7,430\",42,38,0,0\nkwago,\"6,195\",21,34,0,7\nSlyce,\"6,045\",31,24,0,2\nHosh,\"5,985\",29,25,1,1\nRednecK,\"4,890\",18,25,1,1\nmore_horchata,\"2,930\",11,13,0,0\nNemesis,\"1,930\",7,8,0,0\nAPC,\"1,680\",4,8,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nPROJ,\"7,215\",30,27,1,5\nLightning McMeme,\"6,520\",25,40,1,2\nbizzy,\"6,380\",29,33,1,1\nBakaToma,\"6,055\",17,28,0,10\nBooleanaire,\"6,000\",30,26,0,2\nGGGLYGY,\"5,370\",30,24,0,0\nn3mz,\"5,065\",25,22,0,2\nTorment,\"3,040\",4,22,1,1\nDRAGON XIII,\"1,525\",5,6,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nBizow,\"6,310\",32,16,0,2\nDidjital,\"5,455\",29,24,0,1\nBeldark,\"5,450\",22,26,0,5\nDean,\"5,065\",27,22,0,0\nG W E J,\"4,605\",16,25,0,4\nZao,\"3,250\",14,16,0,1\nSulliedSoc,\"2,505\",7,8,0,1\nFiftycal,\"1,895\",7,9,0,0\nMansku,\"1,725\",5,6,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nnomlfir,\"7,665\",37,31,1,2\nTritium Jones,\"6,830\",24,22,0,11\nKilshot,\"4,640\",16,24,0,1\nMikesters,\"4,560\",13,24,2,0\nWriggles,\"4,555\",21,17,1,0\nNyan,\"4,270\",19,18,0,2\nRoamenCota,\"2,485\",5,9,0,3\nbgkillas,\"2,195\",9,8,0,0\nShinen,\"2,070\",7,8,0,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nHydroXide,\"8,380\",46,32,0,3\nNikeBeamz,\"7,135\",37,29,0,3\nPandora,\"5,040\",22,26,0,2\nSilyn,\"5,015\",22,16,0,4\ncym3,\"4,020\",14,26,0,0\nBlitz,\"3,755\",19,12,0,0\nSmokin,\"3,075\",12,10,1,0\nRyan,\"2,035\",4,9,1,0\nDarkness93,\"1,250\",3,5,0,0", "One Last Raindance Scores - Round 7 Stats.csv": "Player,Score,Kills,Assists,Caps,Returns\nShady,\"5,135\",23,10,0,6\nnato,\"4,750\",18,21,0,5\nContigencyPlan,\"4,385\",11,15,3,0\nAnnaberries,\"4,330\",24,13,0,0\nString,\"4,195\",20,19,0,1\nVorpal,\"3,845\",21,9,0,1\nanthing,\"3,665\",14,25,0,1\nDeadManWalking,\"3,470\",15,9,0,1\nHiredgun,\"1,730\",2,3,1,1\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nTritium Jones,\"5,635\",27,10,0,6\nnomlfir,\"5,020\",23,13,0,4\nMikesters,\"4,790\",24,12,1,0\nNyan,\"3,005\",5,13,0,6\nKilshot,\"2,835\",9,9,0,0\nWriggles,\"2,260\",8,15,0,0\nRoamenCota,\"1,795\",1,9,0,1\nbgkillas,\"1,590\",2,7,0,2\nShinen,\"1,060\",0,10,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nIceWinds,\"6,570\",35,17,0,3\nerInys,\"4,075\",18,16,0,1\nBag,\"3,940\",12,13,0,6\npLaybox!,\"3,900\",17,17,0,0\nColonelFatso,\"3,230\",6,19,2,0\nTribalChief,\"3,220\",12,10,0,3\ntonyd169,\"3,030\",10,20,0,0\nGigabyte,\"2,460\",8,11,0,0\nemma,\"2,240\",4,13,1,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nHosh,\"6,835\",31,21,2,2\nPrizzo,\"6,265\",29,21,1,0\nLord Buschguy,\"5,140\",24,18,1,1\nSlyce,\"4,830\",23,19,0,2\nmore_horchata,\"3,395\",14,10,0,0\nkwago,\"2,750\",8,20,0,1\nAPC,\"2,715\",3,8,1,4\nRednecK,\"2,395\",7,16,0,0\nNemesis,\"1,580\",4,9,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nGnome,\"4,320\",10,11,1,9\nloot,\"3,235\",10,15,1,2\nJive,\"2,870\",14,16,0,0\nKatar Xwokark,\"2,810\",16,12,0,0\nSplitSecond,\"2,430\",12,5,0,2\nHowsya,\"2,300\",9,3,1,0\n_oahra,\"1,935\",5,7,1,1\nNovA,\"1,560\",3,2,1,1\nMikea(x2),\"1,515\",5,14,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nDidjital,\"2,345\",11,6,0,2\nDean,\"1,620\",8,6,0,0\nBizow,\"1,575\",9,3,0,0\nBeldark,\"1,350\",4,3,0,2\nG W E J,\"1,195\",5,6,0,0\nZao,660,2,2,0,0\nSulliedSoc,620,2,1,0,0\nMansku,455,1,0,0,0\nFiftycal,455,1,0,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nRebeltrooper,\"4,095\",24,13,0,1\nVisis,\"2,090\",9,5,0,1\nLethalScout,\"2,070\",11,8,0,0\nwafleking,\"2,045\",6,18,0,1\nzsamot8,\"1,450\",7,5,0,0\nDugong,\"1,440\",5,6,0,1\nNightstar,\"1,385\",4,9,0,0\nClapmatic,990,3,6,0,0\n,,,,,\nPlayer,Score,Kills,Assists,Caps,Returns\nPROJ,\"3,710\",15,9,1,3\nGGGLYGY,\"3,290\",16,11,0,2\nbizzy,\"3,190\",17,17,0,0\nBakaToma,\"2,745\",10,13,0,3\nLightning McMeme,\"2,485\",6,25,0,1\nBooleanaire,\"1,820\",5,8,1,0\nDRAGON XIII,\"1,995\",0,3,3,0\nn3mz,\"1,115\",4,6,0,0\nTorment,740,1,6,0,0", "One Last Raindance Scores - Round 8 Stats.csv": "Player,Score,K,A,C,R\nRebeltrooper,\"5,440\",31,20,0,0\nVisis,\"4,630\",19,19,1,1\nDugong,\"4,085\",16,20,0,3\nwafleking,\"3,740\",19,15,0,0\nNightstar,\"3,740\",16,16,0,2\nsajent,\"3,710\",13,15,0,4\nClapmatic,\"2,365\",6,25,0,0\nzsamot8,\"2,205\",8,11,0,0\nLethalScout,\"1,235\",3,8,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nSplitSecond,\"5,610\",28,23,1,0\nloot,\"4,860\",21,18,0,1\nGnome,\"4,420\",17,23,0,4\nJive,\"4,395\",18,22,1,0\nMikea(x2),\"4,340\",24,15,0,1\nHowsya,\"3,080\",14,11,0,1\nKatar Xwokark,\"2,815\",9,15,0,2\n_oahra,\"2,490\",10,5,1,0\nNovA,\"2,305\",2,11,2,0\n,,,,,\nPlayer,Score,K,A,C,R\nDean,\"6,925\",26,30,3,0\nDidjital,\"5,605\",28,21,0,2\nG W E J,\"5,060\",20,21,0,3\nBeldark,\"4,715\",16,16,0,7\nBizow,\"4,630\",23,12,0,0\nZao,\"2,310\",7,9,0,2\nFiftycal,\"1,740\",6,6,0,0\nSulliedSoc,\"1,735\",5,9,0,0\nMansku,\"1,170\",3,3,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nnomlfir,\"6,910\",32,26,0,4\nMikesters,\"5,660\",27,24,1,0\nTritium Jones,\"4,300\",13,15,0,7\nWriggles,\"3,550\",16,20,0,0\nNyan,\"3,430\",17,5,0,2\nKilshot,\"3,320\",8,13,0,0\nRoamenCota,\"2,570\",8,8,0,1\nbgkillas,\"2,110\",7,4,0,2\nShinen,\"1,295\",4,3,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nIceWinds,\"6,065\",35,17,0,1\nBag,\"4,700\",20,11,1,3\ntonyd169,\"3,950\",13,20,0,2\npLaybox!,\"3,725\",16,16,0,1\nerInys,\"3,675\",11,20,0,1\nColonelFatso,\"3,555\",15,13,1,0\nTribalChief,\"3,395\",14,9,0,3\nGigabyte,\"2,445\",9,9,0,0\nemma,\"1,780\",4,3,1,0\n,,,,,\nPlayer,Score,K,A,C,R\nbizzy,\"5,795\",29,20,0,2\nLightning McMeme,\"4,815\",19,23,1,0\nGGGLYGY,\"4,465\",22,12,0,1\nPROJ,\"4,450\",13,29,1,2\nBakaToma,\"3,895\",16,14,0,3\nBooleanaire,\"3,805\",17,18,0,0\nTorment,\"3,280\",14,13,0,1\nn3mz,\"2,100\",8,11,0,0\nDRAGON XIII,\"1,475\",3,6,0,1\n,,,,,\nPlayer,Score,K,A,C,R\nShady,\"6,565\",18,28,0,12\nnato,\"6,250\",23,27,1,5\nVorpal,\"5,305\",25,15,1,1\nString,\"4,670\",20,16,0,1\nanthing,\"4,410\",20,19,0,0\nContigencyPlan,\"4,340\",13,13,2,0\nAnnaberries,\"3,455\",16,9,0,0\nDeadManWalking,\"3,030\",10,4,0,0\nHiredgun,835,0,1,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nNikeBeamz,\"8,080\",38,18,1,6\nHydroXide,\"7,010\",31,25,1,1\nPandora,\"5,615\",20,18,0,8\nSilyn,\"5,310\",24,11,0,2\ncym3,\"4,545\",16,26,0,0\nRyan,\"3,345\",10,5,1,3\nSmokin,\"2,475\",8,13,0,0\nDarkness93,\"1,870\",7,5,0,0\nBlitz,\"1,160\",1,6,0,0", "One Last Raindance Scores - Round 9 Stats.csv": "Player,Score,K,A,C,R\nRebeltrooper,\"8,640\",46,27,2,0\nVisis,\"5,885\",29,17,1,0\nNightstar,\"4,705\",23,16,0,1\nwafleking,\"4,585\",19,20,0,3\nsajent,\"4,055\",15,18,0,4\nDugong,\"3,595\",15,14,1,0\nClapmatic,\"2,995\",12,14,0,1\nzsamot8,\"1,890\",6,12,0,0\nLethalScout,\"1,690\",2,7,1,0\n,,,,,\nPlayer,Score,K,A,C,R\nMikesters,\"5,360\",29,25,0,0\nnomlfir,\"5,280\",28,25,0,0\nTritium Jones,\"4,875\",27,16,0,1\nNyan,\"4,420\",16,19,0,5\nWriggles,\"4,020\",19,14,0,1\nKilshot,\"3,645\",14,22,0,0\nbgkillas,\"1,980\",4,3,1,1\nRoamenCota,\"1,715\",1,7,0,1\nShinen,\"1,485\",5,5,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nDean,\"5,205\",29,18,0,0\nDidjital,\"5,145\",18,17,1,5\nBizow,\"4,720\",24,19,0,0\nSulliedSoc,\"3,825\",15,6,0,3\nG W E J,\"3,705\",17,18,0,1\nBeldark,\"2,985\",9,10,0,4\nZao,\"2,885\",9,15,1,0\nFiftycal,\"1,855\",5,3,0,0\nMansku,\"1,435\",3,5,0,1\n,,,,,\nPlayer,Score,K,A,C,R\nHydroXide,\"6,445\",37,14,0,3\nNikeBeamz,\"4,735\",20,22,0,3\ncym3,\"4,210\",14,30,0,0\nSmokin,\"4,170\",19,14,1,0\nSilyn,\"3,590\",15,7,0,2\nPandora,\"3,450\",14,26,0,0\nRyan,\"2,515\",3,7,2,1\nBlitz,\"1,770\",2,9,1,0\nDarkness93,\"1,450\",6,1,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nJive,\"4,575\",24,13,0,1\nGnome,\"4,405\",11,12,1,8\nKatar Xwokark,\"3,560\",16,14,0,2\nloot,\"3,345\",16,16,0,1\nSplitSecond,\"2,960\",14,14,0,1\nMikea(x2),\"2,925\",15,15,0,0\nHowsya,\"2,815\",9,11,1,0\n_oahra,\"2,705\",10,12,1,0\nNovA,\"2,185\",4,4,2,0\n,,,,,\nPlayer,Score,K,A,C,R\nIceWinds,\"3,390\",20,6,0,1\nColonelFatso,\"2,405\",7,7,0,4\npLaybox!,\"1,935\",9,9,0,0\nTribalChief,\"1,775\",9,5,0,0\nerInys,\"1,510\",6,4,0,0\ntonyd169,\"1,395\",4,8,0,0\nBag,\"1,265\",3,6,0,1\nemma,\"1,110\",4,4,0,0\nGigabyte,765,1,1,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nLord Buschguy,\"4,095\",19,23,0,0\nHosh,\"4,010\",23,13,0,0\nSlyce,\"3,950\",20,14,0,1\nPrizzo,\"3,315\",14,18,0,1\nmore_horchata,\"2,905\",9,11,0,1\nRednecK,\"2,295\",8,10,0,0\nNemesis,\"1,855\",8,6,0,0\nkwago,\"1,825\",2,9,0,3\nAPC,\"1,480\",5,6,0,0\n,,,,,\nPlayer,Score,K,A,C,R\nbizzy,\"7,100\",41,24,0,2\nBooleanaire,\"5,125\",23,14,2,0\nPROJ,\"4,775\",24,9,0,4\nBakaToma,\"4,215\",16,15,0,5\nLightning McMeme,\"3,795\",11,29,1,0\nGGGLYGY,\"3,650\",18,14,0,0\nTorment,\"2,230\",3,16,0,3\nn3mz,\"2,040\",5,15,0,1\nDRAGON XIII,\"1,945\",2,2,2,0"};
+
+    let rawEntries = [];
+    let rounds = [];
+    let rawNames = [];
+    let timePlayers = [];
+    let timeByPlayer = {};
+    let timeByPlayerRound = {};
+    let totalsByPlayer = {};
+    let perRoundByPlayer = {};
+    let chart = null;
+    let scatterCharts = [];
+    let modalChart = null;
+
+    function hashString(value) {
+      let hash = 0;
+      for (let i = 0; i < value.length; i++) {
+        hash = (hash << 5) - hash + value.charCodeAt(i);
+        hash |= 0;
+      }
+      return Math.abs(hash);
+    }
+
+    function playerColor(name) {
+      const hash = hashString(name.toLowerCase());
+      const hue = hash % 360;
+      return `hsl(${hue}, 65%, 58%)`;
+    }
+
+    const statKeys = ["score", "kills", "assists", "captures", "returns"];
+
+    function normalizeColumn(name) {
+      if (!name) return "";
+      const cleaned = name.toString().toLowerCase().replace(/[^a-z0-9]/g, "");
+      if (cleaned === "score") return "score";
+      if (cleaned === "kills" || cleaned === "k") return "kills";
+      if (cleaned === "assists" || cleaned === "a") return "assists";
+      if (cleaned === "captures" || cleaned === "caps" || cleaned === "c") return "captures";
+      if (cleaned === "returns" || cleaned === "r") return "returns";
+      return "";
+    }
+
+    function parseTimeToMinutes(value) {
+      if (value === null || value === undefined || value === "") return 0;
+      const text = value.toString().trim();
+      if (!text || text.toLowerCase() === "bye") return 0;
+      const parts = text.split(":").map((p) => parseFloat(p));
+      if (parts.some((p) => !Number.isFinite(p))) return 0;
+      if (parts.length === 3) {
+        return parts[0] * 60 + parts[1] + parts[2] / 60;
+      }
+      if (parts.length === 2) {
+        return parts[0] + parts[1] / 60;
+      }
+      return 0;
+    }
+
+    function parseNumber(value) {
+      if (value === null || value === undefined || value === "") return 0;
+      const cleaned = value.toString().replace(/,/g, "");
+      const num = parseFloat(cleaned);
+      return Number.isFinite(num) ? num : 0;
+    }
+
+    function parseTimesCsv(text) {
+      if (!window.Papa) return [];
+      const result = Papa.parse(text, { header: true, skipEmptyLines: true });
+      return result.data || [];
+    }
+
+    function parseStatsCsv(text) {
+      if (!window.Papa) return [];
+      const result = Papa.parse(text, { skipEmptyLines: true });
+      const rows = result.data || [];
+      const output = [];
+      let header = null;
+      rows.forEach((row) => {
+        if (!row || !row.length) return;
+        const trimmed = row.map((col) => (col ?? "").toString().trim());
+        const first = trimmed[0].toLowerCase();
+        const hasScore = trimmed.some((col) => col.toLowerCase() === "score");
+        const hasKills = trimmed.some((col) => ["kills", "k"].includes(col.toLowerCase()));
+        const hasAssists = trimmed.some((col) => ["assists", "a"].includes(col.toLowerCase()));
+        const hasCaptures = trimmed.some((col) => ["captures", "caps", "c"].includes(col.toLowerCase()));
+        const hasReturns = trimmed.some((col) => ["returns", "r"].includes(col.toLowerCase()));
+
+        if (first === "player" || (hasScore && hasKills && hasAssists && hasCaptures && hasReturns)) {
+          header = trimmed.slice();
+          if (header[0].toLowerCase() !== "player") header[0] = "Player";
+          header = header.map((col) => {
+            const key = col.toLowerCase();
+            if (key === "k") return "Kills";
+            if (key === "a") return "Assists";
+            if (key === "c") return "Captures";
+            if (key === "r") return "Returns";
+            return col;
+          });
+          return;
+        }
+
+        if (!header) return;
+        const obj = {};
+        header.forEach((key, idx) => {
+          obj[key] = trimmed[idx];
+        });
+        const player = (obj.Player || obj.player || "").toString().trim();
+        if (!player || player.toLowerCase() === "player" || player.toLowerCase() === "missing player") return;
+        output.push(obj);
+      });
+      return output;
+    }
+
+    function detectRoundFromName(name) {
+      const match = name.match(/round\s*(\d+)/i);
+      return match ? parseInt(match[1], 10) : null;
+    }
+
+    function buildTimeData(rows) {
+      timePlayers = [];
+      timeByPlayer = {};
+      timeByPlayerRound = {};
+
+      rows.forEach((row) => {
+        const player = row.Player || row.player;
+        if (!player) return;
+        const name = player.toString().trim();
+        let totalMinutes = 0;
+        const perRound = {};
+        for (let round = 1; round <= 9; round++) {
+          const key = `Rd ${round} Time`;
+          const minutes = parseTimeToMinutes(row[key]);
+          perRound[round] = minutes;
+          totalMinutes += minutes;
+        }
+        timePlayers.push(name);
+        timeByPlayer[name] = totalMinutes;
+        timeByPlayerRound[name] = perRound;
+      });
+
+      timePlayers = [...new Set(timePlayers)].sort((a, b) => a.localeCompare(b));
+    }
+
+    function buildStatsData(roundRowsByRound) {
+      rawEntries = [];
+      rounds = [];
+      rawNames = [];
+
+      Object.entries(roundRowsByRound).forEach(([roundKey, rows]) => {
+        const round = parseInt(roundKey, 10);
+        rounds.push(round);
+        rows.forEach((row) => {
+          const player = row.Player || row.player;
+          if (!player) return;
+          const cleanedPlayer = player.toString().trim();
+          if (!cleanedPlayer || cleanedPlayer.toLowerCase() === "player" || cleanedPlayer.toLowerCase() === "missing player") return;
+          const entry = { player: cleanedPlayer, round, stats: {} };
+          Object.keys(row).forEach((key) => {
+            const statKey = normalizeColumn(key);
+            if (!statKey) return;
+            entry.stats[statKey] = parseNumber(row[key]);
+          });
+          rawEntries.push(entry);
+          rawNames.push(entry.player);
+        });
+      });
+
+      rounds = [...new Set(rounds)].sort((a, b) => a - b);
+      rawNames = [...new Set(rawNames)].sort((a, b) => a.localeCompare(b));
+    }
+
+    function computeTotals() {
+      totalsByPlayer = {};
+      perRoundByPlayer = {};
+
+      timePlayers.forEach((player) => {
+        totalsByPlayer[player] = { score: 0, kills: 0, assists: 0, captures: 0, returns: 0 };
+        perRoundByPlayer[player] = {};
+      });
+
+      rawEntries.forEach((entry) => {
+        const playerName = entry.player;
+        if (!totalsByPlayer[playerName]) return;
+        const totals = totalsByPlayer[playerName];
+        const roundStats = perRoundByPlayer[playerName][entry.round] || { score: 0, kills: 0, assists: 0, captures: 0, returns: 0 };
+        statKeys.forEach((key) => {
+          const value = entry.stats[key] || 0;
+          totals[key] += value;
+          roundStats[key] += value;
+        });
+        perRoundByPlayer[playerName][entry.round] = roundStats;
+      });
+    }
+
+    function renderTotals() {
+      const sortKey = sortBy.value;
+      const limit = parseInt(topLimit.value, 10);
+      const filter = (playerSearch?.value || "").toLowerCase().trim();
+      const rows = Object.entries(totalsByPlayer)
+        .map(([player, stats]) => ({ player, ...stats, minutes: timeByPlayer[player] || 0 }))
+        .filter((row) => !filter || row.player.toLowerCase().includes(filter))
+        .sort((a, b) => b[sortKey] - a[sortKey])
+        .slice(0, limit);
+
+      totalsTable.innerHTML = "";
+      rows.forEach((row) => {
+        const minutes = row.minutes || 0;
+        const per = (value) => (minutes > 0 ? value / minutes : 0);
+        const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${row.player}</td>
+            <td>${minutes.toFixed(1)}</td>
+            <td>${row.score.toFixed(0)}</td>
+            <td>${row.kills.toFixed(0)}</td>
+            <td>${row.assists.toFixed(0)}</td>
+            <td>${row.captures.toFixed(0)}</td>
+            <td>${row.returns.toFixed(0)}</td>
+            <td>${per(row.kills).toFixed(2)}</td>
+            <td>${per(row.assists).toFixed(2)}</td>
+            <td>${per(row.score).toFixed(2)}</td>
+            <td>${per(row.captures).toFixed(2)}</td>
+            <td>${per(row.returns).toFixed(2)}</td>
+          `;
+        totalsTable.appendChild(tr);
+      });
+    }
+
+    function renderRates() {
+      const filter = (playerSearch?.value || "").toLowerCase().trim();
+      const sortKey = rateSortBy?.value || "score";
+      const sortDir = rateSortDir?.value || "desc";
+      const rows = Object.entries(totalsByPlayer)
+        .map(([player, stats]) => ({ player, ...stats, minutes: timeByPlayer[player] || 0 }))
+        .map((row) => {
+          const minutes = row.minutes || 0;
+          const per = (value) => (minutes > 0 ? value / minutes : 0);
+          return {
+            player: row.player,
+            minutes,
+            score: per(row.score),
+            kills: per(row.kills),
+            assists: per(row.assists),
+            captures: per(row.captures),
+            returns: per(row.returns)
+          };
+        })
+        .filter((row) => !filter || row.player.toLowerCase().includes(filter))
+        .sort((a, b) => {
+          const left = a[sortKey] ?? 0;
+          const right = b[sortKey] ?? 0;
+          return sortDir === "asc" ? left - right : right - left;
+        });
+
+      ratesTable.innerHTML = "";
+      rows.forEach((row) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${row.player}</td>
+          <td>${row.minutes.toFixed(1)}</td>
+          <td>${row.score.toFixed(2)}</td>
+          <td>${row.kills.toFixed(2)}</td>
+          <td>${row.assists.toFixed(2)}</td>
+          <td>${row.captures.toFixed(2)}</td>
+          <td>${row.returns.toFixed(2)}</td>
+        `;
+        ratesTable.appendChild(tr);
+      });
+    }
+
+    function renderBest() {
+      const rows = Object.entries(totalsByPlayer)
+        .map(([player, stats]) => ({ player, ...stats, minutes: timeByPlayer[player] || 0 }))
+        .map((row) => {
+          const minutes = row.minutes || 0;
+          const per = (value) => (minutes > 0 ? value / minutes : 0);
+          return {
+            player: row.player,
+            minutes,
+            score: per(row.score),
+            kills: per(row.kills),
+            assists: per(row.assists),
+            captures: per(row.captures),
+            returns: per(row.returns)
+          };
+        });
+
+      const metricLabels = [
+        ["kills", "Kills/Min"],
+        ["assists", "Assists/Min"],
+        ["score", "Score/Min"],
+        ["captures", "Captures/Min"],
+        ["returns", "Returns/Min"]
+      ];
+
+      bestList.innerHTML = "";
+      metricLabels.forEach(([metric, label]) => {
+        const top = [...rows]
+          .sort((a, b) => b[metric] - a[metric])
+          .slice(0, 5);
+
+        const card = document.createElement("div");
+        card.className = "stat-card";
+        const items = top.map((row) => `${row.player} — ${row[metric].toFixed(2)}`).join("<br>");
+        card.innerHTML = `
+          <h3>${label}</h3>
+          <div>${items || "—"}</div>
+        `;
+        bestList.appendChild(card);
+      });
+    }
+
+    function renderPlayerOptions() {
+      const filter = (playerSearch?.value || "").toLowerCase().trim();
+      const players = Object.keys(totalsByPlayer)
+        .filter((name) => !filter || name.toLowerCase().includes(filter))
+        .sort((a, b) => a.localeCompare(b));
+      playerSelect.innerHTML = "";
+      players.forEach((name) => {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        playerSelect.appendChild(option);
+      });
+      if (players.length) playerSelect.value = players[0];
+    }
+
+    function renderTrend() {
+      if (!playerSelect.value) return;
+      const name = playerSelect.value;
+      const stat = statSelect.value;
+      const cumulativeMode = cumulative.checked;
+      const perMinuteMode = perMinute.checked;
+      const roundStats = perRoundByPlayer[name] || {};
+      const roundTimes = timeByPlayerRound[name] || {};
+      let running = 0;
+      const data = rounds.map((round) => {
+        const rawValue = roundStats[round]?.[stat] || 0;
+        const minutes = roundTimes[round] || 0;
+        const value = perMinuteMode && minutes > 0 ? rawValue / minutes : rawValue;
+        running += value;
+        return cumulativeMode ? running : value;
+      });
+
+      const labels = rounds.map((r) => `Round ${r}`);
+      if (chart) chart.destroy();
+      chart = new Chart(document.getElementById("trendChart"), {
+        type: "line",
+        data: {
+          labels,
+          datasets: [{
+            label: `${name} - ${stat}${perMinuteMode ? " per min" : ""}`,
+            data,
+              borderColor: "#ff8a00",
+              backgroundColor: "rgba(255, 138, 0, 0.28)",
+            tension: 0.25,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: "#f7f5ff" } }
+          },
+          scales: {
+            x: { ticks: { color: "#b7b3d4" } },
+            y: { ticks: { color: "#b7b3d4" } }
+          }
+        }
+      });
+
+      roundTable.innerHTML = "";
+      rounds.forEach((round) => {
+        const stats = roundStats[round] || { score: 0, kills: 0, assists: 0, captures: 0, returns: 0 };
+        const minutes = roundTimes[round] || 0;
+        const per = (value) => (minutes > 0 ? value / minutes : 0);
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>Round ${round}</td>
+          <td>${minutes.toFixed(1)}</td>
+          <td>${stats.score.toFixed(0)}</td>
+          <td>${stats.kills.toFixed(0)}</td>
+          <td>${stats.assists.toFixed(0)}</td>
+          <td>${stats.captures.toFixed(0)}</td>
+          <td>${stats.returns.toFixed(0)}</td>
+          <td>${per(stats.kills).toFixed(2)}</td>
+          <td>${per(stats.assists).toFixed(2)}</td>
+          <td>${per(stats.score).toFixed(2)}</td>
+          <td>${per(stats.captures).toFixed(2)}</td>
+          <td>${per(stats.returns).toFixed(2)}</td>
+        `;
+        roundTable.appendChild(tr);
+      });
+    }
+
+    function renderScatters() {
+      scatterCharts.forEach((c) => c.destroy());
+      scatterCharts = [];
+
+      const rows = Object.entries(totalsByPlayer)
+        .map(([player, stats]) => ({ player, ...stats, minutes: timeByPlayer[player] || 0 }))
+        .map((row) => {
+          const minutes = row.minutes || 0;
+          const per = (value) => (minutes > 0 ? value / minutes : 0);
+          return {
+            player: row.player,
+            score: per(row.score),
+            kills: per(row.kills),
+            assists: per(row.assists),
+            captures: per(row.captures),
+            returns: per(row.returns)
+          };
+        });
+
+      const makeChart = (el, xKey, yKey, xLabel, yLabel) => {
+        if (!el) return null;
+        const data = rows.map((row) => ({
+          x: row[xKey],
+          y: row[yKey],
+          player: row.player
+        }));
+        return new Chart(el, {
+          type: "scatter",
+          data: {
+            datasets: [{
+              label: `${yLabel} vs ${xLabel}`,
+              data,
+              pointBackgroundColor: data.map((item) => playerColor(item.player)),
+              pointBorderColor: "rgba(0, 0, 0, 0.35)",
+              pointRadius: 4,
+              pointHoverRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { labels: { color: "#f7f5ff" } },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => {
+                    const item = ctx.raw;
+                    return `${item.player}: ${xLabel} ${item.x.toFixed(2)}, ${yLabel} ${item.y.toFixed(2)}`;
+                  }
+                }
+              }
+            },
+            scales: {
+            x: { title: { display: true, text: xLabel, color: "#b7b3d4" }, ticks: { color: "#b7b3d4" } },
+            y: { title: { display: true, text: yLabel, color: "#b7b3d4" }, ticks: { color: "#b7b3d4" } }
+            }
+          }
+        });
+      };
+
+      const c1 = makeChart(scatterScoreKills, "score", "kills", "Score/Min", "Kills/Min");
+      const c2 = makeChart(scatterAssistsCaptures, "assists", "captures", "Assists/Min", "Captures/Min");
+      const c3 = makeChart(scatterReturnsScore, "returns", "score", "Returns/Min", "Score/Min");
+      [c1, c2, c3].filter(Boolean).forEach((c) => scatterCharts.push(c));
+    }
+
+    function renderRanks() {
+      if (!ranksTable) return;
+      const sortKey = rankSortBy?.value || "overall";
+      const limit = parseInt(rankLimit?.value || "20", 10);
+      const rows = Object.entries(totalsByPlayer)
+        .map(([player, stats]) => ({ player, ...stats, minutes: timeByPlayer[player] || 0 }))
+        .map((row) => {
+          const minutes = row.minutes || 0;
+          const per = (value) => (minutes > 0 ? value / minutes : 0);
+          const score = per(row.score);
+          const kills = per(row.kills);
+          const assists = per(row.assists);
+          const captures = per(row.captures);
+          const returns = per(row.returns);
+          const overall = (score + kills + assists + captures + returns) / 5;
+          return { player: row.player, minutes, overall, score, kills, assists, captures, returns };
+        })
+        .sort((a, b) => b[sortKey] - a[sortKey])
+        .slice(0, limit);
+
+      ranksTable.innerHTML = "";
+      rows.forEach((row, idx) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${idx + 1}</td>
+          <td>${row.player}</td>
+          <td>${row.minutes.toFixed(1)}</td>
+          <td>${row.overall.toFixed(2)}</td>
+          <td>${row.score.toFixed(2)}</td>
+          <td>${row.kills.toFixed(2)}</td>
+          <td>${row.assists.toFixed(2)}</td>
+          <td>${row.captures.toFixed(2)}</td>
+          <td>${row.returns.toFixed(2)}</td>
+        `;
+        ranksTable.appendChild(tr);
+      });
+    }
+
+    function openChartModal(sourceId) {
+      if (!scatterModalCanvas) return;
+      const presets = {
+        scatterScoreKills: ["score", "kills", "Score/Min", "Kills/Min"],
+        scatterAssistsCaptures: ["assists", "captures", "Assists/Min", "Captures/Min"],
+        scatterReturnsScore: ["returns", "score", "Returns/Min", "Score/Min"]
+      };
+      const preset = presets[sourceId];
+      if (!preset) return;
+      const [xKey, yKey, xLabel, yLabel] = preset;
+      const rows = Object.entries(totalsByPlayer)
+        .map(([player, stats]) => ({ player, ...stats, minutes: timeByPlayer[player] || 0 }))
+        .map((row) => {
+          const minutes = row.minutes || 0;
+          const per = (value) => (minutes > 0 ? value / minutes : 0);
+          return {
+            player: row.player,
+            score: per(row.score),
+            kills: per(row.kills),
+            assists: per(row.assists),
+            captures: per(row.captures),
+            returns: per(row.returns)
+          };
+        });
+
+      if (modalChart) modalChart.destroy();
+      modalChart = new Chart(scatterModalCanvas, {
+        type: "scatter",
+        data: {
+          datasets: [{
+            label: `${yLabel} vs ${xLabel}`,
+            data: rows.map((row) => ({ x: row[xKey], y: row[yKey], player: row.player })),
+            pointBackgroundColor: rows.map((row) => playerColor(row.player)),
+            pointBorderColor: "rgba(0, 0, 0, 0.35)",
+            pointRadius: 5,
+            pointHoverRadius: 7
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: "#f7f5ff" } },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => {
+                  const item = ctx.raw;
+                  return `${item.player}: ${xLabel} ${item.x.toFixed(2)}, ${yLabel} ${item.y.toFixed(2)}`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: { title: { display: true, text: xLabel, color: "#b7b3d4" }, ticks: { color: "#b7b3d4" } },
+            y: { title: { display: true, text: yLabel, color: "#b7b3d4" }, ticks: { color: "#b7b3d4" } }
+          }
+        }
+      });
+
+      chartModal.classList.add("active");
+    }
+
+    function closeChartModal() {
+      chartModal.classList.remove("active");
+      if (modalChart) {
+        modalChart.destroy();
+        modalChart = null;
+      }
+    }
+
+    function updateStats() {
+      rawPlayersEl.textContent = rawNames.length ? rawNames.length : "—";
+      timesPlayersEl.textContent = timePlayers.length ? timePlayers.length : "—";
+      mergedPlayersEl.textContent = Object.keys(totalsByPlayer).length || "—";
+      roundCountEl.textContent = rounds.length ? rounds.length : "—";
+      const totalMinutes = Object.values(timeByPlayer).reduce((sum, value) => sum + (value || 0), 0);
+      totalMinutesEl.textContent = totalMinutes ? totalMinutes.toFixed(1) : "—";
+    }
+
+    function rebuildAll() {
+      computeTotals();
+      updateStats();
+      renderRates();
+      renderBest();
+      renderRanks();
+      renderTotals();
+      renderPlayerOptions();
+      renderTrend();
+      renderScatters();
+    }
+
+    async function loadCsvFiles(fileMap) {
+      const roundRowsByRound = {};
+      let timeRows = [];
+
+      for (const [name, text] of Object.entries(fileMap)) {
+        if (name.toLowerCase().includes("round times")) {
+          timeRows = parseTimesCsv(text);
+          continue;
+        }
+        const round = detectRoundFromName(name);
+        if (!round) continue;
+        roundRowsByRound[round] = parseStatsCsv(text);
+      }
+
+      buildTimeData(timeRows);
+      buildStatsData(roundRowsByRound);
+      rebuildAll();
+      loadStatus.textContent = `Loaded ${Object.keys(roundRowsByRound).length} round files + Round Times.`;
+    }
+
+    [sortBy, topLimit, playerSelect, statSelect, perMinute, cumulative, rateSortBy, rateSortDir, rankSortBy, rankLimit].forEach((el) => {
+      el.addEventListener("change", rebuildAll);
+    });
+    playerSearch.addEventListener("input", rebuildAll);
+
+    document.querySelectorAll(".chart-wrap.expandable").forEach((wrap) => {
+      wrap.addEventListener("click", () => {
+        openChartModal(wrap.dataset.chart);
+      });
+    });
+    closeModal.addEventListener("click", closeChartModal);
+    chartModal.addEventListener("click", (event) => {
+      if (event.target === chartModal) closeChartModal();
+    });
+
+    loadCsvFiles(embeddedFiles);
+  </script>
+</body>
+</html>
