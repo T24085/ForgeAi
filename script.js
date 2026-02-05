@@ -13,8 +13,8 @@ function renderBook() {
   });
 
   prevBtn.disabled = currentPage === 0;
-  nextBtn.disabled = currentPage === pages.length;
-  pageStatus.textContent = `Page ${Math.min(currentPage + 1, pages.length)} of ${pages.length}`;
+  nextBtn.disabled = false;
+  pageStatus.textContent = `Page ${currentPage + 1} of ${pages.length}`;
 }
 
 prevBtn.addEventListener("click", () => {
@@ -25,15 +25,13 @@ prevBtn.addEventListener("click", () => {
 });
 
 nextBtn.addEventListener("click", () => {
-  if (currentPage < pages.length) {
-    currentPage += 1;
-    renderBook();
-  }
+  currentPage = currentPage >= pages.length - 1 ? 0 : currentPage + 1;
+  renderBook();
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight" && currentPage < pages.length) {
-    currentPage += 1;
+    currentPage = currentPage >= pages.length - 1 ? 0 : currentPage + 1;
     renderBook();
   }
 

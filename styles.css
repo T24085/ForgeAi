@@ -289,6 +289,71 @@ body {
   color: #ebecef;
 }
 
+.contact-page {
+  gap: 1.1rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.contact-details {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-item {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 1rem;
+}
+
+.contact-item a {
+  color: var(--paper-ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-item a:hover,
+.contact-item a:focus-visible {
+  text-decoration: underline;
+}
+
+.contact-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.qr-card {
+  margin: 0;
+  justify-self: center;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.qr-card img {
+  width: min(180px, 70%);
+  height: auto;
+  display: block;
+  margin: 0 auto 0.6rem;
+}
+
+.qr-card figcaption {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .project-link {
   justify-self: start;
   display: inline-block;
