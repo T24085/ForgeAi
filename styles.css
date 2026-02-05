@@ -112,6 +112,8 @@ body {
   object-fit: cover;
   object-position: center 18%;
   transform: scale(0.92);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .cover-overlay {
@@ -269,6 +271,14 @@ body {
   aspect-ratio: 16 / 9;
   border: 0;
   background: #ffffff;
+}
+
+.project-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .project-preview figcaption {
