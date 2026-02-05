@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Designer Portfolio Magazine</title>
+    <meta
+      name="description"
+      content="Magazine-inspired web design portfolio with interactive page flips."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="scene" aria-label="Magazine style portfolio">
+      <section class="book-shell">
+        <header class="book-top">
+          <p class="edition">VOL. 01 / 2026</p>
+          <h1>ForgeAI Design Studio</h1>
+          <p class="tagline">Digital Editorial • Product Websites • Brand Systems</p>
+        </header>
+
+        <div class="book" id="book" aria-live="polite">
+          <article class="page page--cover" aria-label="Cover page">
+            <video
+              class="cover-media"
+              src="./taylor.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+            <div class="cover-overlay"></div>
+            <div class="cover-content">
+              <p class="issue">OCT</p>
+              <h2 class="cover-title">ForgeAI</h2>
+              <p class="cover-subtitle">Design Studio Issue</p>
+              <p class="cover-line cover-line--left">
+                “<span id="typed-line"></span>”
+              </p>
+              <p class="cover-line cover-line--right shade" data-text="Editorial-grade websites. High-conversion UX. Identity-first systems.">
+                Editorial-grade websites. High-conversion UX. Identity-first systems.
+              </p>
+              <p class="cover-kicker">ON CRAFT, STRATEGY, AND DIGITAL PRESENCE</p>
+            </div>
+          </article>
+
+          <article class="page" aria-label="Project one">
+            <div class="page-inner">
+              <p class="page-number">01</p>
+              <p class="label">Brand Commerce</p>
+              <h3>Sunfire Chili Spice Co.</h3>
+              <p>
+                Bold, product-forward storefront with an energetic visual system crafted for spice
+                lovers and fast purchase decisions.
+              </p>
+              <figure class="project-preview">
+                <iframe
+                  src="https://t24085.github.io/Sunfire-Chili-Spice-Co/"
+                  title="Live preview of Sunfire Chili Spice Co."
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+              </figure>
+              <ul>
+                <li>High-contrast product storytelling</li>
+                <li>Strong CTA hierarchy</li>
+                <li>Brand-first ecommerce layout</li>
+              </ul>
+              <a
+                href="https://t24085.github.io/Sunfire-Chili-Spice-Co/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View site</a
+              >
+            </div>
+          </article>
+
+          <article class="page" aria-label="Project two">
+            <div class="page-inner">
+              <p class="page-number">02</p>
+              <p class="label">Retail Identity</p>
+              <h3>Material Girls Quilt Shop</h3>
+              <p>
+                Warm, community-focused shop website with a boutique tone, clear browsing paths,
+                and product storytelling for handmade craft lovers.
+              </p>
+              <figure class="project-preview">
+                <iframe
+                  src="https://t24085.github.io/Material-Girls-Quilt-Shop/"
+                  title="Live preview of Material Girls Quilt Shop"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+              </figure>
+              <ul>
+                <li>Friendly brand tone and visual warmth</li>
+                <li>Clear shop and contact flow</li>
+                <li>Approachable typography choices</li>
+              </ul>
+              <a
+                href="https://t24085.github.io/Material-Girls-Quilt-Shop/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View site</a
+              >
+            </div>
+          </article>
+
+          <article class="page" aria-label="Project three">
+            <div class="page-inner">
+              <p class="page-number">03</p>
+              <p class="label">Legacy Sports</p>
+              <h3>X-Ring Classic</h3>
+              <p>
+                Heritage-inspired presentation site balancing classic tone with modern web
+                structure and responsive readability.
+              </p>
+              <figure class="project-preview">
+                <iframe
+                  src="https://t24085.github.io/X-Ring-Classic/"
+                  title="Live preview of X-Ring Classic"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+              </figure>
+              <ul>
+                <li>Editorial section rhythm</li>
+                <li>Clean event-first information flow</li>
+                <li>Mobile-ready visual hierarchy</li>
+              </ul>
+              <a
+                href="https://t24085.github.io/X-Ring-Classic/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View site</a
+              >
+            </div>
+          </article>
+
+          <article class="page" aria-label="Project four">
+            <div class="page-inner">
+              <p class="page-number">04</p>
+              <p class="label">Food & Retail</p>
+              <h3>Donut Palace</h3>
+              <p>
+                Playful but structured food-brand experience designed for appetite appeal, menu
+                clarity, and local store trust.
+              </p>
+              <figure class="project-preview">
+                <iframe
+                  src="http://www.donutpalace.store/index.luxe.html"
+                  title="Live preview of Donut Palace"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+              </figure>
+              <ul>
+                <li>Warm, memorable visual branding</li>
+                <li>Fast-scan content structure</li>
+                <li>Clear conversion prompts</li>
+              </ul>
+              <a
+                href="http://www.donutpalace.store/index.luxe.html"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View site</a
+              >
+            </div>
+          </article>
+
+          <article class="page" aria-label="Project five">
+            <div class="page-inner">
+              <p class="page-number">05</p>
+              <p class="label">League Platform</p>
+              <h3>Tribes Professional League</h3>
+              <p>
+                Competition-driven platform concept with bold typography and clear navigation for
+                teams, standings, and fan engagement.
+              </p>
+              <figure class="project-preview">
+                <iframe
+                  src="https://www.tribesprofessionalleague.online/"
+                  title="Live preview of Tribes Professional League"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+              </figure>
+              <ul>
+                <li>Structured information architecture</li>
+                <li>Authority-focused visual language</li>
+                <li>Audience-first mobile layout</li>
+              </ul>
+              <a
+                href="https://www.tribesprofessionalleague.online/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View site</a
+              >
+            </div>
+          </article>
+
+          <article class="page" aria-label="Project six">
+            <div class="page-inner">
+              <p class="page-number">06</p>
+              <p class="label">Team Identity</p>
+              <h3>Team DPRK</h3>
+              <p>
+                Team-focused microsite built to communicate identity, energy, and updates with a
+                direct and minimal interface.
+              </p>
+              <figure class="project-preview">
+                <iframe
+                  src="https://t24085.github.io/TeamDPRK/"
+                  title="Live preview of Team DPRK"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+              </figure>
+              <ul>
+                <li>Strong headline-led layout</li>
+                <li>Brand consistency across sections</li>
+                <li>Quick-access key content blocks</li>
+              </ul>
+              <a
+                href="https://t24085.github.io/TeamDPRK/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View site</a
+              >
+            </div>
+          </article>
+
+          <article class="page" aria-label="Project seven">
+            <div class="page-inner">
+              <p class="page-number">07</p>
+              <p class="label">Entertainment Brand</p>
+              <h3>The Killing Floor King</h3>
+              <p>
+                High-energy entertainment site designed to spotlight personality, content, and
+                engagement with fans.
+              </p>
+              <figure class="project-preview">
+                <iframe
+                  src="https://t24085.github.io/TheKillingFloorKing/"
+                  title="Live preview of The Killing Floor King"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                ></iframe>
+                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+              </figure>
+              <ul>
+                <li>Bold hero presentation</li>
+                <li>Audience-first content flow</li>
+                <li>Clear CTA placement</li>
+              </ul>
+              <a
+                href="https://t24085.github.io/TheKillingFloorKing/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View site</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <nav class="controls" aria-label="Page controls">
+          <button id="prevBtn" class="nav-btn" type="button" aria-label="Previous page">
+            Previous
+          </button>
+          <p class="status" id="pageStatus">Page 1 of 8</p>
+          <button id="nextBtn" class="nav-btn" type="button" aria-label="Next page">
+            Next
+          </button>
+        </nav>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
