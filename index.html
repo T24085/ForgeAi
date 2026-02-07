@@ -39,6 +39,24 @@
   </head>
   <body>
     <main class="scene" aria-label="Magazine style portfolio">
+      <div class="flow-text" aria-hidden="true">
+        <div class="flow-text__row flow-text__row--gold">
+          <span>ForgeAI • ForgeAI • ForgeAI • ForgeAI • ForgeAI • </span>
+          <span>ForgeAI • ForgeAI • ForgeAI • ForgeAI • ForgeAI • </span>
+        </div>
+        <div class="flow-text__row flow-text__row--muted">
+          <span
+            >ForgeAI Design Studio blends human creativity with artificial intelligence to build
+            brands, interfaces, and experiences that don’t just look impressive — they work
+            relentlessly to drive growth. • </span
+          >
+          <span
+            >ForgeAI Design Studio blends human creativity with artificial intelligence to build
+            brands, interfaces, and experiences that don’t just look impressive — they work
+            relentlessly to drive growth. • </span
+          >
+        </div>
+      </div>
       <section class="book-shell">
         <header class="book-top">
           <p class="edition">VOL. 01 / 2026</p>
@@ -48,19 +66,34 @@
 
         <div class="book" id="book" aria-live="polite">
           <article class="page page--cover" aria-label="Cover page">
-            <video
-              class="cover-media"
-              src="./taylor.mp4"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-            ></video>
+            <div class="cover-reveal" id="coverReveal">
+              <svg class="cover-mask-svg" aria-hidden="true">
+                <mask id="coverMask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+                  <rect width="100%" height="100%" fill="black"></rect>
+                  <g class="cover-mask-wrapper"></g>
+                </mask>
+              </svg>
+              <img
+                class="cover-base"
+                src="./HeroImage.JPG"
+                alt="ForgeAI Design Studio hero portrait"
+              />
+              <video
+                class="cover-reveal-video"
+                src="./HeroReveal.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              ></video>
+            </div>
             <div class="cover-overlay"></div>
             <div class="cover-content">
               <p class="issue">OCT</p>
-              <h2 class="cover-title">ForgeAI</h2>
+              <h2 class="cover-title">
+                Forge<span class="cover-title__ai">AI</span>
+              </h2>
               <p class="cover-subtitle">Design Studio Issue</p>
               <p class="cover-line cover-line--left">
                 “<span id="typed-line"></span>”

@@ -33,10 +33,52 @@ body {
   display: grid;
   place-items: center;
   padding: 2rem 1rem;
+  overflow: hidden;
 }
 
 .book-shell {
   width: min(100%, 1100px);
+  z-index: 2;
+}
+
+.flow-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  gap: 1.2rem;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.flow-text__row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: clamp(2.4rem, 7vw, 8.5rem);
+  animation: flowText 80s linear infinite;
+}
+
+.flow-text__row--gold {
+  font-weight: 600;
+  background: linear-gradient(120deg, #fff6e6 0%, #ffd28a 38%, #ff9a3c 62%, #fff1dc 100%);
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: flowTextReverse 80s linear infinite, goldFlow 12s ease-in-out infinite;
+}
+
+.flow-text__row--muted {
+  color: rgba(0, 0, 0, 0.08);
+  font-size: clamp(1.2rem, 3.6vw, 4.4rem);
+  letter-spacing: 0.04em;
+  animation-duration: 80s;
 }
 
 .book-top {
@@ -104,16 +146,33 @@ body {
   color: var(--ink);
 }
 
-.cover-media {
+.cover-reveal {
   position: absolute;
-  inset: -6%;
-  width: 112%;
-  height: 112%;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cover-base,
+.cover-reveal-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center 18%;
-  transform: scale(0.92);
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
+}
+
+.cover-mask-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.cover-reveal-video {
+  -webkit-mask: url(#coverMask);
+  mask: url(#coverMask);
 }
 
 .cover-overlay {
@@ -131,6 +190,7 @@ body {
   display: grid;
   grid-template-rows: auto auto auto 1fr auto auto;
   padding: clamp(1.2rem, 2.4vw, 2rem);
+  overflow: visible;
 }
 
 .issue {
@@ -148,12 +208,24 @@ body {
   font-size: clamp(4rem, 16vw, 12rem);
   font-weight: 500;
   letter-spacing: 0.03em;
-  line-height: 0.75;
+  line-height: 0.85;
+  display: inline-flex;
+  align-items: baseline;
   background: linear-gradient(115deg, #fff6e6 0%, #ffd28a 38%, #ff9a3c 62%, #fff1dc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  padding-bottom: 0.06em;
+  transform: translateX(-0.35rem);
+  white-space: nowrap;
+}
+
+.cover-title__ai {
+  margin-left: 10.2rem;
+  display: inline-block;
+  font-size: 1em;
+  padding-left: 0;
 }
 
 .cover-subtitle {
@@ -162,6 +234,7 @@ body {
   letter-spacing: 0.15em;
   font-size: 0.76rem;
   color: #ffe2bf;
+  margin-top: -0.2rem;
 }
 
 .cover-line {
@@ -449,5 +522,32 @@ body {
   }
   50% {
     border-color: rgba(244, 244, 244, 0.7);
+  }
+}
+
+@keyframes flowText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-40%);
+  }
+}
+
+@keyframes flowTextReverse {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes goldFlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
