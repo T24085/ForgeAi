@@ -166,6 +166,7 @@ body {
   z-index: 1;
   -webkit-mask: url(#coverMask);
   mask: url(#coverMask);
+
   animation: coverFade 8s ease-in-out forwards;
 }
 
