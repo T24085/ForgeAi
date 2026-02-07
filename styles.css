@@ -162,6 +162,13 @@ body {
   object-position: center 18%;
 }
 
+.cover-base {
+  z-index: 1;
+  -webkit-mask: url(#coverMask);
+  mask: url(#coverMask);
+  animation: coverFade 8s ease-in-out forwards;
+}
+
 .cover-mask-svg {
   position: absolute;
   inset: 0;
@@ -171,8 +178,7 @@ body {
 }
 
 .cover-reveal-video {
-  -webkit-mask: url(#coverMask);
-  mask: url(#coverMask);
+  z-index: 0;
 }
 
 .cover-overlay {
@@ -513,6 +519,9 @@ body {
     animation: none;
     border-right: 0;
   }
+  .cover-base {
+    animation: none;
+  }
 }
 
 @keyframes blinkCursor {
@@ -540,6 +549,15 @@ body {
   }
   100% {
     transform: translateX(0%);
+  }
+}
+
+@keyframes coverFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
   }
 }
 @keyframes goldFlow {

@@ -117,7 +117,8 @@ if (coverReveal) {
       this.el.setAttribute("cx", this.x);
       this.el.setAttribute("cy", this.y);
       this.el.setAttribute("r", this.size);
-      this.el.setAttribute("fill", "white");
+      this.el.setAttribute("fill", "black");
+      this.el.setAttribute("fill-opacity", "0.7");
     }
 
     render(delta) {
