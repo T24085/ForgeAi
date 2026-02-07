@@ -162,6 +162,12 @@ body {
   object-position: center 18%;
 }
 
+.cover-base {
+  z-index: 1;
+  -webkit-mask: url(#coverMask);
+  mask: url(#coverMask);
+}
+
 .cover-mask-svg {
   position: absolute;
   inset: 0;
@@ -171,8 +177,7 @@ body {
 }
 
 .cover-reveal-video {
-  -webkit-mask: url(#coverMask);
-  mask: url(#coverMask);
+  z-index: 0;
 }
 
 .cover-overlay {
