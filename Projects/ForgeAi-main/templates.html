@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ForgeAI Template Library</title>
+    <meta
+      name="description"
+      content="Browse ForgeAI web design templates by tier, category, and build status."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./templates.css" />
+  </head>
+  <body>
+    <main class="library">
+      <header class="library-header">
+        <p class="kicker">ForgeAI Design Studio</p>
+        <h1>Template Library</h1>
+        <p class="intro">
+          Production-ready website concepts organized by tier and business type. Filter quickly,
+          preview instantly, and launch from proven structures.
+        </p>
+        <div class="library-meta">
+          <p><span id="templateCount">0</span> templates</p>
+          <p>Updated continuously</p>
+          <a href="./index.html">Back to portfolio</a>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="Template filters">
+        <label class="field">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Template name or keyword" />
+        </label>
+        <label class="field">
+          <span>Tier</span>
+          <select id="tierFilter">
+            <option value="all">All tiers</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Category</span>
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Status</span>
+          <select id="statusFilter">
+            <option value="all">Any status</option>
+          </select>
+        </label>
+        <button id="resetFilters" class="reset-btn" type="button">Reset filters</button>
+      </section>
+
+      <section class="results">
+        <p id="resultSummary">Showing all templates</p>
+      </section>
+
+      <section class="templates-grid" id="templatesGrid" aria-live="polite"></section>
+      <p class="empty-state" id="emptyState" hidden>No templates match these filters.</p>
+    </main>
+
+    <script src="./templates-data.js"></script>
+    <script src="./templates.js"></script>
+  </body>
+</html>

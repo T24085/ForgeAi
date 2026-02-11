@@ -63,6 +63,7 @@
           <p class="edition">VOL. 01 / 2026</p>
           <h1>ForgeAI Design Studio</h1>
           <p class="tagline">Digital Editorial • Product Websites • Brand Systems</p>
+          <a class="library-link" href="./templates.html">Open Template Library</a>
         </header>
 
         <div class="book" id="book" aria-live="polite">
@@ -154,13 +155,12 @@
                 lovers and fast purchase decisions.
               </p>
               <figure class="project-preview">
-                <iframe
-                  data-src="https://t24085.github.io/Sunfire-Chili-Spice-Co/"
-                  title="Live preview of Sunfire Chili Spice Co."
+                <img
+                  src="./Sunfire.png"
+                  alt="Preview of Sunfire Chili Spice Co. website"
                   loading="lazy"
-                  referrerpolicy="no-referrer"
-                ></iframe>
-                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+                />
+                <figcaption>Preview image (site blocks iframe)</figcaption>
               </figure>
               <ul>
                 <li>High-contrast product storytelling</li>
@@ -285,13 +285,12 @@
                 teams, standings, and fan engagement.
               </p>
               <figure class="project-preview">
-                <iframe
-                  data-src="https://www.tribesprofessionalleague.online/"
-                  title="Live preview of Tribes Professional League"
+                <img
+                  src="./TPL.png"
+                  alt="Preview of Tribes Professional League website"
                   loading="lazy"
-                  referrerpolicy="no-referrer"
-                ></iframe>
-                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+                />
+                <figcaption>Preview image (site blocks iframe)</figcaption>
               </figure>
               <ul>
                 <li>Structured information architecture</li>
@@ -318,13 +317,12 @@
                 direct and minimal interface.
               </p>
               <figure class="project-preview">
-                <iframe
-                  data-src="https://t24085.github.io/TeamDPRK/"
-                  title="Live preview of Team DPRK"
+                <img
+                  src="./DPRK.png"
+                  alt="Preview of Team DPRK website"
                   loading="lazy"
-                  referrerpolicy="no-referrer"
-                ></iframe>
-                <figcaption>Live preview (if blocked by site security, use View site)</figcaption>
+                />
+                <figcaption>Preview image (site blocks iframe)</figcaption>
               </figure>
               <ul>
                 <li>Strong headline-led layout</li>
@@ -417,7 +415,10 @@
           <button id="prevBtn" class="nav-btn" type="button" aria-label="Previous page">
             Previous
           </button>
-          <p class="status" id="pageStatus">Page 1 of 10</p>
+          <p class="status" id="pageStatus">
+            Page 1 of 10
+            <a class="controls-library-link" href="./templates.html">Template Library</a>
+          </p>
           <button id="nextBtn" class="nav-btn" type="button" aria-label="Next page">
             Next
           </button>
@@ -445,21 +446,39 @@
       <div class="neo-glitch-layer" aria-hidden="true"></div>
       <canvas class="neo-return-rain" id="neoReturnRain" aria-hidden="true" hidden></canvas>
       <div class="neo-sequence__content">
-        <p class="neo-sequence__line"><span id="neoTypedLine"></span></p>
-        <button
-          class="neo-rabbit-btn"
-          id="neoRabbitBtn"
-          type="button"
-          aria-label="Follow the white rabbit"
-          hidden
-        >
+        <div class="neo-terminal-shell">
           <img
-            id="neoRabbitImage"
-            src="./D8AA71D1-B5EA-4C9F-8071-8FC125C59BC3.png"
-            alt="White rabbit"
+            class="neo-terminal-monitor"
+            src="./Monitor.png"
+            alt=""
+            aria-hidden="true"
             loading="lazy"
           />
-        </button>
+          <div class="neo-terminal" id="neoTerminal">
+            <p class="neo-terminal__line" id="neoWakeLine"></p>
+            <p class="neo-terminal__line" id="neoInstallLine"></p>
+            <label class="neo-terminal__prompt" for="neoConfirmInput" hidden id="neoConfirmLabel">
+              <span>Type YES to confirm</span>
+              <div class="neo-terminal__controls">
+                <input
+                  id="neoConfirmInput"
+                  class="neo-terminal__input"
+                  type="text"
+                  autocomplete="off"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  inputmode="text"
+                  maxlength="8"
+                />
+                <button id="neoConfirmSubmit" class="neo-terminal__submit" type="button" disabled>
+                  Enter
+                </button>
+              </div>
+            </label>
+            <p class="neo-terminal__meta" id="neoConfirmMeta" aria-live="polite"></p>
+          </div>
+        </div>
       </div>
       <div class="neo-walk-stage" id="neoWalkStage" hidden>
         <canvas class="neo-walk-matrix" id="neoWalkMatrix" aria-hidden="true"></canvas>
@@ -484,21 +503,37 @@
         <div class="neo-about-card">
           <p class="neo-about-label">About ForgeAI</p>
           <h2>I build conversion-first websites and branded digital systems.</h2>
-          <p>
-            I combine visual design, front-end engineering, and performance strategy to create
-            websites that look premium and drive real business action.
+          <p class="neo-about-lead">
+            Design direction, front-end engineering, and growth-focused UX combined into one build
+            process that ships fast and converts.
           </p>
-          <ul>
-            <li>Custom brand websites for businesses, creators, and ecommerce</li>
-            <li>Landing pages focused on leads, bookings, and purchases</li>
-            <li>Clean UX architecture, clear CTA flow, and mobile-first polish</li>
-            <li>Fast, responsive builds with modern HTML, CSS, JavaScript, and React</li>
-            <li>SEO-ready structure, accessibility best practices, and scalable components</li>
-          </ul>
-          <p class="neo-about-cta">Need a site that performs as hard as it looks? Let’s build it.</p>
-          <button class="neo-return-btn" id="neoReturnBtn" type="button">
-            Follow The Rabbit Back
-          </button>
+          <div class="neo-about-grid">
+            <section class="neo-about-block" aria-label="Primary capabilities">
+              <h3>Core Build Focus</h3>
+              <ul class="neo-about-list">
+                <li>Brand websites for businesses, creators, and ecommerce</li>
+                <li>Landing pages optimized for leads, bookings, and purchases</li>
+                <li>Information architecture with clear CTA flow</li>
+                <li>Mobile-first execution with polished responsive behavior</li>
+              </ul>
+            </section>
+            <section class="neo-about-block" aria-label="Build standards">
+              <h3>Build Standard</h3>
+              <div class="neo-about-metrics">
+                <p><span>Performance</span><strong>Fast by default</strong></p>
+                <p><span>Stack</span><strong>Modern HTML/CSS/JS + React</strong></p>
+                <p><span>Quality</span><strong>SEO and accessibility ready</strong></p>
+                <p><span>System</span><strong>Reusable, scalable components</strong></p>
+              </div>
+            </section>
+          </div>
+          <p class="neo-about-cta">Need a site that performs as hard as it looks? Let's build it.</p>
+          <div class="neo-about-actions">
+            <button class="neo-return-btn" id="neoReturnBtn" type="button">
+              Follow The Rabbit Back
+            </button>
+            <a class="neo-contact-link" href="mailto:christoffersent@gmail.com">Start a project</a>
+          </div>
         </div>
       </div>
     </section>
