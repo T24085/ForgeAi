@@ -1,0 +1,45 @@
+{
+  "summary": "A polished, brand\u2011centric website for Countrypolitan that showcases its unique blend of antique, home, and garden furnishings. The site will feature a modern yet rustic layout, multiple informational and e\u2011commerce pages, rich media galleries, and a clear call\u2011to\u2011action for in\u2011store visits. The design will emphasize warm, earthy colors, wood textures, and elegant typography to reflect the shop\u2019s country\u2011style aesthetic.",
+  "pages": [
+    "Home",
+    "About Us",
+    "Our Story",
+    "Shop",
+    "Featured Collections",
+    "Seasonal D\u00e9cor",
+    "Gallery",
+    "Blog",
+    "FAQs",
+    "Contact",
+    "Store Locator"
+  ],
+  "sections": [
+    "Hero Banner with Tagline",
+    "About Countrypolitan",
+    "Featured Products Carousel",
+    "Seasonal Highlights Grid",
+    "Customer Testimonials",
+    "Gallery Slideshow",
+    "Blog Teaser Section",
+    "Store Information & Map",
+    "Contact Form",
+    "Footer with Social Links & Newsletter"
+  ],
+  "style_notes": "Rustic country vibe: warm earth tones (deep browns, muted greens, terracotta), textured wood backgrounds, linen\u2011like accents. Typography: serif for headings (e.g., Playfair Display), clean sans\u2011serif for body (e.g., Open Sans). Use high\u2011contrast dark text on light backgrounds with subtle drop shadows. Hover effects on buttons with soft color transitions. Mobile\u2011first responsive grid, 12\u2011column layout, accessible color contrast.",
+  "assets_needed": [
+    "Logo (vector SVG)",
+    "Hero image of storefront (high\u2011resolution)",
+    "Interior shots of antique items, furniture, garden d\u00e9cor",
+    "Seasonal d\u00e9cor displays (Fall, Winter, Spring, Summer)",
+    "Staff portrait for About Us",
+    "Product images (multiple angles) for Shop page",
+    "Icon set for services and features",
+    "Google Maps embed for Store Locator",
+    "Short video clip of shop tour (optional)",
+    "Customer testimonial photos",
+    "Background textures (wood, linen)",
+    "Favicon (.ico and .png)",
+    "Newsletter signup graphic",
+    "Accessibility icons (e.g., WCAG badges)"
+  ]
+}

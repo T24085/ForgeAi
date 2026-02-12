@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "model": "gpt-oss:20b",
+  "target_score": 8.0,
+  "rounds": [
+    {
+      "round": 0,
+      "overall_score": 0.0,
+      "scores": {},
+      "weaknesses": [
+        "Critic parse failed"
+      ],
+      "strengths": [],
+      "patched_files": 0
+    }
+  ]
+}

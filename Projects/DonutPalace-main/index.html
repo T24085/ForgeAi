@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donut Palace & Boba Tea — Boutique Donuts, Modern Boba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;500;700;900&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #171311;
+      --charcoal: #231a16;
+      --cream: #fff2de;
+      --butter: #ffd22e;
+      --caramel: #ff7a1a;
+      --rose: #ff5aa5;
+      --mint: #44f0c2;
+      --sky: #49b5ff;
+      --paper: #fff7ec;
+      --shadow: 0 30px 80px rgba(24, 18, 12, 0.22);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Sora", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 90, 165, 0.55), transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(68, 240, 194, 0.55), transparent 40%),
+        radial-gradient(circle at 15% 85%, rgba(73, 181, 255, 0.55), transparent 45%),
+        linear-gradient(135deg, #ffe36f 0%, #ffc2d6 35%, #ffd99a 70%, #ffe36f 100%),
+        radial-gradient(circle at 12px 12px, rgba(255, 90, 165, 0.6) 0 2px, transparent 2.2px),
+        radial-gradient(circle at 36px 28px, rgba(68, 240, 194, 0.6) 0 1.8px, transparent 2px),
+        radial-gradient(circle at 22px 44px, rgba(73, 181, 255, 0.6) 0 2px, transparent 2.2px);
+      background-size: auto, auto, auto, 180% 180%, 48px 48px, 48px 48px, 48px 48px;
+      animation: hueShift 18s linear infinite;
+      min-height: 100vh;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.35;
+      filter: saturate(1.2) contrast(1.05) brightness(1.05);
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 231, 179, 0.55), rgba(255, 90, 165, 0.35), rgba(73, 181, 255, 0.35));
+      mix-blend-mode: screen;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .ambient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient span {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(0px);
+      opacity: 0.6;
+    }
+
+    .ambient .glow-one {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(255, 122, 26, 0.95), rgba(255, 122, 26, 0));
+      top: -120px;
+      right: -80px;
+    }
+
+    .ambient .glow-two {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(68, 240, 194, 0.8), rgba(68, 240, 194, 0));
+      bottom: -160px;
+      left: -140px;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px 96px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Fraunces", serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+    }
+
+    .nav a {
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s var(--ease);
+    }
+
+    .nav a:hover {
+      border-color: var(--rose);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .hero-copy {
+      grid-column: span 6;
+    }
+
+    .hero-copy h1 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.6rem, 4vw, 4.2rem);
+      line-height: 1.05;
+      margin: 0 0 18px;
+    }
+
+    .hero-copy p {
+      font-size: 1.05rem;
+      color: #3a342f;
+      max-width: 520px;
+      margin: 0 0 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .cta {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .cta.primary {
+      background: linear-gradient(120deg, #ff7a1a, #ff5aa5);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta.secondary {
+      border-color: var(--sky);
+      color: #1f2733;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-media {
+      grid-column: span 6;
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #1f1a16;
+      box-shadow: var(--shadow);
+      min-height: 420px;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 90, 165, 0.18), rgba(73, 181, 255, 0.18));
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05);
+    }
+
+    .hero-media .badge {
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      animation: floaty 4.8s ease-in-out infinite;
+    }
+
+    .strip {
+      margin: 56px 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .strip video {
+      border-radius: var(--radius-md);
+      box-shadow: 0 18px 40px rgba(24, 19, 15, 0.18);
+      height: 220px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .section {
+      margin-top: 72px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .section .copy {
+      grid-column: span 6;
+    }
+
+    .section h2 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .section p {
+      color: #3a342f;
+      margin: 0 0 16px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(24, 19, 15, 0.12);
+      min-height: 160px;
+      border: 2px dashed rgba(255, 122, 26, 0.35);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7a5a3b;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .gallery {
+      grid-column: span 6;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .gallery img {
+      border-radius: 22px;
+      box-shadow: 0 18px 50px rgba(24, 19, 15, 0.16);
+      height: 220px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 90, 165, 0.35);
+    }
+
+    .menu {
+      margin-top: 80px;
+      background: linear-gradient(135deg, rgba(255, 210, 46, 0.7), rgba(255, 90, 165, 0.6), rgba(73, 181, 255, 0.5));
+      padding: 36px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .menu-item {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      padding: 20px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: inset 0 0 0 2px rgba(255, 122, 26, 0.6);
+    }
+
+    .menu-item:nth-child(2) {
+      box-shadow: inset 0 0 0 2px rgba(73, 181, 255, 0.6);
+    }
+
+    .menu-item h3 {
+      margin: 0 0 12px;
+      font-family: "Fraunces", serif;
+      font-size: 1.4rem;
+    }
+
+    .menu-item ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      color: #3b332c;
+    }
+
+    .pull-quote {
+      margin-top: 64px;
+      background: linear-gradient(120deg, #1d1412 0%, #2a1a2b 50%, #1b2230 100%);
+      color: #f9f2ea;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      align-items: center;
+      position: relative;
+    }
+
+    .pull-quote p {
+      grid-column: span 7;
+      font-family: "Fraunces", serif;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .pull-quote .note {
+      grid-column: span 5;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+    }
+
+    .contact {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-card {
+      grid-column: span 7;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(255, 90, 165, 0.35);
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+      font-family: "Fraunces", serif;
+      font-size: 1.6rem;
+    }
+
+    .info {
+      grid-column: span 5;
+      background: #fff1d7;
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      border: 2px solid rgba(68, 240, 194, 0.4);
+    }
+
+    .info p {
+      margin: 0 0 12px;
+    }
+
+    .footer {
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #5b5147;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floaty {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @keyframes hueShift {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      50% {
+        filter: hue-rotate(10deg);
+      }
+      100% {
+        filter: hue-rotate(0deg);
+      }
+    }
+
+    @media (max-width: 960px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero, .section, .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy, .hero-media, .section .copy, .gallery, .contact-card, .info {
+        grid-column: span 1;
+      }
+
+      .strip {
+        grid-template-columns: 1fr;
+      }
+
+      .strip video {
+        height: 200px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pull-quote {
+        grid-template-columns: 1fr;
+      }
+
+      .pull-quote p, .pull-quote .note {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <video class="bg-video" autoplay muted loop playsinline poster="5.jpg">
+      <source src="Donut2.mp4" type="video/mp4" />
+    </video>
+    <div class="bg-overlay"></div>
+    <div class="ambient">
+      <span class="glow-one"></span>
+      <span class="glow-two"></span>
+    </div>
+
+    <div class="shell">
+      <header class="reveal">
+        <div class="logo">Donut Palace & Boba Tea</div>
+        <nav class="nav">
+          <a href="#story">Story</a>
+          <a href="#menu">Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#visit">Visit</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <p style="text-transform: uppercase; letter-spacing: 0.24em; font-size: 0.75rem; margin: 0 0 16px;">Abilene, Kansas</p>
+          <h1>Hand‑glazed donuts, modern boba, and a space worth the trip.</h1>
+          <p>Fresh dough every morning, small‑batch glazes all day, and boba brewed with real tea. Stop in for a quick pick‑me‑up or linger with a warm dozen and a creamy brown sugar milk tea.</p>
+          <div class="cta-row">
+            <a class="cta primary" href="#visit">Plan your visit</a>
+            <a class="cta secondary" href="#menu">See the menu</a>
+          </div>
+        </div>
+        <div class="hero-media reveal">
+          <video autoplay muted loop playsinline poster="5.jpg">
+            <source src="Donut1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="badge">Signature glazes + boba pearls • Made fresh daily</div>
+        </div>
+      </section>
+
+      <section class="strip reveal">
+        <video autoplay muted loop playsinline>
+          <source src="Boba1.mp4" type="video/mp4" />
+        </video>
+        <video autoplay muted loop playsinline>
+          <source src="Boba2.mp4" type="video/mp4" />
+        </video>
+        <video autoplay muted loop playsinline>
+          <source src="Boba3.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      <section id="story" class="section">
+        <div class="copy reveal">
+          <h2>A neighborhood favorite with a boutique touch.</h2>
+          <p>Donut Palace & Boba Tea is a bright, welcoming stop for Abilene locals and road‑trippers alike. We’re known for pillowy donuts, seasonal glazes, and boba that balances creamy and refreshing.</p>
+          <div class="cards">
+            <div class="card">
+              <h3>Made fresh</h3>
+              <p>Our dough is mixed, proofed, and fried on site each morning for a warm‑from‑the‑case bite.</p>
+            </div>
+            <div class="card">
+              <h3>Easy to love</h3>
+              <p>Classic flavors, seasonal specials, and boba made to order for a quick treat or a dozen to share.</p>
+            </div>
+          </div>
+        </div>
+        <div id="gallery" class="gallery reveal">
+          <img src="1.webp" alt="Fresh donut assortment" />
+          <img src="2.webp" alt="Boba tea close-up" />
+          <img src="3.webp" alt="Donut glaze drizzle" />
+          <img src="5.jpg" alt="Donut Palace interior" />
+        </div>
+      </section>
+
+      <section id="menu" class="menu reveal">
+        <h2>Menu highlights</h2>
+        <p>Customer favorites that change with the season and pair perfectly with a boba pick‑me‑up.</p>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <h3>Donut Collection</h3>
+            <ul>
+              <li>Classic glazed • honey‑vanilla finish</li>
+              <li>Wedding cake • almond glaze, pearl sugar</li>
+              <li>Matcha cloud • green tea glaze, toasted sesame</li>
+            </ul>
+          </div>
+          <div class="menu-item">
+            <h3>Boba Rituals</h3>
+            <ul>
+              <li>Milk tea • brown sugar pearls</li>
+              <li>Lychee fruit tea • bright citrus lift</li>
+              <li>Signature matcha • oat milk foam</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="pull-quote reveal">
+        <p>"The kind of place you discover once and keep coming back to."</p>
+        <p class="note">Weekday mornings are our busiest—order ahead by phone for the fastest pickup.</p>
+      </section>
+
+      <section id="visit" class="contact">
+        <div class="contact-card reveal">
+          <h3>Visit or call today</h3>
+          <p>401 N Buckeye Ave, Abilene, KS 67410</p>
+          <p>Phone: <a href="tel:+17852633489">(785) 263‑3489</a></p>
+          <div class="cta-row">
+            <a class="cta primary" href="https://maps.google.com/?q=401+N+Buckeye+Ave,+Abilene,+KS+67410" target="_blank" rel="noreferrer">Get directions</a>
+            <a class="cta secondary" href="mailto:hello@donutpalace.com">Email us</a>
+          </div>
+        </div>
+        <div class="info reveal">
+          <p><strong>Hours</strong></p>
+          <p>Mon–Sat: 5 AM – 3 PM</p>
+          <p>Sunday: 6 AM – 3 PM</p>
+          <p><strong>Order idea</strong></p>
+          <p>Pair a glazed dozen with two signature bobas for pickup.</p>
+        </div>
+      </section>
+
+      <footer class="footer reveal">
+        <span>© 2026 Donut Palace & Boba Tea</span>
+        <span>Fresh donuts. Modern boba. Friendly smiles.</span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

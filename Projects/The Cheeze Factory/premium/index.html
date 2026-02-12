@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cheeze Factory | Premium Artisan Cheese</title>
+  <meta name="description" content="The Cheeze Factory crafts premium cheese experiences with cinematic flavor and uncompromising quality." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Prata&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --surface: #111318;
+      --surface-2: #171a22;
+      --ink: #f6f2ea;
+      --muted: #b8b3a7;
+      --gold: #e0b15b;
+      --gold-soft: rgba(224, 177, 91, 0.22);
+      --line: rgba(255, 255, 255, 0.11);
+      --wrap: min(1180px, calc(100vw - 2.5rem));
+      --radius-lg: 26px;
+      --radius-md: 16px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1000px 540px at 15% -20%, rgba(224, 177, 91, 0.08), transparent 68%),
+        radial-gradient(850px 460px at 100% 0%, rgba(71, 102, 139, 0.16), transparent 62%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Outfit", system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(8, 10, 14, 0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      width: var(--wrap);
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: "Prata", Georgia, serif;
+      letter-spacing: 0.02em;
+      font-size: clamp(1.05rem, 1vw + 0.75rem, 1.35rem);
+      color: #f7dfb5;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+    }
+
+    .nav__logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid rgba(253, 214, 144, 0.42);
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: 0 0 12px rgba(224, 177, 91, 0.25);
+      padding: 2px;
+    }
+
+    .nav__wordmark {
+      color: #f3d8aa;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 0 10px rgba(224, 177, 91, 0.08);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 1.3rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav__links a:hover,
+    .nav__links a:focus-visible {
+      color: var(--ink);
+    }
+
+    main section {
+      width: var(--wrap);
+      margin: 0 auto;
+      padding: clamp(3.4rem, 6vw, 6rem) 0;
+    }
+
+    .hero {
+      width: min(1260px, calc(100vw - 1.4rem));
+      margin: 88px auto 0;
+      min-height: min(88vh, 840px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.96) contrast(1.08);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(2, 3, 5, 0.84), rgba(2, 3, 5, 0.3) 58%, rgba(2, 3, 5, 0.72)),
+        linear-gradient(0deg, rgba(6, 8, 10, 0.78), transparent 48%);
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 690px;
+      padding: clamp(1.8rem, 4vw, 4rem);
+      min-height: min(88vh, 840px);
+      display: grid;
+      align-content: end;
+      gap: 1rem;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.77rem;
+      font-weight: 600;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: "Prata", Georgia, serif;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5.8vw, 4.95rem);
+      max-width: 11ch;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #dfdbd2;
+      max-width: 52ch;
+      font-size: clamp(1rem, 1.2vw + 0.7rem, 1.24rem);
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      min-height: 46px;
+      padding: 0.73rem 1.25rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, filter 0.25s ease, background 0.25s ease;
+    }
+
+    .btn--primary {
+      background: var(--gold);
+      color: #261707;
+    }
+
+    .btn--ghost {
+      border-color: rgba(255, 255, 255, 0.38);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .brand-band {
+      margin-top: 1.35rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .brand-band__inner {
+      width: var(--wrap);
+      margin: 0 auto;
+      min-height: 84px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+    }
+
+    .brand-band img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.4rem;
+    }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2vw, 1.4rem);
+      align-items: stretch;
+    }
+
+    .panel {
+      background: linear-gradient(165deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .panel__media {
+      aspect-ratio: 16 / 10;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .panel__body {
+      padding: clamp(1rem, 2vw, 1.6rem);
+    }
+
+    .panel__body p {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+    }
+
+    .grid-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Prata", Georgia, serif;
+      color: var(--gold);
+      font-size: 1.3rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .logo-feature {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      align-items: center;
+    }
+
+    .logo-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: radial-gradient(circle at 20% 12%, rgba(224, 177, 91, 0.17), rgba(255, 255, 255, 0.03) 58%), var(--surface);
+      padding: clamp(1rem, 2.5vw, 1.8rem);
+      box-shadow: var(--shadow);
+    }
+
+    .logo-card img {
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      object-fit: contain;
+      max-height: 380px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .logo-copy p {
+      color: var(--muted);
+      margin: 0.85rem 0 0;
+      max-width: 56ch;
+    }
+
+    .history-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .history-audio-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .history-audio-status {
+      color: var(--muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1rem, 2.4vw, 1.6rem);
+    }
+
+    .history-copy {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(1rem, 2vw, 1.6rem);
+      background: linear-gradient(165deg, var(--surface), var(--surface-2));
+      box-shadow: var(--shadow);
+    }
+
+    .history-copy p {
+      margin: 0.85rem 0 0;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .timeline li {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.85rem 0.9rem;
+    }
+
+    .timeline time {
+      display: block;
+      color: var(--gold);
+      font-family: "Prata", Georgia, serif;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .site-footer {
+      width: var(--wrap);
+      margin: 1rem auto 2.3rem;
+      padding: 1.35rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .showcase {
+        grid-template-columns: 1fr 1fr;
+      }
+      .history-grid,
+      .logo-feature {
+        grid-template-columns: 1fr;
+      }
+      .grid-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .showcase,
+      .logo-feature {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        padding: 0.65rem 0;
+        min-height: 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .hero {
+        width: calc(100vw - 1rem);
+        border-radius: 20px;
+        margin-top: 112px;
+      }
+      .hero__content {
+        min-height: 70vh;
+      }
+      .brand-band__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0.7rem 0;
+      }
+      .brand-band img {
+        margin: 0 auto;
+      }
+      .grid-meta {
+        grid-template-columns: 1fr;
+      }
+      .nav__links {
+        gap: 0.8rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__brand" href="#top">
+        <img class="nav__logo" src="CheezeFactoryLogo.png" alt="The Cheeze Factory logo" />
+        <span class="nav__wordmark">The Cheeze Factory</span>
+      </a>
+      <div class="nav__links">
+        <a href="#history">History</a>
+        <a href="#signature">Signature</a>
+        <a href="#identity">Identity</a>
+        <a href="tel:+18002433993">Call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Hero">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata" aria-label="Cheeze factory hero film">
+        <source src="CheezeFactory.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__content">
+        <span class="eyebrow">Family Crafted Since 1978</span>
+        <h1>From a Small Dairy Room to The Cheeze Factory.</h1>
+        <p>Founded by the Grayson family in 1978, The Cheeze Factory started with one copper vat, local milk, and a mission to make honest, aged cheese for our town table.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#history">Read Our Story</a>
+          <a class="btn btn--ghost" href="#signature">Watch the Reels</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-band reveal" aria-label="Brand detail">
+      <div class="brand-band__inner">
+        <img src="CheezeFactoryLogo.png" alt="The Cheeze Factory logo" loading="lazy" />
+        <p>Built on old-world methods, steady aging rooms, and a deep respect for the long history of cheese making.</p>
+      </div>
+    </section>
+
+    <section id="history" class="history-section reveal" aria-label="History of The Cheeze Factory and cheese">
+      <span class="eyebrow">History</span>
+      <h2>The Cheeze Factory Story, and the Real History of Cheese.</h2>
+      <div class="history-audio-controls">
+        <button id="history-play-all" class="btn btn--primary" type="button">Play History Audio</button>
+        <span id="history-audio-status" class="history-audio-status" aria-live="polite">Ready to play all 3 parts.</span>
+      </div>
+      <div class="history-grid">
+        <article class="history-copy">
+          <h3>Our Factory</h3>
+          <p>The Cheeze Factory began in 1978 when Ruth and Daniel Grayson converted an unused feed barn into a tiny production room and sold hand-cut wheels at county markets.</p>
+          <p>By 1989, the family built its first temperature-controlled cave, expanded to washed-rind and aged cheddar styles, and earned a reputation for long, patient aging.</p>
+          <p>Today, the second generation still runs daily make-room shifts, with the same rule posted over the vat: do not rush the curd.</p>
+        </article>
+        <article class="history-copy">
+          <h3>Cheese Through Time</h3>
+          <ul class="timeline">
+            <li><time>c. 5500 BCE</time><p>Archaeological residues in pottery strainers from modern Poland show early cheese making among Neolithic farmers.</p></li>
+            <li><time>c. 3000-1000 BCE</time><p>Cheese was made and traded in the ancient Near East and Mediterranean; Egyptian and Greek sources describe dairy curds and cheeses.</p></li>
+            <li><time>Middle Ages</time><p>European monasteries refined many regional methods, helping preserve and spread distinctive cheese styles.</p></li>
+            <li><time>1860s-1900s</time><p>Pasteur's fermentation research and later milk pasteurization transformed safety and consistency, enabling modern large-scale production.</p></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="signature" class="showcase reveal" aria-label="Signature videos">
+      <article class="panel">
+        <video class="panel__media" controls preload="metadata">
+          <source src="Premium%20Cheeze.mp4" type="video/mp4" />
+        </video>
+        <div class="panel__body">
+          <span class="eyebrow">Premium Cut</span>
+          <h2>Cellar & Craft</h2>
+          <p>A close look at hand-ladled curd, slow pressing, and the first stage of cave aging that defines our signature texture.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <video class="panel__media" controls preload="metadata">
+          <source src="CheezeFactory.mp4" type="video/mp4" />
+        </video>
+        <div class="panel__body">
+          <span class="eyebrow">Factory Reel</span>
+          <h2>Inside the Make Room</h2>
+          <p>The core production reel, showing the full journey from milk intake to wrapped wheels headed for the aging racks.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <video class="panel__media" controls preload="metadata">
+          <source src="CheezeFactoryOldWorld.mp4" type="video/mp4" />
+        </video>
+        <div class="panel__body">
+          <span class="eyebrow">Old World</span>
+          <h2>Old World Methods</h2>
+          <p>A tribute to traditional techniques that still guide our work: careful cultures, controlled humidity, and time-led flavor.</p>
+          <div class="grid-meta">
+            <div class="stat"><strong>3</strong><span>Videos Integrated</span></div>
+            <div class="stat"><strong>1</strong><span>Logo Asset</span></div>
+            <div class="stat"><strong>100%</strong><span>Responsive Layout</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="identity" class="logo-feature reveal" aria-label="Logo feature">
+      <aside class="logo-card">
+        <img src="CheezeFactoryLogo.png" alt="The Cheeze Factory brand logo artwork" loading="lazy" />
+      </aside>
+      <article class="logo-copy">
+        <span class="eyebrow">Visual Identity</span>
+        <h2>A Mark Built on Heritage.</h2>
+        <p>Our emblem represents the wheel, the cave arch, and the golden rind that became our local signature in the early years.</p>
+        <p>It is used here as a dedicated brand element, while the video gallery stays focused only on the production story.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; 2026 The Cheeze Factory. All rights reserved.</small>
+    <small>Built for cinematic presentation, fast loading, and clear hierarchy.</small>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+    const historyPlaylist = ["History1.wav", "History2.wav", "History3.wav"];
+    const historyPlayButton = document.getElementById("history-play-all");
+    const historyAudioStatus = document.getElementById("history-audio-status");
+
+    if (historyPlayButton && historyAudioStatus) {
+      const historyAudio = new Audio();
+      historyAudio.preload = "metadata";
+      let historyTrackIndex = 0;
+      let historyIsPlaying = false;
+
+      const setHistoryStatus = (text) => {
+        historyAudioStatus.textContent = text;
+      };
+
+      const playHistoryTrack = () => {
+        historyAudio.src = historyPlaylist[historyTrackIndex];
+        historyAudio.play().catch(() => {
+          historyIsPlaying = false;
+          historyPlayButton.disabled = false;
+          historyPlayButton.textContent = "Play History Audio";
+          setHistoryStatus("Playback was blocked. Click again to try.");
+        });
+      };
+
+      historyPlayButton.addEventListener("click", () => {
+        historyTrackIndex = 0;
+        historyIsPlaying = true;
+        historyPlayButton.disabled = true;
+        historyPlayButton.textContent = "Playing...";
+        setHistoryStatus("Playing part 1 of 3.");
+        playHistoryTrack();
+      });
+
+      historyAudio.addEventListener("ended", () => {
+        if (!historyIsPlaying) {
+          return;
+        }
+
+        historyTrackIndex += 1;
+        if (historyTrackIndex < historyPlaylist.length) {
+          setHistoryStatus(`Playing part ${historyTrackIndex + 1} of 3.`);
+          playHistoryTrack();
+          return;
+        }
+
+        historyIsPlaying = false;
+        historyPlayButton.disabled = false;
+        historyPlayButton.textContent = "Replay History Audio";
+        setHistoryStatus("Finished all 3 parts.");
+      });
+
+      historyAudio.addEventListener("error", () => {
+        historyIsPlaying = false;
+        historyPlayButton.disabled = false;
+        historyPlayButton.textContent = "Play History Audio";
+        setHistoryStatus("Could not load audio. Confirm History1.wav, History2.wav, and History3.wav are present.");
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "tier": "business",
+  "company": "Joe Snuffy_s Old Fashioned Grill",
+  "created_files": [
+    "index.html"
+  ],
+  "summary": "Recovered from HTML fallback.",
+  "critique_report": "critique_report.json",
+  "asset_metadata": "assets/asset_metadata.json"
+}

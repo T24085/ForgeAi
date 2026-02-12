@@ -1,0 +1,30 @@
+{
+  "job_id": "2026-02-01_225607_material-girls-quilt-shop",
+  "company_name": "Material Girls Quilt Shop",
+  "category": "Retail",
+  "details": {
+    "tagline": "",
+    "address": "",
+    "phone": "",
+    "hours": "",
+    "services": [],
+    "notes": "Material Girls Quilt Shop \u2013 Quilting supplies and fabric shop. Address: 306 N Buckeye Ave, Abilene, KS 67410. Phone: (785) 263-7787. Web Presence: No website (uses Facebook for online presence)"
+  },
+  "media": {
+    "images": [
+      "Bedroom1.jpg",
+      "Bedroom2.jpg",
+      "HeroQuilt.jpg",
+      "sewing-machine-2613527.jpg"
+    ],
+    "videos": [
+      "grok-video-8cc32ce8-c071-4d94-af61-4e1cd3793684.mp4",
+      "grok-video-77d99c62-3774-4166-a0df-eb7e7b7c048b.mp4",
+      "HeroVideo.mp4"
+    ],
+    "media_dir": "media"
+  },
+  "status": "running",
+  "created_at": "2026-02-01T22:56:07",
+  "error": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=1800)"
+}

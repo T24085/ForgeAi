@@ -1,0 +1,200 @@
+{
+  "colors": {
+    "primary": "#D4A63F",
+    "primaryLight": "#E8C07A",
+    "primaryDark": "#B68C2E",
+    "secondary": "#1C1C1C",
+    "background": "#F5F5F5",
+    "surface": "#FFFFFF",
+    "textPrimary": "#1C1C1C",
+    "textSecondary": "#4A4A4A",
+    "accent": "#D4A63F",
+    "border": "#E0E0E0",
+    "error": "#B00020",
+    "success": "#00C853",
+    "neutralLight": "#F5F5F5",
+    "neutralDark": "#212121",
+    "contrastTextPrimary": "#FFFFFF",
+    "contrastTextSecondary": "#FFFFFF"
+  },
+  "typography": {
+    "fonts": {
+      "display": {
+        "family": "\"Playfair Display\", Georgia, 'Times New Roman', serif",
+        "weight": 700
+      },
+      "body": {
+        "family": "\"Inter\", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "weight": 400
+      }
+    },
+    "scale": {
+      "H1": {
+        "size": "96px",
+        "lineHeight": "112px",
+        "letterSpacing": "-0.02em"
+      },
+      "H2": {
+        "size": "72px",
+        "lineHeight": "88px",
+        "letterSpacing": "-0.01em"
+      },
+      "H3": {
+        "size": "48px",
+        "lineHeight": "64px",
+        "letterSpacing": "0em"
+      },
+      "H4": {
+        "size": "32px",
+        "lineHeight": "40px",
+        "letterSpacing": "0em"
+      },
+      "Body": {
+        "size": "18px",
+        "lineHeight": "28px",
+        "letterSpacing": "0.01em"
+      },
+      "Caption": {
+        "size": "14px",
+        "lineHeight": "20px",
+        "letterSpacing": "0.02em"
+      }
+    },
+    "paragraph": {
+      "marginBottom": "1rem"
+    }
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px",
+    "3xl": "64px",
+    "4xl": "96px"
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "pill": "9999px"
+  },
+  "shadow": {
+    "xs": "0 1px 2px rgba(0,0,0,0.05)",
+    "sm": "0 2px 4px rgba(0,0,0,0.07)",
+    "md": "0 4px 8px rgba(0,0,0,0.08)",
+    "lg": "0 8px 16px rgba(0,0,0,0.1)",
+    "xl": "0 12px 24px rgba(0,0,0,0.12)"
+  },
+  "motion": {
+    "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+    "durations": {
+      "micro": "150ms",
+      "short": "200ms",
+      "medium": "400ms",
+      "long": "600ms"
+    },
+    "animations": {
+      "fadeIn": {
+        "from": "opacity:0",
+        "to": "opacity:1",
+        "duration": "medium",
+        "timing": "easeInOut"
+      },
+      "slideIn": {
+        "from": "transform:translateY(20px)",
+        "to": "transform:translateY(0)",
+        "duration": "medium",
+        "timing": "easeInOut"
+      },
+      "scaleUp": {
+        "from": "transform:scale(1)",
+        "to": "transform:scale(1.02)",
+        "duration": "short",
+        "timing": "easeOut"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Hero",
+      "description": "Full-width cinematic background with headline, subheadline, and primary CTA. Uses parallax offset and fadeIn animation."
+    },
+    {
+      "name": "TrustProof",
+      "description": "Horizontal carousel of awards, press logos, and review snippets with micro-hover lift."
+    },
+    {
+      "name": "FeaturedOfferings",
+      "description": "Three-column card grid with glassmorphic overlay, hover scale, and subtle shadow."
+    },
+    {
+      "name": "ChefSpotlight",
+      "description": "Portrait with animated text reveal, gradient background, and short cooking video clip."
+    },
+    {
+      "name": "Testimonials",
+      "description": "Vertical carousel of customer quotes, star rating icons, and slide-in animation."
+    },
+    {
+      "name": "ConversionCTA",
+      "description": "Sticky reservation form with auto-focus fields, inline validation, and progress bar."
+    },
+    {
+      "name": "Footer",
+      "description": "Contact info, social links, quick navigation, newsletter sign-up with micro-interaction."
+    },
+    {
+      "name": "MenuOverview",
+      "description": "Tab-based layout for Breakfast, Lunch, Specials with collapsible sections."
+    },
+    {
+      "name": "DishDetail",
+      "description": "Hover card with ingredient list, nutrition info, and subtle 3D tilt."
+    },
+    {
+      "name": "ReservationForm",
+      "description": "Step-by-step wizard with calendar picker, time slots, and confirmation modal."
+    },
+    {
+      "name": "OurStory",
+      "description": "Timeline with parallax images, text blocks, and micro-animations per milestone."
+    }
+  ],
+  "voice": "Warm, confident, inviting, and refined\u2014speaking like a seasoned chef welcoming guests to a timeless dining experience.",
+  "imagery": {
+    "hero": {
+      "theme": "high-resolution cooking scene with natural light",
+      "style": "rich color, shallow depth of field, subtle vignette"
+    },
+    "dishes": {
+      "count": "3-5",
+      "style": "flat lay, natural lighting, focus on texture"
+    },
+    "chefPortrait": {
+      "style": "studio portrait, warm lighting, slight blur background"
+    },
+    "pressLogos": {
+      "format": "PNG or SVG",
+      "style": "monochrome, light background"
+    },
+    "reviews": {
+      "format": "icon set or screenshot",
+      "style": "gold star icons, clean typography"
+    },
+    "gradientTextures": {
+      "colors": [
+        "#D4A63F",
+        "#1C1C1C"
+      ],
+      "style": "subtle radial gradient overlay"
+    },
+    "microInteractions": {
+      "format": "SVG",
+      "style": "minimal, line-based, consistent stroke width"
+    }
+  }
+}

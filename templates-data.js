@@ -17,8 +17,8 @@ window.TEMPLATES_DATA = [
         "tier":  "business",
         "category":  "General Business",
         "status":  "In Progress",
-        "path":  "../Countrypolitan/business/index.html",
-        "preview":  "../Countrypolitan/business/assets/hero.jpg",
+        "path":  "./Projects/Countrypolitan/business/index.html",
+        "preview":  "./Projects/Countrypolitan/business/assets/hero.jpg",
         "updated":  "2026-02-02"
     },
     {
@@ -28,8 +28,8 @@ window.TEMPLATES_DATA = [
         "tier":  "starter",
         "category":  "General Business",
         "status":  "In Progress",
-        "path":  "../Countrypolitan/starter/index.html",
-        "preview":  "../Countrypolitan/business/assets/collection1.jpg",
+        "path":  "./Projects/Countrypolitan/starter/index.html",
+        "preview":  "./Projects/Countrypolitan/business/assets/collection1.jpg",
         "updated":  "2026-02-02"
     },
     {
@@ -61,8 +61,8 @@ window.TEMPLATES_DATA = [
         "tier":  "custom",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../DonutPalace-main/index.html",
-        "preview":  "../DonutPalace-main/1.webp",
+        "path":  "./Projects/DonutPalace-main/index.html",
+        "preview":  "./Projects/DonutPalace-main/1.webp",
         "updated":  "2026-01-29"
     },
     {
@@ -72,8 +72,8 @@ window.TEMPLATES_DATA = [
         "tier":  "custom",
         "category":  "General Business",
         "status":  "In Progress",
-        "path":  "../inventory-management-app/templates/index.html",
-        "preview":  "../inventory-management-app/PreviewImage.bmp",
+        "path":  "./Projects/inventory-management-app/templates/index.html",
+        "preview":  "./Projects/inventory-management-app/PreviewImage.bmp",
         "updated":  "2026-02-11"
     },
     {
@@ -83,8 +83,8 @@ window.TEMPLATES_DATA = [
         "tier":  "business",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../Joe Snuffy_s Old Fashioned Grill/business/index.html",
-        "preview":  "../Joe Snuffy_s Old Fashioned Grill/business/assets/images/rustic-diner-interior-01.jpg",
+        "path":  "./Projects/Joe Snuffy_s Old Fashioned Grill/business/index.html",
+        "preview":  "./Projects/Joe Snuffy_s Old Fashioned Grill/business/assets/images/rustic-diner-interior-01.jpg",
         "updated":  "2026-02-08"
     },
     {
@@ -94,8 +94,8 @@ window.TEMPLATES_DATA = [
         "tier":  "premium",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../Joe Snuffy_s Old Fashioned Grill/premium/index.html",
-        "preview":  "../Joe Snuffy_s Old Fashioned Grill/premium/assets/images/high-resolution-cooking-scene-01.jpg",
+        "path":  "./Projects/Joe Snuffy_s Old Fashioned Grill/premium/index.html",
+        "preview":  "./Projects/Joe Snuffy_s Old Fashioned Grill/premium/assets/images/high-resolution-cooking-scene-01.jpg",
         "updated":  "2026-02-09"
     },
     {
@@ -105,8 +105,8 @@ window.TEMPLATES_DATA = [
         "tier":  "custom",
         "category":  "Local Business",
         "status":  "In Progress",
-        "path":  "../Material Girls Quilt Shop/index.html",
-        "preview":  "../Material Girls Quilt Shop/HeroQuilt.jpg",
+        "path":  "./Projects/Material Girls Quilt Shop/index.html",
+        "preview":  "./Projects/Material Girls Quilt Shop/HeroQuilt.jpg",
         "updated":  "2026-02-05"
     },
     {
@@ -116,8 +116,8 @@ window.TEMPLATES_DATA = [
         "tier":  "starter",
         "category":  "Local Business",
         "status":  "In Progress",
-        "path":  "../Material Girls Quilt Shop/starter/index.html",
-        "preview":  "../Material Girls Quilt Shop/starter/media/HeroQuilt.jpg",
+        "path":  "./Projects/Material Girls Quilt Shop/starter/index.html",
+        "preview":  "./Projects/Material Girls Quilt Shop/starter/media/HeroQuilt.jpg",
         "updated":  "2026-02-02"
     },
     {
@@ -127,8 +127,8 @@ window.TEMPLATES_DATA = [
         "tier":  "custom",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../The Cheeze Factory/DesktopDesignerDashBoard/index.html",
-        "preview":  "../The Cheeze Factory/premium/CheezeFactoryLogo.png",
+        "path":  "./Projects/The Cheeze Factory/DesktopDesignerDashBoard/index.html",
+        "preview":  "./Projects/The Cheeze Factory/premium/CheezeFactoryLogo.png",
         "updated":  "2026-02-02"
     },
     {
@@ -138,8 +138,8 @@ window.TEMPLATES_DATA = [
         "tier":  "premium",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../The Cheeze Factory/premium/index.html",
-        "preview":  "../The Cheeze Factory/premium/CheezeFactoryLogo.png",
+        "path":  "./Projects/The Cheeze Factory/premium/index.html",
+        "preview":  "./Projects/The Cheeze Factory/premium/CheezeFactoryLogo.png",
         "updated":  "2026-02-11"
     },
     {
@@ -149,7 +149,7 @@ window.TEMPLATES_DATA = [
         "tier":  "starter",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../The Flower Box/starter/index.html",
+        "path":  "./Projects/The Flower Box/starter/index.html",
         "preview":  "./forgeai-logo.png",
         "updated":  "2026-02-02"
     },
@@ -160,7 +160,7 @@ window.TEMPLATES_DATA = [
         "tier":  "starter",
         "category":  "Local Business",
         "status":  "In Progress",
-        "path":  "../The Hair Emporium/starter/index.html",
+        "path":  "./Projects/The Hair Emporium/starter/index.html",
         "preview":  "./forgeai-logo.png",
         "updated":  "2026-02-02"
     },
@@ -171,8 +171,8 @@ window.TEMPLATES_DATA = [
         "tier":  "custom",
         "category":  "Sports \u0026 Entertainment",
         "status":  "In Progress",
-        "path":  "../The Killing Floor King/index.html",
-        "preview":  "../The Killing Floor King/assets/gage-1.jpg",
+        "path":  "./Projects/The Killing Floor King/index.html",
+        "preview":  "./Projects/The Killing Floor King/assets/gage-1.jpg",
         "updated":  "2026-02-05"
     },
     {

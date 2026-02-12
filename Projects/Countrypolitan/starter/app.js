@@ -1,0 +1,1 @@
+let slides=document.querySelectorAll('#carousel .slide');let current=0;function showSlide(index){slides.forEach((s,i)=>{s.style.display=i===index?'block':'none';});}showSlide(0);setInterval(()=>{current=(current+1)%slides.length;showSlide(current);},4000);

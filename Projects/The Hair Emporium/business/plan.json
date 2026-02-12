@@ -1,0 +1,48 @@
+{
+  "summary": "A comprehensive, polished website for The Hair Emporium that elevates brand identity, showcases a full-service salon and boutique, and provides a seamless booking experience with modern, responsive design.",
+  "pages": [
+    "Home",
+    "About",
+    "Services",
+    "Boutique",
+    "Booking",
+    "Gallery",
+    "Testimonials",
+    "Blog",
+    "Contact",
+    "FAQ",
+    "Careers"
+  ],
+  "sections": [
+    "Hero Banner",
+    "Brand Story",
+    "Team Highlights",
+    "Service Categories",
+    "Boutique Highlights",
+    "Client Transformations",
+    "Special Offers",
+    "Booking CTA",
+    "Gallery Carousel",
+    "Testimonials Carousel",
+    "Blog Highlights",
+    "FAQ Accordion",
+    "Contact Form",
+    "Footer",
+    "Social Media Feed"
+  ],
+  "style_notes": "Modern, clean aesthetic with a warm color palette (deep navy, muted gold, soft cream). Typography: serif headline (Playfair Display) paired with sans-serif body (Open Sans). High-resolution lifestyle photography with natural lighting. Consistent iconography (flat line icons) for services. Responsive grid layout, minimalistic whitespace, subtle hover effects, and a prominent booking button. Accessibility: WCAG AA contrast, alt text for all images, keyboard navigation.",
+  "assets_needed": [
+    "High-resolution hero image of salon interior",
+    "Portraits of stylists and staff",
+    "Service icons (haircut, nails, massage, tanning, eyelash, boutique items)",
+    "Boutique product photography",
+    "Gallery images of before/after styles",
+    "Video clips of salon ambience",
+    "Logo variations (color, monochrome)",
+    "Typography files (Playfair Display, Open Sans)",
+    "FAQ icon set",
+    "Contact form icons",
+    "Social media icons",
+    "Print-ready brochures for cross-promotion"
+  ]
+}

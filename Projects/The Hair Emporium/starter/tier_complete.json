@@ -1,0 +1,14 @@
+{
+  "tier": "starter",
+  "company": "The Hair Emporium",
+  "created_files": [
+    "index.html",
+    "services.html",
+    "boutique.html",
+    "about.html",
+    "contact.html",
+    "styles.css",
+    "script.js"
+  ],
+  "summary": "Starter tier website for The Hair Emporium \u2013 a minimal, fast\u2011loading multi\u2011page site featuring a clean design, key sections, and essential business information."
+}

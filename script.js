@@ -10,6 +10,7 @@ const neoConfirmInput = document.getElementById("neoConfirmInput");
 const neoConfirmMeta = document.getElementById("neoConfirmMeta");
 const neoConfirmSubmit = document.getElementById("neoConfirmSubmit");
 const neoWalkStage = document.getElementById("neoWalkStage");
+const neoWalkBgVideo = document.getElementById("neoWalkBgVideo");
 const neoWalkMatrix = document.getElementById("neoWalkMatrix");
 const neoWalkVideo = document.getElementById("neoWalkVideo");
 const neoWalkPhase = document.getElementById("neoWalkPhase");
@@ -410,6 +411,11 @@ function showNeoAboutStage() {
 }
 
 function finishReturnToHome() {
+  if (neoWalkBgVideo) {
+    neoWalkBgVideo.pause();
+    neoWalkBgVideo.currentTime = 0;
+  }
+
   if (neoWalkVideo) {
     neoWalkVideo.pause();
     neoWalkVideo.currentTime = 0;
@@ -652,6 +658,12 @@ function startWalkPlayback() {
   if (neoConfirmMeta) neoConfirmMeta.textContent = "Installing project NEO...";
   neoWalkStage.hidden = false;
   startWalkMatrixRain();
+
+  if (neoWalkBgVideo) {
+    neoWalkBgVideo.currentTime = 0;
+    neoWalkBgVideo.play().catch(() => {});
+  }
+
   neoWalkVideo.muted = false;
   neoWalkVideo.volume = 1;
 

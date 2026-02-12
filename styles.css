@@ -254,28 +254,6 @@ body.neo-mode .scene {
   box-shadow: 0 0 14px rgba(108, 255, 143, 0.26);
 }
 
-.library-link {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 0.38rem;
-  padding: 0.36rem 0.58rem;
-  text-decoration: none;
-  border: 1px solid rgba(128, 255, 162, 0.34);
-  background: rgba(18, 29, 22, 0.78);
-  color: #d8ffe2;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.62rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-}
-
-.library-link:hover,
-.library-link:focus-visible {
-  border-color: rgba(160, 255, 187, 0.82);
-  color: #ecfff0;
-  box-shadow: 0 0 14px rgba(108, 255, 143, 0.26);
-}
-
 .book {
   position: relative;
   height: min(80vh, 780px);
@@ -703,23 +681,6 @@ body.neo-mode .scene {
   border-bottom-color: rgba(12, 30, 21, 0.7);
 }
 
-.controls-library-link {
-  display: inline-block;
-  margin-top: 0.35rem;
-  color: #173527;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.62rem;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(23, 53, 39, 0.45);
-}
-
-.controls-library-link:hover,
-.controls-library-link:focus-visible {
-  color: #0c1e15;
-  border-bottom-color: rgba(12, 30, 21, 0.7);
-}
-
 .nav-btn {
   position: relative;
   overflow: hidden;
@@ -1077,6 +1038,19 @@ body.neo-mode .scene {
   display: grid;
   place-items: center;
   background: #020202;
+}
+
+.neo-walk-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  filter: none;
+  pointer-events: none;
 }
 
 .neo-walk-matrix {

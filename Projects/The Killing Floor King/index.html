@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Killing Floor King</title>
+    <meta
+      name="description"
+      content="The Killing Floor King: dark, sinister, and absurdly talented. A three.js powered experience." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="stage" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">The Killing Floor King</div>
+      <nav class="top-links">
+        <button class="jump" data-jump="0">Origin</button>
+        <button class="jump" data-jump="1">Alter Egos</button>
+        <button class="jump" data-jump="2">Creations</button>
+        <button class="jump" data-jump="3">Legend</button>
+      </nav>
+    </header>
+
+    <main class="viewport">
+      <div id="panels" style="--page: 0;">
+        <section class="panel hero" data-index="0">
+          <div class="content">
+            <p class="eyebrow">Dark. Sinister. Slightly unhinged.</p>
+            <h1>The Killing Floor King</h1>
+            <p class="lead">
+              I am Gage: Killing Floor EXPERT, owner of the band <span>License 2 Kill</span>,
+              multiple Garry's Mod map drops, and the creator of the legendary
+              <span>Banana Hammock Ellis</span>.
+            </p>
+            <div class="cta-row">
+              <button class="cta jump" data-jump="2">See the Creations</button>
+              <button class="ghost jump" data-jump="3">Hear the Lore</button>
+            </div>
+            <div class="stats">
+              <div>
+                <span class="stat-num">3</span>
+                <span class="stat-label">Personalities</span>
+              </div>
+              <div>
+                <span class="stat-num">∞</span>
+                <span class="stat-label">Map Energy</span>
+              </div>
+              <div>
+                <span class="stat-num">1</span>
+                <span class="stat-label">Gummy Bear Throne</span>
+              </div>
+            </div>
+          </div>
+          <aside class="sidecard">
+            <h2>Power Titles</h2>
+            <ul>
+              <li>Im a Killing Floor EXPERT</li>
+              <li>The owner of the band License 2 Kill</li>
+              <li>Multiple maps released for Garry's Mod</li>
+              <li>THE CREATOR OF BANANA HAMMOCK ELLIS!</li>
+              <li>Certified Gummy Bear Owner</li>
+            </ul>
+            <p class="joke">Yes, the gummy bears are unionized. No, they do not take orders.</p>
+          </aside>
+        </section>
+
+        <section class="panel personas" data-index="1">
+          <div class="content">
+            <h2>Three Faces of Gage</h2>
+            <p class="lead">
+              Each personality is a different vibe. Same chaos. Same talent. Different amounts of sleep.
+            </p>
+            <div class="persona-grid">
+              <figure class="flip-card">
+                <button class="flip-inner" type="button" aria-label="Flip card for personality one">
+                  <span class="flip-face flip-front">
+                    <img src="assets/gage-1.jpg" alt="Gage personality one" loading="lazy" />
+                    <span class="flip-title">Level-Headed Strategist (mostly).</span>
+                  </span>
+                  <span class="flip-face flip-back">
+                    <span class="flip-joke">Runs on black coffee and map patch notes. Still smiles.</span>
+                  </span>
+                </button>
+              </figure>
+              <figure class="flip-card">
+                <button class="flip-inner" type="button" aria-label="Flip card for personality two">
+                  <span class="flip-face flip-front">
+                    <img src="assets/gage-2.jpg" alt="Gage personality two" loading="lazy" />
+                    <span class="flip-title">Meme General. Morale officer. Fearless.</span>
+                  </span>
+                  <span class="flip-face flip-back">
+                    <span class="flip-joke">Invented 3 new emotes and 12 new enemies before lunch.</span>
+                  </span>
+                </button>
+              </figure>
+              <figure class="flip-card">
+                <button class="flip-inner" type="button" aria-label="Flip card for personality three">
+                  <span class="flip-face flip-front">
+                    <img src="assets/gage-3.jpg" alt="Gage personality three" loading="lazy" />
+                    <span class="flip-title">Night Ops Commander. Also fixes your UI.</span>
+                  </span>
+                  <span class="flip-face flip-back">
+                    <span class="flip-joke">Silently judging your loadout. He is correct.</span>
+                  </span>
+                </button>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel creations" data-index="2">
+          <div class="content">
+            <h2>Creation Vault</h2>
+            <p class="lead">
+              Custom maps, mods, and designs that hit harder than a Scrake on Hell on Earth.
+            </p>
+            <div class="cards">
+              <article class="card">
+                <h3>Steam Workshop Drops</h3>
+                <ul class="links">
+                  <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2818691692" target="_blank" rel="noreferrer">Paranoia Lane</a></li>
+                  <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2755863776" target="_blank" rel="noreferrer">Grim Cargo</a></li>
+                  <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2838874933" target="_blank" rel="noreferrer">Obsidian Passage</a></li>
+                  <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2929630788" target="_blank" rel="noreferrer">Bloodline Station</a></li>
+                  <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2840970841" target="_blank" rel="noreferrer">Ritual Forge</a></li>
+                </ul>
+              </article>
+              <article class="card">
+                <h3>Other Weapons</h3>
+                <p>
+                  I build worlds, then I build the menus that scare you before you even spawn. The kind of
+                  UI you hear in the dark.
+                </p>
+                <p class="joke">I also install fear as a service. Subscription optional.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel lore" data-index="3">
+          <div class="content">
+            <h2>Origin Story</h2>
+            <p class="lead">
+              I came from a small rural town. I was miserable until I met my papa Taylor, the legendary
+              Tribes player. I mowed his lawn as an epic side hustle to make dough. Now I am a multibillionaire
+              who takes care of my gun-enthusiast, Tribes-legend papa.
+            </p>
+            <div class="cta-band">
+              <div>
+                <h3>Need a map that feels like a boss fight?</h3>
+                <p>Bring the chaos. I will bring the geometry, the jokes, and the darkness.</p>
+              </div>
+              <button class="cta">Summon The King</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <nav class="pager" aria-label="Section navigation">
+      <button class="dot" data-jump="0" aria-label="Go to Origin"></button>
+      <button class="dot" data-jump="1" aria-label="Go to Alter Egos"></button>
+      <button class="dot" data-jump="2" aria-label="Go to Creations"></button>
+      <button class="dot" data-jump="3" aria-label="Go to Legend"></button>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-02-08T21:34:17",
+  "items": [
+    {
+      "query": "high-resolution cooking scene",
+      "path": "assets/images/high-resolution-cooking-scene-01.jpg",
+      "filename": "high-resolution-cooking-scene-01.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T21:33:09"
+    },
+    {
+      "query": "signature dish close-up",
+      "path": "assets/images/signature-dish-close-up-01.jpg",
+      "filename": "signature-dish-close-up-01.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T21:34:14"
+    },
+    {
+      "query": "signature dish close-up",
+      "path": "assets/images/signature-dish-close-up-02.jpg",
+      "filename": "signature-dish-close-up-02.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T21:34:16"
+    },
+    {
+      "query": "signature dish close-up",
+      "path": "assets/images/signature-dish-close-up-03.jpg",
+      "filename": "signature-dish-close-up-03.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T21:34:17"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "summary": "Premium, high\u2011end website plan for Joe Snuffy\u2019s Old Fashioned Grill featuring restrained typography, warm color palette, subtle motion, and conversion\u2011focused sections. The design uses two carefully chosen web fonts, a clear typographic scale, and modern CSS patterns to deliver a polished, fast, and accessible experience.",
+  "pages": [
+    "Home",
+    "Menu",
+    "Reservations",
+    "About"
+  ],
+  "sections": [
+    {
+      "page": "Home",
+      "order": 1,
+      "name": "Hero",
+      "description": "Full\u2011width, cinematic background with a headline, sub\u2011headline, and primary CTA to reserve. Subtle parallax and fade\u2011in motion."
+    },
+    {
+      "page": "Home",
+      "order": 2,
+      "name": "Trust Proof",
+      "description": "Awards, local press logos, and 5\u2011star review snippets displayed in a horizontal carousel with micro\u2011hover lift."
+    },
+    {
+      "page": "Home",
+      "order": 3,
+      "name": "Featured Offerings",
+      "description": "Three\u2011column card grid showcasing signature dishes with glassmorphic overlays and hover\u2011scale."
+    },
+    {
+      "page": "Home",
+      "order": 4,
+      "name": "Chef Spotlight",
+      "description": "Portrait with animated text reveal, background gradient, and a short video clip of cooking."
+    },
+    {
+      "page": "Home",
+      "order": 5,
+      "name": "Testimonials",
+      "description": "Vertical carousel of customer quotes with subtle slide\u2011in animation and star rating icons."
+    },
+    {
+      "page": "Home",
+      "order": 6,
+      "name": "Conversion CTA",
+      "description": "Sticky reservation form with auto\u2011focus fields, inline validation, and a subtle progress bar."
+    },
+    {
+      "page": "Home",
+      "order": 7,
+      "name": "Footer",
+      "description": "Contact info, social links, quick navigation, and a newsletter sign\u2011up with micro\u2011interaction."
+    },
+    {
+      "page": "Menu",
+      "order": 1,
+      "name": "Menu Overview",
+      "description": "Tab\u2011based layout for Breakfast, Lunch, and Specials with collapsible sections."
+    },
+    {
+      "page": "Menu",
+      "order": 2,
+      "name": "Dish Detail",
+      "description": "Hover card with ingredient list, nutritional info, and a subtle 3D tilt."
+    },
+    {
+      "page": "Reservations",
+      "order": 1,
+      "name": "Reservation Form",
+      "description": "Step\u2011by\u2011step wizard with calendar picker, time slots, and confirmation modal."
+    },
+    {
+      "page": "About",
+      "order": 1,
+      "name": "Our Story",
+      "description": "Timeline with parallax images, text blocks, and a micro\u2011animation for each milestone."
+    }
+  ],
+  "style_notes": "Fonts: Display \u2013 Playfair Display (serif, weight 700), Body \u2013 Inter (sans\u2011serif, weight 400). Typographic scale (6 steps): H1 \u2013 96\u202fpx, H2 \u2013 72\u202fpx, H3 \u2013 48\u202fpx, H4 \u2013 32\u202fpx, Body \u2013 18\u202fpx, Caption \u2013 14\u202fpx. Color story: #1C1C1C (charcoal), #D4A63F (warm amber), #F5F5F5 (neutral off\u2011white). Contrast: minimum 4.5:1 for body, 7:1 for headings. Spacing rhythm: base 8\u202fpx grid, use multiples (8, 16, 24, 32). Motion style: 200\u202fms ease\u2011in\u2011out for hover lifts, 400\u202fms for scroll\u2011triggered fades, micro\u2011animations only on interactive elements.",
+  "assets_needed": [
+    "High\u2011resolution hero background (cooking scene)",
+    "Images of signature dishes (3\u20135)",
+    "Chef portrait and short video clip",
+    "Local press logos (PDF or PNG)",
+    "5\u2011star review screenshots or icons",
+    "Calendar picker mockup for reservations",
+    "Icon set (star ratings, social media)",
+    "Custom gradient textures (amber over charcoal)",
+    "Micro\u2011interaction animation assets (SVGs for hover effects)"
+  ]
+}
