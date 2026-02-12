@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gift Registry – Cypress Bridge Candle Co.</title>
+<meta name="description" content="Create a gift registry for weddings, birthdays, or special occasions. Add your favorite candles and décor to a shared list.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gift_registry.html" class="active">Gift Registry</a>
+  </nav>
+</header>
+<main>
+  <section class="registry-form" aria-label="Gift Registry Form">
+    <h1>Create Your Registry</h1>
+    <form id="registry-form" action="#" method="post">
+      <label for="registry-name">Registry Name</label>
+      <input type="text" id="registry-name" name="registryName" required>
+      <label for="registry-email">Email</label>
+      <input type="email" id="registry-email" name="registryEmail" required>
+      <div class="registry-items">
+        <h2>Items</h2>
+        <div class="item" data-item-id="1">
+          <img src="assets/logo.png" alt="Lavender Serenity">
+          <p>Lavender Serenity</p>
+          <input type="number" name="quantity1" value="1" min="1">
+        </div>
+        <div class="item" data-item-id="2">
+          <img src="assets/logo.png" alt="Cozy Fireside">
+          <p>Cozy Fireside</p>
+          <input type="number" name="quantity2" value="1" min="1">
+        </div>
+        <!-- More items can be added dynamically -->
+      </div>
+      <button type="submit" class="btn primary">Save Registry</button>
+    </form>
+  </section>
+</main>
+<footer class="footer">
+  <p>&copy; 2026 Cypress Bridge Candle Co.</p>
+</footer>
+<script>
+// Placeholder registry save
+document.getElementById('registry-form').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Registry saved!');
+});
+</script>
+</body>
+</html>

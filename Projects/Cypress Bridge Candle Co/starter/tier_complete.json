@@ -1,0 +1,13 @@
+{
+  "tier": "starter",
+  "company": "Cypress Bridge Candle Co.",
+  "created_files": [
+    "index.html",
+    "shop.html",
+    "about.html",
+    "contact.html",
+    "styles.css",
+    "app.js"
+  ],
+  "summary": "A minimal, responsive starter website for Cypress Bridge Candle Co., featuring a warm color palette, hero banner, product carousel, brief about section, customer testimonial, contact details with embedded map, and social media links."
+}

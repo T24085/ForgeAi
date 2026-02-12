@@ -1,0 +1,39 @@
+{
+  "summary": "Premium tier website for Abilene Downtown Antique Mall featuring high\u2011quality visuals, immersive animations, comprehensive dealer and inventory content, robust SEO strategy, lead capture forms, and optional integrations with social media and local event calendars.",
+  "pages": [
+    "Home",
+    "About Us",
+    "Dealers",
+    "Inventory",
+    "Gallery",
+    "Events",
+    "Blog",
+    "FAQs",
+    "Contact"
+  ],
+  "sections": [
+    "Hero with parallax animation and tagline overlay",
+    "About Us \u2013 history, mission, team bios",
+    "Dealers \u2013 interactive directory with filters and profile cards",
+    "Inventory \u2013 searchable catalog with high\u2011res images, video tours, and purchase links",
+    "Gallery \u2013 full\u2011screen masonry layout with lightbox, animated hover effects",
+    "Events \u2013 calendar integration, RSVP widget, map with dealer locations",
+    "Blog \u2013 featured posts, author bios, SEO\u2011optimized categories",
+    "FAQs \u2013 accordion style, keyword\u2011rich answers",
+    "Contact \u2013 dynamic form, map, phone/email, social icons",
+    "Footer \u2013 quick links, newsletter signup, privacy policy, social feeds"
+  ],
+  "style_notes": "Use a warm, earthy color palette (deep browns, terracotta, muted gold) to reflect antiques. Incorporate handcrafted typography (serif with subtle flourishes) and custom iconography inspired by vintage signs. Animations should be subtle (fade\u2011in, slide\u2011up, scroll\u2011triggered parallax) to enhance storytelling without distracting. Mobile\u2011first responsive design with touch\u2011friendly interactions. Include micro\u2011interactions on buttons, form fields, and dealer profile reveals.",
+  "assets_needed": [
+    "High\u2011resolution images of the mall interior, exterior, and featured items",
+    "Professional videos for 360\u00b0 dealer walkthroughs",
+    "Custom hand\u2011drawn icons for categories (furniture, glassware, signs, etc.)",
+    "Parallax background images for hero section",
+    "Typography files (primary serif + secondary sans\u2011serif)",
+    "SEO keyword research report for antique market & local search terms",
+    "Copywriting for dealer bios, blog posts, and landing pages",
+    "Lead capture form integration (Mailchimp/HubSpot) and privacy policy text",
+    "Event calendar data (JSON or API access)",
+    "Social media feeds (Facebook, Instagram) embed code"
+  ]
+}

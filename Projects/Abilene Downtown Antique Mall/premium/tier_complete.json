@@ -1,0 +1,18 @@
+{
+  "tier": "premium",
+  "company": "Abilene Downtown Antique Mall",
+  "created_files": [
+    "index.html",
+    "about.html",
+    "dealers.html",
+    "inventory.html",
+    "gallery.html",
+    "events.html",
+    "blog.html",
+    "faqs.html",
+    "contact.html",
+    "css/styles.css",
+    "js/app.js"
+  ],
+  "summary": "Premium tier website for Abilene Downtown Antique Mall showcasing high\u2011quality visuals, immersive parallax and scroll\u2011triggered animations, a comprehensive dealer and inventory catalog, a full\u2011screen gallery, event calendar with RSVP, SEO\u2011optimized blog, FAQs accordion, and dynamic contact form with Mailchimp integration. The site adopts a warm earthy palette, handcrafted serif typography, subtle micro\u2011interactions, and mobile\u2011first responsive design, ensuring an engaging, accessible experience across devices."
+}

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abilene Downtown Antique Mall | Timeless Finds in Kansas</title>
+<meta name="description" content="Explore Abilene Downtown Antique Mall, a 7,500+ sq. ft. destination for vintage furniture, collectibles, decor, and curated dealer finds." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f2ede5;
+    --surface: #f9f6f0;
+    --surface-alt: #efe6d8;
+    --ink: #1f1b16;
+    --muted: #62584b;
+    --line: #d7cab7;
+    --accent: #6c4b2f;
+    --accent-soft: #9a7652;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --wrap: min(1240px, calc(100vw - 2.4rem));
+    --shadow-1: 0 22px 52px rgba(40, 29, 17, 0.12);
+    --shadow-2: 0 12px 30px rgba(40, 29, 17, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+    color: var(--ink);
+    line-height: 1.65;
+    background:
+      radial-gradient(1200px 680px at 0% 0%, rgba(155, 117, 72, 0.12), transparent 60%),
+      radial-gradient(1000px 620px at 100% 0%, rgba(90, 66, 42, 0.1), transparent 62%),
+      var(--bg);
+  }
+
+  h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; line-height: 1.05; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; width: 100%; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(12px);
+    background: rgba(242, 237, 229, 0.86);
+    border-bottom: 1px solid rgba(215, 202, 183, 0.8);
+  }
+
+  .nav {
+    width: var(--wrap);
+    margin: 0 auto;
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+
+  .brand {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.25rem, 1.8vw, 1.8rem);
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .nav-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible { color: var(--accent); }
+
+  .visit-btn {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.62rem 1rem;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: #fff;
+    font-weight: 700;
+  }
+
+  main > section,
+  footer {
+    width: var(--wrap);
+    margin: 0 auto;
+  }
+
+  .hero {
+    margin-top: 1.1rem;
+    min-height: min(86vh, 840px);
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-1);
+    display: grid;
+    align-items: end;
+    background:
+      linear-gradient(118deg, rgba(17, 12, 7, 0.76), rgba(17, 12, 7, 0.2)),
+      url("https://picsum.photos/seed/antiquehall/1800/1200") center / cover no-repeat;
+  }
+
+  .hero-content {
+    margin: clamp(1rem, 2.8vw, 2rem);
+    padding: clamp(1.4rem, 3.4vw, 2.5rem);
+    width: min(780px, calc(100% - 2rem));
+    border-radius: var(--radius-lg);
+    background: linear-gradient(150deg, rgba(16, 11, 7, 0.78), rgba(16, 11, 7, 0.58));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fffaf2;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.32);
+  }
+
+  .kicker {
+    margin-bottom: 0.85rem;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #e8d7bc;
+    font-weight: 700;
+  }
+
+  .hero h1 { font-size: clamp(2.5rem, 5.4vw, 5rem); max-width: 12ch; }
+
+  .hero p {
+    margin-top: 0.95rem;
+    max-width: 58ch;
+    color: #e9dfd1;
+  }
+
+  .hero-actions {
+    margin-top: 1.3rem;
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #a8865f, #d2b288);
+    color: #1e130a;
+    border-color: rgba(255, 238, 209, 0.8);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.34);
+    color: #fff;
+  }
+
+  .hero-stats {
+    margin-top: 1.35rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.62rem;
+  }
+
+  .hero-stats div {
+    padding: 0.6rem 0.68rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(15, 10, 6, 0.44);
+  }
+
+  .hero-stats strong { display: block; font-size: 1rem; }
+  .hero-stats span {
+    display: block;
+    margin-top: 0.12rem;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #dccbb1;
+  }
+
+  .section { margin-top: clamp(2.4rem, 6vw, 5.5rem); }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-head h2 { font-size: clamp(1.9rem, 3.1vw, 3rem); }
+  .section-head p { max-width: 62ch; color: var(--muted); }
+
+  .story-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .panel {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: linear-gradient(165deg, #f7f1e6, #f2e8da);
+    padding: clamp(1.05rem, 2.1vw, 1.5rem);
+    box-shadow: var(--shadow-2);
+  }
+
+  .panel p { color: #53473a; }
+
+  .featured-grid,
+  .dealer-grid,
+  .gallery-grid,
+  .events-grid {
+    display: grid;
+    gap: 0.95rem;
+  }
+
+  .featured-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .dealer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .events-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+    box-shadow: var(--shadow-2);
+  }
+
+  .card-media {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .card-body { padding: 0.95rem; }
+  .card h3 { font-size: 1.5rem; }
+  .card p { margin-top: 0.35rem; color: var(--muted); }
+
+  .event-date {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid #d8c9b3;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6a5338;
+    font-weight: 700;
+    background: #f4ecdf;
+  }
+
+  .gallery-grid img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow-2);
+  }
+
+  .visit {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: var(--surface);
+    box-shadow: var(--shadow-1);
+  }
+
+  .visit img {
+    min-height: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .visit-content {
+    padding: clamp(1.2rem, 3vw, 2rem);
+    display: grid;
+    gap: 0.72rem;
+    align-content: center;
+  }
+
+  .visit-content h2 { font-size: clamp(2rem, 3vw, 2.7rem); }
+  .visit-content p { color: var(--muted); }
+
+  .hours {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.25rem;
+    color: #584a3c;
+  }
+
+  .newsletter {
+    margin-top: clamp(2.2rem, 5vw, 4.5rem);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, #f0e5d4, #ecddc8);
+    padding: clamp(1.1rem, 2.4vw, 1.8rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .newsletter h2 { font-size: clamp(1.8rem, 2.8vw, 2.4rem); }
+
+  .newsletter form {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+
+  .newsletter input {
+    min-height: 44px;
+    border: 1px solid #ccb89d;
+    border-radius: 999px;
+    padding: 0.65rem 0.8rem;
+    font: inherit;
+    min-width: min(320px, 100%);
+    background: #fff;
+  }
+
+  .site-footer {
+    margin-top: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(110, 84, 58, 0.2);
+    border-radius: var(--radius-lg);
+    background: #21170f;
+    color: #eadfcd;
+    padding: 1.2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .site-footer h3 {
+    font-size: 1.2rem;
+    color: #f4e8d5;
+    margin-bottom: 0.35rem;
+  }
+
+  .site-footer a { color: #dac4a5; }
+
+  .muted { color: #ceb89a; }
+
+  @media (max-width: 1060px) {
+    .featured-grid,
+    .dealer-grid,
+    .events-grid,
+    .gallery-grid,
+    .site-footer {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .visit {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 780px) {
+    .nav {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 0.6rem 0;
+    }
+
+    .story-layout,
+    .featured-grid,
+    .dealer-grid,
+    .events-grid,
+    .gallery-grid,
+    .hero-stats,
+    .site-footer {
+      grid-template-columns: 1fr;
+    }
+
+    .newsletter {
+      align-items: flex-start;
+    }
+
+    .newsletter form {
+      width: 100%;
+    }
+
+    .newsletter input {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#top">Abilene Downtown Antique Mall</a>
+    <ul class="nav-links">
+      <li><a href="#story">About</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#dealers">Dealers</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="visit-btn" href="#visit">Plan Visit</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Hero">
+    <div class="hero-content">
+      <p class="kicker">Historic Downtown Abilene, Kansas</p>
+      <h1>Where Timeless Pieces Find Their Next Home.</h1>
+      <p>
+        Explore over 7,500 square feet of curated antiques, vintage furniture, glassware,
+        signage, records, and one-of-a-kind collectibles from trusted local dealers.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#collections">Browse Collections</a>
+        <a class="btn btn-secondary" href="#dealers">Meet Our Dealers</a>
+      </div>
+      <div class="hero-stats" aria-label="Key details">
+        <div><strong>7,500+ sq ft</strong><span>Showroom Space</span></div>
+        <div><strong>15+ Dealers</strong><span>Curated Booths</span></div>
+        <div><strong>Weekly Finds</strong><span>Fresh Inventory</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="story">
+    <div class="section-head">
+      <h2>A Destination for Collectors and Curious Shoppers</h2>
+      <p>
+        From statement furniture to nostalgic décor, every aisle is arranged for discovery.
+        Our dealers specialize in quality, history, and pieces with personality.
+      </p>
+    </div>
+    <div class="story-layout">
+      <article class="panel">
+        <h3>Our Philosophy</h3>
+        <p>
+          We believe shopping for antiques should feel warm, inspiring, and personal. Every
+          booth reflects the distinct point of view of its dealer, creating a layered shopping
+          experience you cannot get from big-box stores.
+        </p>
+      </article>
+      <article class="panel">
+        <h3>What You Will Find</h3>
+        <p>
+          Vintage furniture, rustic farm pieces, collectible glass, retro signage, architectural
+          salvage, records, books, and decorative accents sourced from across the Midwest.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="collections">
+    <div class="section-head">
+      <h2>Featured Collections</h2>
+      <p>Premium categories with rotating inventory and dealer-curated displays.</p>
+    </div>
+    <div class="featured-grid">
+      <article class="card">
+        <img class="card-media" src="https://picsum.photos/seed/antique-furniture/900/700" alt="Vintage wood furniture display" loading="lazy" />
+        <div class="card-body">
+          <h3>Furniture & Case Goods</h3>
+          <p>Dressers, hutches, sideboards, and statement tables with character and craft.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card-media" src="https://picsum.photos/seed/antique-glassware/900/700" alt="Antique glassware and decor" loading="lazy" />
+        <div class="card-body">
+          <h3>Glass, Pottery & Decor</h3>
+          <p>Colorful glassware, ceramics, lamps, and home accents from multiple eras.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card-media" src="https://picsum.photos/seed/antique-signage/900/700" alt="Vintage signs and collectibles" loading="lazy" />
+        <div class="card-body">
+          <h3>Signs & Collectibles</h3>
+          <p>Advertising signs, memorabilia, and conversation pieces for serious collectors.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="dealers">
+    <div class="section-head">
+      <h2>Dealer Spotlights</h2>
+      <p>Hand-selected booths known for quality inventory and consistent sourcing.</p>
+    </div>
+    <div class="dealer-grid">
+      <article class="card">
+        <img class="card-media" src="https://picsum.photos/seed/dealer-one/900/700" alt="Dealer booth featuring vintage finds" loading="lazy" />
+        <div class="card-body">
+          <h3>Prairie Oak Finds</h3>
+          <p>Mid-century and farmhouse furniture with a focus on restoration quality.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card-media" src="https://picsum.photos/seed/dealer-two/900/700" alt="Dealer display with old records and books" loading="lazy" />
+        <div class="card-body">
+          <h3>Railroad Row Vintage</h3>
+          <p>Records, books, and ephemera sourced from estate sales across Kansas.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card-media" src="https://picsum.photos/seed/dealer-three/900/700" alt="Dealer booth with antique lighting and decor" loading="lazy" />
+        <div class="card-body">
+          <h3>Maple & Main Antiques</h3>
+          <p>Decorative lighting, mirrors, and smalls curated for layered interiors.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="events">
+    <div class="section-head">
+      <h2>Upcoming Events</h2>
+      <p>Seasonal market days and collector-focused showcases throughout the year.</p>
+    </div>
+    <div class="events-grid">
+      <article class="card">
+        <div class="card-body">
+          <span class="event-date">March 15, 2026</span>
+          <h3>Spring Treasure Weekend</h3>
+          <p>Fresh booth resets, extended hours, and featured dealer markdowns.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <span class="event-date">April 19, 2026</span>
+          <h3>Collector Meet-Up</h3>
+          <p>A vendor spotlight day built for enthusiasts and first-time collectors.</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <span class="event-date">May 24, 2026</span>
+          <h3>Downtown Vintage Crawl</h3>
+          <p>Partnered event with neighboring downtown shops and local food pop-ups.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="section-head">
+      <h2>Inside the Mall</h2>
+      <p>A visual look at the atmosphere, merchandising style, and current floor layout.</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="https://picsum.photos/seed/gallery-a/700/700" alt="Antique mall interior aisle" loading="lazy" />
+      <img src="https://picsum.photos/seed/gallery-b/700/700" alt="Vintage furniture corner" loading="lazy" />
+      <img src="https://picsum.photos/seed/gallery-c/700/700" alt="Collectible shelf details" loading="lazy" />
+      <img src="https://picsum.photos/seed/gallery-d/700/700" alt="Lighting and decor booth" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section visit" id="visit">
+    <img src="https://picsum.photos/seed/storefront/1200/900" alt="Abilene antique storefront style image" loading="lazy" />
+    <div class="visit-content">
+      <h2>Plan Your Visit</h2>
+      <p>
+        Located in the heart of downtown, our mall is an easy stop for local shoppers and road-trip
+        visitors exploring central Kansas.
+      </p>
+      <ul class="hours">
+        <li><strong>Address:</strong> 313 N Buckeye Ave, Abilene, KS 67410</li>
+        <li><strong>Phone:</strong> (785) 263-2782</li>
+        <li><strong>Hours:</strong> Mon-Sat 10:00 AM-6:00 PM, Sun 12:00 PM-5:00 PM</li>
+      </ul>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+17852632782">Call Now</a>
+        <a class="btn btn-secondary" href="mailto:info@abileneantiquemall.com">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter" aria-label="Newsletter signup">
+    <div>
+      <h2>Get New Arrivals First</h2>
+      <p>Monthly updates with featured finds, booth highlights, and special event dates.</p>
+    </div>
+    <form action="#" method="post">
+      <label class="visually-hidden" for="email">Email address</label>
+      <input id="email" type="email" name="email" placeholder="Enter your email" required />
+      <button class="btn btn-primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <section>
+    <h3>Abilene Downtown Antique Mall</h3>
+    <p class="muted">Timeless pieces, local dealers, and one-of-a-kind discoveries.</p>
+  </section>
+  <section>
+    <h3>Quick Links</h3>
+    <p><a href="#collections">Collections</a></p>
+    <p><a href="#dealers">Dealers</a></p>
+    <p><a href="#events">Events</a></p>
+  </section>
+  <section>
+    <h3>Connect</h3>
+    <p><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+    <p><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+    <p class="muted">&copy; 2026 Abilene Downtown Antique Mall</p>
+  </section>
+</footer>
+</body>
+</html>

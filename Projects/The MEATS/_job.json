@@ -1,0 +1,28 @@
+{
+  "job_id": "2026-02-09_195732_the-meats",
+  "company_name": "The MEATS",
+  "category": "Restaurant",
+  "build_type": "website",
+  "details": {
+    "tagline": "",
+    "address": "",
+    "phone": "",
+    "hours": "",
+    "services": [],
+    "notes": "This website is all about the meats. It needs fancy buttons crazy flashing effects nice transitions and more. Add jokes about Meat."
+  },
+  "software": {
+    "project_type": "",
+    "platform": "",
+    "stack": "",
+    "features": "",
+    "prompt": ""
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "media_dir": "media"
+  },
+  "status": "running",
+  "created_at": "2026-02-09T19:57:32"
+}

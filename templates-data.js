@@ -1,4 +1,4 @@
-﻿window.TEMPLATES_DATA = [
+window.TEMPLATES_DATA = [
     {
         "id":  "abilene-downtown-antique-mall-premium-premium",
         "name":  "Abilene Downtown Antique Mall",
@@ -6,8 +6,8 @@
         "tier":  "premium",
         "category":  "Local Business",
         "status":  "In Progress",
-        "path":  "../Abilene Downtown Antique Mall/premium/index.html",
-        "preview":  "../Abilene Downtown Antique Mall/premium/PreviewImage.bmp",
+        "path":  "./Projects/Abilene Downtown Antique Mall/premium/index.html",
+        "preview":  "./Projects/Abilene Downtown Antique Mall/premium/PreviewImage.bmp",
         "updated":  "2026-02-11"
     },
     {
@@ -39,8 +39,8 @@
         "tier":  "premium",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../Cypress Bridge Candle Co/premium/index.html",
-        "preview":  "../Cypress Bridge Candle Co/premium/PreviewImage.bmp",
+        "path":  "./Projects/Cypress Bridge Candle Co/premium/index.html",
+        "preview":  "./Projects/Cypress Bridge Candle Co/premium/PreviewImage.bmp",
         "updated":  "2026-02-11"
     },
     {
@@ -50,8 +50,8 @@
         "tier":  "starter",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../Cypress Bridge Candle Co/starter/index.html",
-        "preview":  "../Cypress Bridge Candle Co/premium/assets/logo.png",
+        "path":  "./Projects/Cypress Bridge Candle Co/starter/index.html",
+        "preview":  "./Projects/Cypress Bridge Candle Co/premium/assets/logo.png",
         "updated":  "2026-02-01"
     },
     {
@@ -182,8 +182,9 @@
         "tier":  "premium",
         "category":  "Food \u0026 Retail",
         "status":  "In Progress",
-        "path":  "../The MEATS/premium/index.html",
-        "preview":  "../The MEATS/premium/The Meats banner.png",
+        "path":  "./Projects/The MEATS/premium/index.html",
+        "preview":  "./Projects/The MEATS/premium/The Meats banner.png",
         "updated":  "2026-02-11"
     }
 ];
+

@@ -1,0 +1,801 @@
+{
+  "colors": {
+    "brand": {
+      "gold": {
+        "400": "#D4AF37",
+        "500": "#C5A028",
+        "600": "#B08D1F",
+        "700": "#967A1B",
+        "hex": "#D4AF37",
+        "name": "Gold Premium",
+        "contrast": "#FFFFFF"
+      },
+      "ruby": {
+        "400": "#8B0000",
+        "500": "#7B0000",
+        "600": "#6B0000",
+        "700": "#5B0000",
+        "hex": "#8B0000",
+        "name": "Ruby Red",
+        "contrast": "#FFFFFF"
+      }
+    },
+    "neutral": {
+      "black": {
+        "950": "#050505",
+        "900": "#0A0A0A",
+        "800": "#0F0F0F",
+        "700": "#1A1A1A",
+        "600": "#262626",
+        "500": "#333333",
+        "400": "#4A4A4A",
+        "300": "#666666",
+        "200": "#888888",
+        "100": "#B3B3B3",
+        "50": "#E5E5E5",
+        "0": "#FFFFFF",
+        "hex": "#0F0F0F",
+        "name": "Charcoal Deep"
+      },
+      "warm": {
+        "900": "#1A1510",
+        "800": "#252019",
+        "700": "#352F25",
+        "600": "#4A3F34",
+        "500": "#5A4F45",
+        "400": "#736462",
+        "300": "#8A7B79",
+        "200": "#A59392",
+        "100": "#C4B8B6",
+        "50": "#E4D9D7",
+        "0": "#FFFFFF",
+        "hex": "#0F0F0F",
+        "name": "Warm Neutral"
+      },
+      "accent": {
+        "gold_glow": "rgba(212, 175, 55, 0.15)",
+        "ruby_glow": "rgba(139, 0, 0, 0.15)",
+        "highlight": "#E4D9D7"
+      }
+    },
+    "semantic": {
+      "background": {
+        "primary": "var(--color-neutral-black-900)",
+        "secondary": "var(--color-neutral-warm-800)",
+        "tertiary": "var(--color-neutral-black-800)",
+        "surface": "var(--color-neutral-warm-700)"
+      },
+      "text": {
+        "primary": "var(--color-neutral-white)",
+        "secondary": "var(--color-neutral-warm-200)",
+        "tertiary": "var(--color-neutral-warm-400)",
+        "inverse": "var(--color-neutral-black-900)"
+      },
+      "border": {
+        "primary": "var(--color-neutral-warm-600)",
+        "secondary": "var(--color-neutral-warm-500)",
+        "subtle": "rgba(255, 255, 255, 0.08)"
+      },
+      "action": {
+        "primary": "var(--color-brand-gold-500)",
+        "primary-hover": "var(--color-brand-gold-600)",
+        "secondary": "var(--color-brand-ruby-500)",
+        "secondary-hover": "var(--color-brand-ruby-600)"
+      }
+    }
+  },
+  "typography": {
+    "display": {
+      "font": "Playfair Display",
+      "weights": {
+        "400": "400",
+        "500": "500",
+        "600": "600",
+        "700": "700",
+        "800": "800",
+        "900": "900"
+      },
+      "families": [
+        "\"Playfair Display\", serif",
+        "system-ui, -apple-system, sans-serif"
+      ],
+      "spacing": {
+        "tight": "0.4em",
+        "normal": "1em",
+        "relaxed": "1.6em",
+        "loose": "2.4em"
+      }
+    },
+    "body": {
+      "font": "DM Sans",
+      "weights": {
+        "400": "400",
+        "500": "500",
+        "600": "600"
+      },
+      "families": [
+        "\"DM Sans\", sans-serif",
+        "system-ui, -apple-system, sans-serif"
+      ],
+      "spacing": {
+        "tight": "0.3em",
+        "normal": "1.6em",
+        "relaxed": "2.4em"
+      }
+    },
+    "scale": [
+      {
+        "step": "xs",
+        "label": "Caption",
+        "size": "0.75rem",
+        "line_height": "1.375",
+        "weight": "400",
+        "spacing_top:": "0.25em",
+        "spacing_bottom:": "0.25em",
+        "contrast": "text-tertiary"
+      },
+      {
+        "step": "sm",
+        "label": "Small",
+        "size": "0.875rem",
+        "line_height": "1.6",
+        "weight": "400",
+        "spacing_top:": "0.375em",
+        "spacing_bottom:": "0.375em",
+        "contrast": "text-tertiary"
+      },
+      {
+        "step": "base",
+        "label": "Base",
+        "size": "1rem",
+        "line_height": "1.6",
+        "weight": "400",
+        "spacing_top:": "0.375em",
+        "spacing_bottom:": "0.375em",
+        "contrast": "text-secondary"
+      },
+      {
+        "step": "lg",
+        "label": "Large",
+        "size": "1.125rem",
+        "line_height": "1.7",
+        "weight": "400",
+        "spacing_top:": "0.5em",
+        "spacing_bottom:": "0.5em",
+        "contrast": "text-secondary"
+      },
+      {
+        "step": "xl",
+        "label": "Extra Large",
+        "size": "1.375rem",
+        "line_height": "1.5",
+        "weight": "400",
+        "spacing_top:": "0.625em",
+        "spacing_bottom:": "0.625em",
+        "contrast": "text-secondary"
+      },
+      {
+        "step": "2xl",
+        "label": "Display",
+        "size": "2.75rem",
+        "line_height": "1.1",
+        "weight": "600",
+        "spacing_top:": "0.875em",
+        "spacing_bottom:": "0.875em",
+        "spacing_bottom": "0.875em",
+        "contrast": "text-primary",
+        "max_width": "60ch"
+      },
+      {
+        "step": "3xl",
+        "label": "Hero",
+        "size": "4rem",
+        "line_height": "1.15",
+        "weight": "700",
+        "spacing_top:": "1em",
+        "spacing_bottom:": "1em",
+        "spacing_bottom": "1em",
+        "contrast": "text-primary",
+        "max_width": "70ch"
+      }
+    ]
+  },
+  "spacing": {
+    "base": "0.5rem",
+    "scale": [
+      {
+        "step": "0",
+        "label": "Extra Tight",
+        "value": "0.25rem"
+      },
+      {
+        "step": "1",
+        "label": "Tight",
+        "value": "0.5rem"
+      },
+      {
+        "step": "2",
+        "label": "Compact",
+        "value": "0.75rem"
+      },
+      {
+        "step": "3",
+        "label": "Normal",
+        "value": "1rem"
+      },
+      {
+        "step": "4",
+        "label": "Spacious",
+        "value": "1.5rem"
+      },
+      {
+        "step": "5",
+        "label": "Comfortable",
+        "value": "2rem"
+      },
+      {
+        "step": "6",
+        "label": "Relaxed",
+        "value": "3rem"
+      },
+      {
+        "step": "8",
+        "label": "Expansive",
+        "value": "4rem"
+      },
+      {
+        "step": "12",
+        "label": "Generous",
+        "value": "6rem"
+      },
+      {
+        "step": "16",
+        "label": "Massive",
+        "value": "8rem"
+      }
+    ],
+    "section": {
+      "narrow": "6rem",
+      "wide": "12rem",
+      "extra_wide": "16rem"
+    }
+  },
+  "radius": {
+    "scale": [
+      {
+        "step": "0",
+        "label": "Sharp",
+        "value": "0px"
+      },
+      {
+        "step": "1",
+        "label": "Slight",
+        "value": "4px"
+      },
+      {
+        "step": "2",
+        "label": "Soft",
+        "value": "8px"
+      },
+      {
+        "step": "3",
+        "label": "Smooth",
+        "value": "12px"
+      },
+      {
+        "step": "4",
+        "label": "Rounded",
+        "value": "16px"
+      },
+      {
+        "step": "5",
+        "label": "Full",
+        "value": "9999px"
+      }
+    ],
+    "components": {
+      "button": "var(--radius-smooth)",
+      "card": "var(--radius-smooth)",
+      "input": "var(--radius-smooth)",
+      "avatar": "var(--radius-full)"
+    }
+  },
+  "shadow": {
+    "scale": [
+      {
+        "step": "0",
+        "label": "None",
+        "value": "0px 0px 0px 0px rgba(0, 0, 0, 0)",
+        "color": "transparent"
+      },
+      {
+        "step": "1",
+        "label": "Subtle",
+        "value": "0px 1px 2px 0px rgba(0, 0, 0, 0.3)",
+        "color": "rgba(0, 0, 0, 0.3)"
+      },
+      {
+        "step": "2",
+        "label": "Light",
+        "value": "0px 4px 6px -1px rgba(0, 0, 0, 0.4), 0px 2px 4px -1px rgba(0, 0, 0, 0.2)",
+        "color": "rgba(0, 0, 0, 0.4)"
+      },
+      {
+        "step": "3",
+        "label": "Medium",
+        "value": "0px 10px 15px -3px rgba(0, 0, 0, 0.5), 0px 4px 6px -2px rgba(0, 0, 0, 0.3)",
+        "color": "rgba(0, 0, 0, 0.5)"
+      },
+      {
+        "step": "4",
+        "label": "Strong",
+        "value": "0px 20px 25px -5px rgba(0, 0, 0, 0.6), 0px 10px 10px -5px rgba(0, 0, 0, 0.4)",
+        "color": "rgba(0, 0, 0, 0.6)"
+      },
+      {
+        "step": "5",
+        "label": "Glow",
+        "value": "0px 0px 40px -5px rgba(212, 175, 55, 0.25), 0px 10px 20px -5px rgba(0, 0, 0, 0.5)",
+        "color": "rgba(212, 175, 55, 0.25)",
+        "direction": "gold"
+      }
+    ],
+    "components": {
+      "elevated": "var(--shadow-medium)",
+      "floating": "var(--shadow-strong)",
+      "glowing": "var(--shadow-glow)",
+      "card_default": "var(--shadow-subtle)"
+    }
+  },
+  "motion": {
+    "hero_animations": [
+      {
+        "name": "Hero Text Reveal",
+        "type": "text_animation",
+        "stages": [
+          {
+            "name": "Fade Up",
+            "duration": "0.8s",
+            "delay": "0ms",
+            "opacity": "0",
+            "transform": "translateY(30px)",
+            "ease": "ease-out"
+          },
+          {
+            "name": "Text Reveal",
+            "duration": "0.8s",
+            "delay": "200ms",
+            "opacity": "1",
+            "transform": "translateY(0)",
+            "ease": "ease-out"
+          }
+        ],
+        "loop": false,
+        "infinite": false
+      },
+      {
+        "name": "Staggered Elements",
+        "type": "stagger",
+        "elements": [
+          "logo",
+          "tagline",
+          "cta",
+          "nav"
+        ],
+        "duration": "0.6s",
+        "delay_base": "300ms",
+        "delay_step": "150ms",
+        "ease": "ease-out"
+      }
+    ],
+    "micro_interactions": [
+      {
+        "name": "Button Hover",
+        "type": "hover",
+        "target": "buttons",
+        "transform": "translateY(-3px) scale(1.02)",
+        "box_shadow": "var(--shadow-glow)",
+        "duration": "300ms",
+        "easing": "ease-out"
+      },
+      {
+        "name": "Card Lift",
+        "type": "hover",
+        "target": "cards",
+        "transform": "translateY(-8px)",
+        "box_shadow": "var(--shadow-elevated)",
+        "duration": "400ms",
+        "easing": "ease-out"
+      },
+      {
+        "name": "Image Parallax",
+        "type": "parallax",
+        "speed": "0.3",
+        "direction": "vertical",
+        "duration": "200ms"
+      }
+    ],
+    "page_transitions": [
+      {
+        "name": "Page Load",
+        "type": "page_transition",
+        "stages": [
+          {
+            "name": "Preloader Fade Out",
+            "duration": "600ms",
+            "opacity": "1",
+            "ease": "ease-in"
+          },
+          {
+            "name": "Content Reveal",
+            "duration": "1200ms",
+            "delay": "300ms",
+            "stagger": "100ms",
+            "ease": "ease-out"
+          }
+        ],
+        "initial_state": "opacity: 0; transform: translateY(20px);"
+      }
+    ],
+    "scroll_animations": [
+      {
+        "name": "Fade Up on Scroll",
+        "type": "scroll_reveal",
+        "threshold": "0.15",
+        "duration": "800ms",
+        "delay": "0ms",
+        "transform": "translateY(40px) scale(0.98)",
+        "opacity": "0",
+        "ease": "ease-out"
+      },
+      {
+        "name": "Staggered Sections",
+        "type": "scroll_stagger",
+        "threshold": "0.1",
+        "duration": "600ms",
+        "delay_base": "0ms",
+        "delay_step": "100ms"
+      }
+    ],
+    "state_animations": [
+      {
+        "name": "Focus State",
+        "type": "focus",
+        "target": "interactive_elements",
+        "ring_width": "2px",
+        "ring_color": "var(--color-brand-gold-500)",
+        "ring_offset": "3px",
+        "duration": "200ms",
+        "ease": "ease-out"
+      },
+      {
+        "name": "Active Press",
+        "type": "active",
+        "target": "interactive_elements",
+        "transform": "translateY(2px) scale(0.98)",
+        "duration": "150ms",
+        "ease": "ease-in"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "type": "action",
+      "variant": "gold",
+      "base": {
+        "padding_vertical": "0.875rem 2rem",
+        "padding_horizontal": "2rem",
+        "border_radius": "var(--radius-smooth)",
+        "background": "linear-gradient(135deg, var(--color-brand-gold-500) 0%, var(--color-brand-gold-700) 100%)",
+        "color": "var(--color-neutral-white)",
+        "font_family": "var(--font-body)",
+        "font_weight": "600",
+        "font_size": "var(--font-size-lg)",
+        "letter_spacing": "0.025em",
+        "border": "2px solid transparent",
+        "cursor": "pointer",
+        "transition": "all var(--duration-micro) var(--easing-ease-out)"
+      },
+      "hover": {
+        "transform": "translateY(-2px)",
+        "box_shadow": "var(--shadow-glow)",
+        "background": "linear-gradient(135deg, var(--color-brand-gold-600) 0%, var(--color-brand-gold-500) 100%)"
+      },
+      "active": {
+        "transform": "translateY(0)",
+        "box_shadow": "var(--shadow-medium)"
+      },
+      "disabled": {
+        "opacity": "0.4",
+        "cursor": "not-allowed",
+        "transform": "none"
+      }
+    },
+    {
+      "name": "Secondary Button",
+      "type": "action",
+      "variant": "ruby",
+      "base": {
+        "padding_vertical": "0.875rem 2rem",
+        "padding_horizontal": "2rem",
+        "border_radius": "var(--radius-smooth)",
+        "background": "var(--color-brand-ruby-600)",
+        "color": "var(--color-neutral-white)",
+        "font_family": "var(--font-body)",
+        "font_weight": "600",
+        "font_size": "var(--font-size-lg)",
+        "letter_spacing": "0.025em",
+        "border": "2px solid var(--color-brand-ruby-600)",
+        "cursor": "pointer",
+        "transition": "all var(--duration-micro) var(--easing-ease-out)"
+      },
+      "hover": {
+        "background": "var(--color-brand-ruby-700)",
+        "border_color": "var(--color-brand-ruby-500)",
+        "transform": "translateY(-2px)",
+        "box_shadow": "var(--shadow-glow)"
+      },
+      "active": {
+        "transform": "translateY(0)",
+        "box_shadow": "var(--shadow-medium)"
+      }
+    },
+    {
+      "name": "Ghost Button",
+      "type": "action",
+      "variant": "ghost",
+      "base": {
+        "padding_vertical": "0.625rem 1.5rem",
+        "padding_horizontal": "1.5rem",
+        "border_radius": "var(--radius-smooth)",
+        "background": "transparent",
+        "color": "var(--color-brand-gold-400)",
+        "font_family": "var(--font-body)",
+        "font_weight": "500",
+        "font_size": "var(--font-size-base)",
+        "letter_spacing": "0.025em",
+        "border": "1px solid var(--color-brand-gold-500)",
+        "cursor": "pointer",
+        "transition": "all var(--duration-micro) var(--easing-ease-out)"
+      },
+      "hover": {
+        "background": "var(--color-brand-gold-glow)",
+        "color": "var(--color-brand-gold-400)"
+      }
+    },
+    {
+      "name": "Card Glass",
+      "type": "content",
+      "variant": "glass",
+      "base": {
+        "padding": "2rem",
+        "border_radius": "var(--radius-smooth)",
+        "background": "rgba(26, 21, 16, 0.6)",
+        "backdrop_filter": "blur(12px)",
+        "-webkit_backdrop_filter": "blur(12px)",
+        "border": "1px solid var(--color-neutral-subtle)",
+        "box_shadow": "var(--shadow-subtle)",
+        "overflow": "hidden"
+      },
+      "elevated": {
+        "background": "rgba(37, 32, 25, 0.7)",
+        "backdrop_filter": "blur(16px)",
+        "border": "1px solid rgba(212, 175, 55, 0.2)",
+        "box_shadow": "var(--shadow-elevated)"
+      }
+    },
+    {
+      "name": "Navigation Bar",
+      "type": "navigation",
+      "variant": "top",
+      "base": {
+        "position": "fixed",
+        "top": "0",
+        "left": "0",
+        "right": "0",
+        "z_index": "1000",
+        "padding_vertical": "1rem 2rem",
+        "padding_horizontal": "2rem",
+        "background": "rgba(15, 15, 15, 0.85)",
+        "backdrop_filter": "blur(20px)",
+        "-webkit_backdrop_filter": "blur(20px)",
+        "border_bottom": "1px solid var(--color-neutral-subtle)",
+        "display": "flex",
+        "align_items": "center",
+        "justify_content": "space-between",
+        "transition": "all var(--duration-micro) var(--easing-ease-out)"
+      },
+      "compact": {
+        "padding_vertical": "0.625rem 2rem",
+        "padding_horizontal": "2rem"
+      }
+    },
+    {
+      "name": "Hero Section",
+      "type": "layout",
+      "variant": "hero",
+      "base": {
+        "min_height": "100vh",
+        "display": "flex",
+        "align_items": "center",
+        "justify_content": "center",
+        "position": "relative",
+        "overflow": "hidden"
+      },
+      "content": {
+        "max_width": "70ch",
+        "z_index": "2",
+        "animation": "hero-reveal 1.2s var(--easing-ease-out) forwards"
+      },
+      "overlay": {
+        "position": "absolute",
+        "inset": "0",
+        "background": "linear-gradient(to bottom, rgba(15, 15, 15, 0.3) 0%, rgba(15, 15, 15, 0.7) 100%)",
+        "z_index": "1"
+      }
+    },
+    {
+      "name": "Input Field",
+      "type": "form",
+      "variant": "default",
+      "base": {
+        "width": "100%",
+        "padding_vertical": "0.875rem 1.25rem",
+        "padding_horizontal": "1.25rem",
+        "border_radius": "var(--radius-smooth)",
+        "background": "var(--color-neutral-warm-900)",
+        "border": "1px solid var(--color-neutral-warm-600)",
+        "color": "var(--color-neutral-white)",
+        "font_family": "var(--font-body)",
+        "font_size": "var(--font-size-base)",
+        "font_weight": "400",
+        "line_height": "1.6",
+        "transition": "all var(--duration-micro) var(--easing-ease-out)"
+      },
+      "focus": {
+        "border_color": "var(--color-brand-gold-500)",
+        "box_shadow": "0 0 0 3px var(--color-brand-gold-glow)",
+        "outline": "none"
+      },
+      "error": {
+        "border_color": "var(--color-brand-ruby-500)",
+        "box_shadow": "0 0 0 3px rgba(139, 0, 0, 0.15)"
+      }
+    },
+    {
+      "name": "Grid Layout",
+      "type": "layout",
+      "variant": "default",
+      "base": {
+        "display": "grid",
+        "gap": "2rem",
+        "width": "100%",
+        "max_width": "1200px",
+        "margin": "0 auto"
+      },
+      "grid_template": {
+        "1_col": "repeat(1, 1fr)",
+        "2_col": "repeat(2, 1fr)",
+        "3_col": "repeat(3, 1fr)",
+        "4_col": "repeat(4, 1fr)",
+        "responsive": "repeat(auto-fit, minmax(300px, 1fr))"
+      }
+    }
+  ],
+  "voice": "The MEATS presents itself as an artisanal meat experience that transcends ordinary dining. The brand voice balances sophistication with approachability, treating meat preparation as both science and art. Language focuses on craftsmanship, heritage, and the sensory experience of quality meat. Conversational but elevated, with subtle humor about meat culture woven throughout. Avoids foodie clich\u00e9s, instead emphasizing authenticity and intentional detail. Every interaction reinforces the premium, exclusive nature of the experience.",
+  "imagery": {
+    "guidelines": {
+      "style": "cinematic, high-contrast, warm-toned",
+      "lighting": "studio, natural, moody with controlled exposure",
+      "color_balance": "warm highlights, deep shadows",
+      "composition": "rule of thirds, negative space, leading lines",
+      "aspect_ratio": "16:9 for hero, 4:3 for feature, 1:1 for social"
+    },
+    "color_tone": {
+      "primary": {
+        "target": "food, meat, ingredients",
+        "colors": [
+          "warm",
+          "rich",
+          "vibrant"
+        ],
+        "examples": [
+          "roasted beef",
+          "smoked brisket",
+          "marbled steak",
+          "grilled char"
+        ]
+      },
+      "secondary": {
+        "target": "atmosphere, ambiance, space",
+        "colors": [
+          "dark",
+          "elegant",
+          "muted"
+        ],
+        "examples": [
+          "dim restaurant lighting",
+          "smoke effect",
+          "chef's prep area",
+          "wine cellar"
+        ]
+      },
+      "accent": {
+        "target": "details, textures",
+        "colors": [
+          "gold",
+          "amber",
+          "rust"
+        ],
+        "examples": [
+          "seasoned cuts",
+          "grill marks",
+          "copper cookware",
+          "gold accents"
+        ]
+      }
+    },
+    "moodboard": {
+      "keywords": [
+        "premium",
+        "artisanal",
+        "charismatic",
+        "rugged",
+        "sophisticated",
+        "meat-focused",
+        "chef-driven",
+        "restaurant-quality",
+        "sizzling",
+        "marbling",
+        "grilling",
+        "charcoal",
+        "rustic-industrial",
+        "warm-luxury",
+        "meat-lover",
+        "artisan-craft",
+        "smokehouse",
+        "steakhouse",
+        "culinary-experience"
+      ]
+    },
+    "composition_rules": [
+      {
+        "name": "Leading Lines",
+        "description": "Use lines to guide focus to main subjects - grill marks, knife edges, plating lines",
+        "apply_to": "meat preparation, plated dishes"
+      },
+      {
+        "name": "Negative Space",
+        "description": "Allow room for each element to breathe, especially in premium presentation",
+        "apply_to": "hero, feature cards, menu items"
+      },
+      {
+        "name": "Color Contrast",
+        "description": "Ensure meat tones stand out against background - warm vs cool, light vs dark",
+        "apply_to": "all food photography"
+      },
+      {
+        "name": "Depth of Field",
+        "description": "Use shallow DOF for hero shots, sharp for detailed menu items",
+        "apply_to": "different image types"
+      }
+    ],
+    "exclusion": [
+      "blurred, low-quality, overly saturated, harsh flash, white balance issues, overexposed highlights, underexposed shadows, watermarks, text overlays, people in non-restaurant settings"
+    ],
+    "priority_order": [
+      "hero_image_cinematic",
+      "premium_meat_plate_high-res",
+      "meat_cut_closeup_1",
+      "meat_cut_closeup_2",
+      "chef_cooking_image",
+      "restaurant_interior",
+      "testimonial_avatar_1",
+      "testimonial_avatar_2",
+      "testimonial_avatar_3",
+      "logo_mark_white",
+      "logo_mark_gold"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+/* Base Reset */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;color:#4b3b2f;background:#faf8f3;line-height:1.6;}
+/* Colors */
+:root{--primary:#8b5c34;--secondary:#d4af37;--accent:#c48f52;--bg:#faf8f3;--text:#4b3b2f;--gray:#999;}
+/* Typography */
+h1,h2,h3{font-family:'Playfair Display',serif;}
+/* Layout */
+.site-header{background:rgba(0,0,0,0.6);position:fixed;top:0;width:100%;z-index:1000;}
+.nav ul{display:flex;justify-content:center;list-style:none;}
+.nav a{color:#fff;padding:1rem 1.5rem;text-decoration:none;font-weight:600;}
+.nav a.active{background:var(--secondary);}
+.hero{height:100vh;background:url('/assets/hero1.jpg') center/cover no-repeat;position:relative;overflow:hidden;}
+.hero__overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;}
+.hero__title{font-size:3rem;margin-bottom:.5rem;}
+.hero__tagline{font-size:1.5rem;margin-bottom:1.5rem;}
+.btn{display:inline-block;padding:.75rem 1.5rem;border:none;border-radius:4px;cursor:pointer;font-weight:600;transition:background .3s ease;} .btn-primary{background:var(--primary);color:#fff;} .btn-primary:hover{background:var(--secondary);} .btn-secondary{background:var(--secondary);color:#fff;} .btn-secondary:hover{background:var(--accent);}
+/* Sections */
+section{padding:4rem 2rem;max-width:1200px;margin:auto;}
+/* Dealer Grid */
+.dealer-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+.dealer-card{background:#fff;padding:1.5rem;border-radius:6px;box-shadow:0 2px 5px rgba(0,0,0,.1);transform:scale(1);transition:transform .3s;} .dealer-card:hover{transform:scale(1.03);}
+/* Catalog */
+.catalog{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+.catalog-item{background:#fff;padding:1rem;border-radius:6px;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+.catalog-item img{width:100%;height:auto;border-radius:4px;}
+/* FAQ */
+.faq-item{margin-bottom:1rem;border-bottom:1px solid var(--gray);} .faq-question{background:none;border:none;width:100%;text-align:left;padding:.75rem;font-size:1rem;color:var(--text);cursor:pointer;} .faq-answer{display:none;padding:.5rem 1rem;color:var(--gray);}
+/* Footer */
+.site-footer{background:#222;color:#fff;padding:2rem;text-align:center;font-size:.9rem;} .site-footer a{color:var(--secondary);text-decoration:none;} .site-footer a:hover{color:var(--accent);}
+/* Responsive */
+@media(min-width:768px){.hero__title{font-size:4rem;} .hero__tagline{font-size:2rem;}}
+
+
+/* Web IDE targeted edit */
+/* Style for the events list inside the h2 */
+.event-list{list-style:none;padding:0;margin:0.5rem 0 0 0;}
+.event-list li{margin-bottom:0.4rem;font-size:0.9rem;color:#555;}
+
+
+/* Web IDE targeted edit */
+.flashy-btn{animation: flash 1.5s infinite; border: 2px solid #ff0; border-radius: 5px; transition: transform 0.3s;}
+.flashy-btn:hover{transform: scale(1.05);}
+@keyframes flash{0%,100%{box-shadow:0 0 10px #ff0; transform: translateY(0);}50%{box-shadow:0 0 20px #ff0; transform: translateY(-3px);}}
+
+
+/* Web IDE targeted edit */
+.typing{display:inline-block;overflow:hidden;white-space:nowrap;border-right:.15em solid #ff5733;animation:typing 3.5s steps(40,end),blink-caret .75s step-end infinite;}@keyframes typing{from{width:0}to{width:100%}}@keyframes blink-caret{from, to{border-color:transparent}50%{border-color:#ff5733}}
+

@@ -1,0 +1,26 @@
+{
+  "summary": "A quick, clean starter website for Cypress Bridge Candle Co., featuring a warm, minimal layout with essential pages and sections to showcase hand\u2011poured candles and gift items, plus easy contact access.",
+  "pages": [
+    "Home",
+    "Shop",
+    "About",
+    "Contact"
+  ],
+  "sections": [
+    "Hero banner with tagline and primary CTA",
+    "Featured products carousel",
+    "About us brief section",
+    "Testimonials or customer quote",
+    "Contact details & map",
+    "Social media links"
+  ],
+  "style_notes": "Warm, earthy color palette (amber, soft browns, cream). Use high\u2011resolution candle photography, subtle animations, responsive typography. Keep layout uncluttered with generous whitespace and easy navigation.",
+  "assets_needed": [
+    "Company logo (vector or PNG)",
+    "High\u2011resolution product photos (at least 4\u20136 key candles)",
+    "Background image for hero banner (e.g., candlelit scene)",
+    "Google Maps embed or map image for address",
+    "Social media icons",
+    "Optional: short video clip of candle pouring"
+  ]
+}

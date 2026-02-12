@@ -1,0 +1,22 @@
+{
+  "job_id": "2026-02-01_081354_abilene-downtown-antique-mall",
+  "company_name": "Abilene Downtown Antique Mall",
+  "category": "Thrift Store",
+  "details": {
+    "tagline": "",
+    "address": "Address: 313 N Buckeye Ave",
+    "phone": "(785) 263-2782",
+    "hours": "",
+    "services": [
+      "ultiple dealers offering primitives",
+      "furniture",
+      "glassware",
+      "signs",
+      "etc."
+    ],
+    "notes": "Abilene Downtown Antique Mall \u2013 Large antique mall (7,500+ sq. ft.) with multiple dealers offering primitives, furniture, glassware, signs, etc. Address: 313 N Buckeye Ave, Abilene, KS 67410. Phone: (785) 263-2782. Web Presence: No dedicated website (operates via a Facebook page)"
+  },
+  "status": "running",
+  "created_at": "2026-02-01T08:13:54",
+  "error": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=1800)"
+}

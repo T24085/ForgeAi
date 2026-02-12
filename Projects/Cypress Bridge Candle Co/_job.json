@@ -1,0 +1,21 @@
+{
+  "job_id": "2026-02-01_225525_cypress-bridge-candle-co.",
+  "company_name": "Cypress Bridge Candle Co.",
+  "category": "Retail",
+  "details": {
+    "tagline": "",
+    "address": "",
+    "phone": "",
+    "hours": "",
+    "services": [],
+    "notes": "Cypress Bridge Candle Co. \u2013 Sells hand-poured candles (since 2001) plus home d\u00e9cor and gifts. Address: 110 NW 3rd St, Abilene, KS 67410. Phone: (785) 263-1963. Web Presence: No website (active on Facebook only)"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "media_dir": "media"
+  },
+  "status": "running",
+  "created_at": "2026-02-01T22:55:25",
+  "error": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=1800)"
+}
