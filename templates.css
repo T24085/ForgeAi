@@ -26,6 +26,14 @@ body {
     linear-gradient(180deg, var(--bg), var(--bg-2));
 }
 
+body.lightbox-open {
+  overflow: hidden;
+}
+
+body.lightbox-open .library {
+  pointer-events: none;
+}
+
 .library {
   width: min(1240px, 94vw);
   margin: 2.2rem auto 3rem;
@@ -146,6 +154,25 @@ h1 {
 
 .templates-grid {
   display: grid;
+  gap: 1rem;
+}
+
+.templates-tier-section {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(8, 19, 13, 0.66), rgba(5, 11, 8, 0.84));
+  padding: 0.8rem;
+}
+
+.tier-heading {
+  margin: 0 0 0.75rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+.templates-tier-grid {
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 0.82rem;
 }
@@ -163,6 +190,19 @@ h1 {
   aspect-ratio: 16 / 10;
   background: #030705;
   overflow: hidden;
+}
+
+.thumb-button {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  text-align: inherit;
+  cursor: zoom-in;
+}
+
+.thumb-button:focus-visible {
+  outline: 2px solid var(--line-strong);
+  outline-offset: -2px;
 }
 
 .thumb-wrap img {
@@ -263,6 +303,67 @@ h1 {
 .empty-state {
   margin: 0.3rem 0 0;
   color: var(--muted);
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  pointer-events: auto;
+}
+
+.image-lightbox[hidden] {
+  display: none;
+}
+
+.image-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.image-lightbox__content {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: min(92vw, 1200px);
+  max-height: 92vh;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.image-lightbox__content img {
+  width: 100%;
+  min-height: 240px;
+  max-height: calc(92vh - 3.5rem);
+  object-fit: contain;
+  border: 1px solid var(--line);
+  background: #020603;
+}
+
+.image-lightbox__content figcaption {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.image-lightbox__close {
+  justify-self: end;
+  border: 1px solid var(--line);
+  background: rgba(6, 16, 11, 0.9);
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.64rem;
+  padding: 0.3rem 0.55rem;
+  cursor: pointer;
+}
+
+.image-lightbox__close:focus-visible {
+  outline: 2px solid var(--line-strong);
+  outline-offset: 2px;
 }
 
 @media (max-width: 1020px) {
