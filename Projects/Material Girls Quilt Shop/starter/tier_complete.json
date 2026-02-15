@@ -1,0 +1,12 @@
+{
+  "tier": "starter",
+  "company": "Material Girls Quilt Shop",
+  "created_files": [
+    "index.html",
+    "shop.html",
+    "about.html",
+    "contact.html",
+    "styles.css"
+  ],
+  "summary": "Fast-loading starter website for Material Girls Quilt Shop with minimal copy and core retail sections. Features include a hero banner with video, product showcase, about section, testimonial snippet, contact info, and social media links. Uses light pastel palette with warm typography and soft cotton-textured backgrounds."
+}
