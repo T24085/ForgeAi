@@ -1,0 +1,11 @@
+{
+  "tier": "premium",
+  "company": "The Cheeze Factory",
+  "created_files": [
+    "index.html",
+    "styles.css"
+  ],
+  "summary": "Recovered from strict HTML fallback.",
+  "critique_report": "critique_report.json",
+  "asset_metadata": ""
+}

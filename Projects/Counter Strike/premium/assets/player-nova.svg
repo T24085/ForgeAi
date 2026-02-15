@@ -1,0 +1,23 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#0b1210' />
+      <stop offset='100%' stop-color='#1b2a25' />
+    </linearGradient>
+    <radialGradient id='spot' cx='0.6' cy='0.2' r='0.8'>
+      <stop offset='0%' stop-color='#a78bfa' stop-opacity='0.45' />
+      <stop offset='100%' stop-color='#a78bfa' stop-opacity='0' />
+    </radialGradient>
+  </defs>
+  <rect width='800' height='1000' fill='url(#bg)' />
+  <rect width='800' height='1000' fill='url(#spot)' />
+  <g opacity='0.35' stroke='#82a39a' stroke-width='1'>
+    <path d='M0 120h800M0 240h800M0 360h800M0 480h800M0 600h800M0 720h800M0 840h800' />
+    <path d='M80 0v1000M240 0v1000M400 0v1000M560 0v1000M720 0v1000' />
+  </g>
+  <ellipse cx='400' cy='420' rx='210' ry='230' fill='#0a0f0d' stroke='#3f5b52' stroke-width='4' />
+  <circle cx='400' cy='320' r='88' fill='#16231f' stroke='#4b6f64' stroke-width='4' />
+  <rect x='292' y='430' width='216' height='290' rx='30' fill='#15211d' stroke='#4b6f64' stroke-width='4' />
+  <text x='48' y='920' fill='#a78bfa' font-size='92' font-family='Rajdhani, Arial, sans-serif' font-weight='700' letter-spacing='4'>NOVA</text>
+  <text x='50' y='970' fill='#9bb1aa' font-size='26' font-family='Manrope, Arial, sans-serif' letter-spacing='2'>NIGHTFALL ESPORTS</text>
+</svg>

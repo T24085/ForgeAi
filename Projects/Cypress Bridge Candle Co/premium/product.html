@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lavender Serenity – Product Detail – Cypress Bridge Candle Co.</title>
+<meta name="description" content="Explore the Lavender Serenity candle: hand‑poured soy wax, lavender essential oil, 8‑hour burn time. Shop now for a calming scent.">
+<link rel="stylesheet" href="styles.css">
+<script src="scripts.js" defer></script>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+  </nav>
+</header>
+<main>
+  <section class="product-detail" aria-label="Product Detail">
+    <div class="product-images">
+      <img src="assets/logo.png" alt="Lavender Serenity front" class="zoomable" id="main-image">
+      <div class="thumbnails">
+        <img src="assets/logo.png" alt="Front" data-target="main-image" class="thumb active">
+        <img src="assets/logo.png" alt="Side" data-target="main-image" class="thumb">
+        <img src="assets/logo.png" alt="Close‑up" data-target="main-image" class="thumb">
+      </div>
+    </div>
+    <div class="product-info">
+      <h1>Lavender Serenity</h1>
+      <p class="price">$29.99</p>
+      <p class="description">Scented with pure lavender essential oil, this soy candle offers an 8‑hour burn time and a subtle, comforting aroma.</p>
+      <div class="specs">
+        <p><strong>Wax Type:</strong> 100% soy</p>
+        <p><strong>Burn Time:</strong> 8 hours</p>
+        <p><strong>Weight:</strong> 8 oz</p>
+      </div>
+      <form id="add-to-cart" action="#" method="post">
+        <label for="quantity">Qty:</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1">
+        <button type="submit" class="btn primary">Add to Cart</button>
+      </form>
+      <div class="upsell">
+        <h3>Customers Also Bought</h3>
+        <div class="upsell-grid">
+          <div class="upsell-item"><img src="assets/logo.png" alt="Cozy Fireside"><p>Cozy Fireside</p></div>
+          <div class="upsell-item"><img src="assets/logo.png" alt="Fresh Citrus"><p>Fresh Citrus</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <p>&copy; 2026 Cypress Bridge Candle Co.</p>
+</footer>
+<script>
+// Thumbnail click handler
+document.querySelectorAll('.thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    const target = thumb.dataset.target;
+    const src = thumb.src;
+    document.getElementById(target).src = src;
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joe Snuffy's Old Fashioned Grill | Home-Style Breakfast & Lunch</title>
+    <meta
+      name="description"
+      content="Joe Snuffy's Old Fashioned Grill serves hearty breakfast and lunch classics with warm hospitality and small-town comfort."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f6f1e8;
+        --surface: #fffdf8;
+        --ink: #1f1711;
+        --muted: #66574a;
+        --brand: #944b2e;
+        --brand-soft: #bb7a56;
+        --line: #decebe;
+        --radius-lg: 24px;
+        --radius-md: 14px;
+        --wrap: min(1160px, calc(100vw - 2rem));
+        --shadow-soft: 0 20px 44px rgba(43, 27, 16, 0.12);
+        --shadow-card: 0 10px 24px rgba(24, 13, 7, 0.1);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(1000px 560px at 0% -6%, rgba(148, 75, 46, 0.12), transparent 60%),
+          radial-gradient(900px 520px at 100% -10%, rgba(102, 87, 74, 0.1), transparent 58%),
+          var(--bg);
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+
+      h1, h2, h3 { margin: 0; font-family: "Fraunces", Georgia, serif; line-height: 1.05; }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; width: 100%; }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(222, 206, 190, 0.85);
+        background: rgba(246, 241, 232, 0.9);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav {
+        width: var(--wrap);
+        margin: 0 auto;
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .logo {
+        font-size: clamp(1.1rem, 1.6vw, 1.55rem);
+        color: var(--brand);
+        letter-spacing: 0.02em;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        gap: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible { color: var(--brand); }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0.7rem 1.05rem;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .btn--primary {
+        background: linear-gradient(135deg, var(--brand), var(--brand-soft));
+        color: #fff;
+      }
+
+      .btn--ghost {
+        border-color: #ceb7a1;
+        color: #513f31;
+        background: #fff;
+      }
+
+      main > section,
+      footer {
+        width: var(--wrap);
+        margin: 0 auto;
+      }
+
+      .hero {
+        margin-top: 1rem;
+        min-height: min(84vh, 760px);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        display: grid;
+        align-items: end;
+        background:
+          linear-gradient(120deg, rgba(21, 12, 7, 0.72), rgba(21, 12, 7, 0.28)),
+          url("assets/images/rustic-diner-interior-01.jpg") center / cover no-repeat;
+      }
+
+      .hero-content {
+        margin: clamp(1rem, 2.6vw, 1.8rem);
+        padding: clamp(1.2rem, 3.2vw, 2rem);
+        width: min(720px, calc(100% - 2rem));
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: linear-gradient(150deg, rgba(16, 10, 7, 0.8), rgba(16, 10, 7, 0.54));
+        color: #fff8ef;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: #e7cfb5;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .hero h1 {
+        margin-top: 0.72rem;
+        font-size: clamp(2.2rem, 5vw, 4.2rem);
+        max-width: 14ch;
+      }
+
+      .hero p {
+        margin-top: 0.95rem;
+        max-width: 52ch;
+        color: #e4d8c8;
+      }
+
+      .hero-actions {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.62rem;
+      }
+
+      .section {
+        margin-top: clamp(2.2rem, 5.4vw, 4.8rem);
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
+      .section-head p { margin: 0; max-width: 60ch; color: var(--muted); }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.95rem;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+      }
+
+      .card img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 0.9rem;
+      }
+
+      .card h3 { font-size: 1.4rem; }
+      .card p { margin: 0.42rem 0 0; color: var(--muted); }
+
+      .menu-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .menu-panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        padding: 1rem;
+        box-shadow: var(--shadow-card);
+      }
+
+      .menu-panel h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.55rem;
+      }
+
+      .menu-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.62rem;
+      }
+
+      .menu-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        border-top: 1px solid #eadfd2;
+        padding-top: 0.6rem;
+      }
+
+      .menu-list li:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .price { color: var(--brand); font-weight: 700; white-space: nowrap; }
+
+      .cta-band {
+        margin-top: clamp(2rem, 5vw, 4rem);
+        border: 1px solid #d8c2aa;
+        border-radius: var(--radius-lg);
+        background: linear-gradient(145deg, #f0e4d5, #eadac6);
+        padding: clamp(1rem, 2.6vw, 1.6rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .cta-band h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+      .cta-band p { margin: 0.3rem 0 0; color: #5d4a3a; }
+
+      .footer {
+        margin-top: 2.2rem;
+        margin-bottom: 1.2rem;
+        border: 1px solid rgba(100, 79, 60, 0.2);
+        border-radius: var(--radius-lg);
+        background: #21180f;
+        color: #ebddcb;
+        padding: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer a { color: #eac9a9; }
+
+      @media (max-width: 960px) {
+        .grid-3,
+        .menu-layout {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 0.62rem 0;
+        }
+
+        .grid-3,
+        .menu-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-content {
+          width: calc(100% - 1.6rem);
+          margin: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#top" class="logo">Joe Snuffy's Old Fashioned Grill</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#favorites">Favorites</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+        <a class="btn btn--ghost" href="#visit">Reservations</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Since 1984 · Downtown Family Grill</p>
+          <h1>Old-Fashioned Flavor, Served Fresh Daily.</h1>
+          <p>
+            Joe Snuffy's is your neighborhood grill for hearty breakfasts, hand-pressed burgers,
+            classic comfort plates, and warm hospitality every day of the week.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#menu">View Menu</a>
+            <a class="btn btn--ghost" href="#visit">Plan Your Visit</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-head">
+          <h2>Built on Comfort and Community</h2>
+          <p>
+            From early-morning coffee to lunch rush classics, every plate is made to feel familiar,
+            filling, and worth coming back for.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <img src="assets/images/rustic-diner-interior-02.jpg" alt="Dining room seating" />
+            <div class="card-body">
+              <h3>Warm Atmosphere</h3>
+              <p>Cozy booths, friendly service, and a relaxed local feel.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/images/rustic-diner-interior-03.jpg" alt="Breakfast table setting" />
+            <div class="card-body">
+              <h3>Fresh Ingredients</h3>
+              <p>Simple, quality ingredients cooked with consistency and care.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/images/rustic-diner-interior-04.jpg" alt="Open kitchen scene" />
+            <div class="card-body">
+              <h3>Reliable Favorites</h3>
+              <p>Classic breakfast and lunch staples done right every day.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="menu">
+        <div class="section-head">
+          <h2>Popular Menu Picks</h2>
+          <p>Guest favorites that define the Joe Snuffy experience.</p>
+        </div>
+        <div class="menu-layout">
+          <article class="menu-panel">
+            <h3>Breakfast Classics</h3>
+            <ul class="menu-list">
+              <li><span>Country Breakfast Plate</span><span class="price">$12</span></li>
+              <li><span>Chicken Fried Steak & Eggs</span><span class="price">$14</span></li>
+              <li><span>Buttermilk Pancake Stack</span><span class="price">$10</span></li>
+              <li><span>Biscuits & Sausage Gravy</span><span class="price">$11</span></li>
+            </ul>
+          </article>
+          <article class="menu-panel">
+            <h3>Lunch Favorites</h3>
+            <ul class="menu-list">
+              <li><span>Snuffy Burger Basket</span><span class="price">$13</span></li>
+              <li><span>Patty Melt on Rye</span><span class="price">$12</span></li>
+              <li><span>Homestyle Chili Bowl</span><span class="price">$9</span></li>
+              <li><span>Grilled Chicken Sandwich</span><span class="price">$12</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="favorites">
+        <div class="section-head">
+          <h2>Guest Favorites</h2>
+          <p>Comfort-food staples made fresh and served fast.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <img src="assets/images/rustic-diner-interior-05.jpg" alt="Hearty breakfast platter" />
+            <div class="card-body">
+              <h3>Big Breakfast</h3>
+              <p>Eggs, bacon, hash browns, and toast stacked high.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/images/rustic-diner-interior-01.jpg" alt="Classic lunch plate" />
+            <div class="card-body">
+              <h3>Lunch Combo</h3>
+              <p>House burger, hand-cut fries, and pickle spear.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/images/rustic-diner-interior-04.jpg" alt="Coffee and pie" />
+            <div class="card-body">
+              <h3>Pie & Coffee</h3>
+              <p>A rotating pie slice and fresh-brewed coffee.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-band" id="visit">
+        <div>
+          <h2>Visit Joe Snuffy's Today</h2>
+          <p>Open daily for breakfast and lunch in the heart of town.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="tel:+17850000000">Call (785) 000-0000</a>
+          <a class="btn btn--ghost" href="mailto:hello@joesnuffysgrill.com">Email Us</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Joe Snuffy's Old Fashioned Grill</p>
+      <p>Comfort Food. Friendly Faces. Always Welcome.</p>
+      <p><a href="#top">Back to top</a></p>
+    </footer>
+  </body>
+</html>

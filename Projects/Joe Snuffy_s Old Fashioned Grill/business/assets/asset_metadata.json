@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-02-08T20:47:31",
+  "items": [
+    {
+      "query": "rustic diner interior",
+      "path": "assets/images/rustic-diner-interior-01.jpg",
+      "filename": "rustic-diner-interior-01.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T20:47:26"
+    },
+    {
+      "query": "rustic diner interior",
+      "path": "assets/images/rustic-diner-interior-02.jpg",
+      "filename": "rustic-diner-interior-02.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T20:47:27"
+    },
+    {
+      "query": "rustic diner interior",
+      "path": "assets/images/rustic-diner-interior-03.jpg",
+      "filename": "rustic-diner-interior-03.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T20:47:28"
+    },
+    {
+      "query": "rustic diner interior",
+      "path": "assets/images/rustic-diner-interior-04.jpg",
+      "filename": "rustic-diner-interior-04.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T20:47:30"
+    },
+    {
+      "query": "rustic diner interior",
+      "path": "assets/images/rustic-diner-interior-05.jpg",
+      "filename": "rustic-diner-interior-05.jpg",
+      "provider": "loremflickr",
+      "source_url": "https://loremflickr.com/cache/resized/defaultImage.small_1280_720_nofilter.jpg",
+      "license_note": "LoremFlickr aggregate placeholder source. Replace or verify licensing before client delivery.",
+      "retrieved_at": "2026-02-08T20:47:31"
+    }
+  ]
+}

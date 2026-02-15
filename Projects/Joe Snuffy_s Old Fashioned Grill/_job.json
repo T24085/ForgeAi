@@ -1,0 +1,20 @@
+{
+  "job_id": "2026-02-02_160003_joe-snuffy_s-old-fashioned-grill",
+  "company_name": "Joe Snuffy\u2019s Old Fashioned Grill",
+  "category": "Restaurant",
+  "details": {
+    "tagline": "",
+    "address": "",
+    "phone": "",
+    "hours": "",
+    "services": [],
+    "notes": "Joe Snuffy\u2019s Old Fashioned Grill \u2013 Beloved local diner known for comfort food, hearty breakfasts and lunches. Address: 209 W 1st St, Abilene, KS 67410. Phone: (785) 263-7802. Web Presence: No website (uses Facebook for updates)"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "media_dir": "media"
+  },
+  "status": "running",
+  "created_at": "2026-02-02T16:00:03"
+}

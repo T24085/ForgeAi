@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joe Snuffy’s Old Fashioned Grill – Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#hero" class="nav__logo">Joe Snuffy's Old Fashioned Grill</a>
+      <ul class="nav__list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero__content">
+        <h1 class="hero__title">Where Comfort Meets Tradition</h1>
+        <p class="hero__subtitle">Hearty breakfasts and lunches served with love.</p>
+        <a href="#reservations" class="btn btn--primary">Reserve a Table</a>
+      </div>
+    </section>
+
+    <!-- Trust Proof Section -->
+    <section id="trust" class="trust">
+      <h2 class="section-title">Recognized by the Community</h2>
+      <div class="trust__logos">
+        <img src="assets/images/high-resolution-cooking-scene-01.jpg" alt="Dining room atmosphere" />
+        <img src="assets/images/signature-dish-close-up-01.jpg" alt="Signature breakfast spread" />
+        <img src="assets/images/signature-dish-close-up-02.jpg" alt="Featured lunch dish" />
+      </div>
+      <div class="trust__reviews">
+        <blockquote>
+          <p>"Best comfort food in town!" – The Abilene Gazette</p>
+        </blockquote>
+        <blockquote>
+          <p>"A family favorite for decades." – Local Eats Magazine</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Featured Offerings Section -->
+    <section id="featured" class="featured">
+      <h2 class="section-title">Signature Dishes</h2>
+      <div class="featured__grid">
+        <article class="card">
+          <img src="assets/images/signature-dish-close-up-01.jpg" alt="Classic Breakfast Platter" class="card__image" />
+          <div class="card__overlay">
+            <h3 class="card__title">Breakfast Platter</h3>
+            <p class="card__desc">Scrambled eggs, bacon, and fresh fruit.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/signature-dish-close-up-02.jpg" alt="Hearty Burger" class="card__image" />
+          <div class="card__overlay">
+            <h3 class="card__title">Old‑School Burger</h3>
+            <p class="card__desc">Beef patty with cheddar, lettuce, and house sauce.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/images/signature-dish-close-up-03.jpg" alt="Signature Chili" class="card__image" />
+          <div class="card__overlay">
+            <h3 class="card__title">Signature Chili</h3>
+            <p class="card__desc">Slow‑cooked beef with beans and spices.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Chef Spotlight Section -->
+    <section id="chef" class="chef">
+      <h2 class="section-title">Meet the Chef</h2>
+      <div class="chef__content">
+        <img src="assets/images/high-resolution-cooking-scene-01.jpg" alt="Chef preparing dishes in the kitchen" class="chef__portrait" />
+        <div class="chef__bio">
+          <h3>Joe Snuffy</h3>
+          <p>With over 30 years of culinary experience, Joe brings passion and tradition to every plate.</p>
+          <p class="chef__note">From scratch batters, slow-cooked gravies, and classic griddle technique define the Joe Snuffy kitchen experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <h2 class="section-title">What Our Guests Say</h2>
+      <div class="testimonials__carousel" data-carousel>
+        <blockquote class="testimonial" data-slide>
+          <p>"The best breakfast in Abilene. Will come back for lunch too!"</p>
+          <cite>— Sarah L.</cite>
+          <div class="rating">★★★★★</div>
+        </blockquote>
+        <blockquote class="testimonial" data-slide>
+          <p>"Family-friendly, delicious, and affordable. A staple in our neighborhood."</p>
+          <cite>— Mark D.</cite>
+          <div class="rating">★★★★★</div>
+        </blockquote>
+        <blockquote class="testimonial" data-slide>
+          <p>"Joe’s chili is a must‑try. Warm and comforting."</p>
+          <cite>— Emily R.</cite>
+          <div class="rating">★★★★★</div>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Conversion CTA Section -->
+    <section id="reservations" class="reservation">
+      <h2 class="section-title">Reserve Your Table</h2>
+      <form id="reservation-form" class="reservation__form" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required />
+        <label for="time">Time</label>
+        <input type="time" id="time" name="time" required />
+        <label for="people">People</label>
+        <input type="number" id="people" name="people" min="1" max="20" required />
+        <button type="submit" class="btn btn--primary">Book Now</button>
+      </form>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <details>
+        <summary>Do you take same-day reservations?</summary>
+        <p>Yes. For parties under 6, same-day seating is usually available before 11:30 AM and after 1:30 PM.</p>
+      </details>
+      <details>
+        <summary>Do you offer family-style takeout?</summary>
+        <p>Yes. Family breakfast and lunch packs can be ordered by phone for pickup.</p>
+      </details>
+      <details>
+        <summary>Are there vegetarian options?</summary>
+        <p>We offer rotating vegetarian specials, veggie omelets, salads, and grilled sides daily.</p>
+      </details>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="footer">
+      <div class="footer__info">
+        <p>209 W 1st St, Abilene, KS 67410</p>
+        <p>Phone: (785) 263‑7802</p>
+        <p>Hours: Mon‑Sun 7am‑9pm</p>
+      </div>
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><svg class="icon icon-facebook"><use href="#icon-facebook"></use></svg></a>
+        <a href="#" aria-label="Instagram"><svg class="icon icon-instagram"><use href="#icon-instagram"></use></svg></a>
+      </div>
+      <div class="footer__newsletter">
+        <form id="newsletter-form" class="newsletter__form" novalidate>
+          <label for="newsletter-email" class="visually-hidden">Email</label>
+          <input type="email" id="newsletter-email" name="email" placeholder="Subscribe for updates" required />
+          <button type="submit" class="btn btn--secondary">Subscribe</button>
+        </form>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SVG Icons Sprite -->
+  <svg aria-hidden="true" style="display:none;">
+    <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.307.975.975 1.245 2.242 1.307 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.307 3.608-.975.975-2.242 1.245-3.608 1.307-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.307-.975-.975-1.245-2.242-1.307-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.332-2.633 1.307-3.608.975-.975 2.242-1.245 3.608-1.307C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.13 4.532.382 3.44 1.475 2.347 2.568 2.095 3.807 2.037 5.088 1.978 6.368 1.965 6.777 1.965 10.036s.013 3.668.072 4.948c.058 1.281.31 2.52 1.403 3.613 1.093 1.093 2.332 1.345 3.613 1.403 1.28.059 1.689.072 4.948.072s3.668-.013 4.948-.072c1.281-.058 2.52-.31 3.613-1.403 1.093-1.093 1.345-2.332 1.403-3.613.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948c-.058-1.281-.31-2.52-1.403-3.613-1.093-1.093-2.332-1.345-3.613-1.403C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></symbol>
+  </svg>
+</body>
+</html>

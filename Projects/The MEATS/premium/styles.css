@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --bg: #fbf7f1;
+  --surface: #fffdf9;
+  --ink: #1c1511;
+  --muted: #6d6058;
+  --brand: #a04a2d;
+  --brand-ink: #fff7f2;
+  --line: #e8ddd2;
+  --shadow-soft: 0 18px 42px rgba(49, 29, 17, 0.12);
+  --shadow-card: 0 10px 24px rgba(20, 12, 8, 0.08);
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --wrap: min(1120px, calc(100vw - 3rem));
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(160, 74, 45, 0.08), transparent 60%),
+    radial-gradient(900px 500px at 90% -10%, rgba(109, 96, 88, 0.12), transparent 55%),
+    var(--bg);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main > section,
+footer {
+  width: var(--wrap);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(8px);
+  background: rgba(251, 247, 241, 0.88);
+  border-bottom: 1px solid rgba(232, 221, 210, 0.7);
+}
+
+.nav {
+  width: var(--wrap);
+  margin: 0 auto;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 1.2vw + 0.9rem, 1.9rem);
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav__list a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.hero {
+  margin-top: 1.2rem;
+  min-height: clamp(420px, 70vh, 640px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  background:
+    linear-gradient(115deg, rgba(20, 12, 8, 0.67), rgba(20, 12, 8, 0.2)),
+    url("assets/images/rustic-diner-interior-01.jpg") center/cover no-repeat;
+  display: grid;
+  align-items: end;
+}
+
+.hero__content {
+  padding: clamp(2rem, 5vw, 4rem);
+  max-width: 640px;
+  color: #fffaf5;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 3.6vw, 4rem);
+  line-height: 1.04;
+}
+
+.hero__subtitle {
+  margin: 1rem 0 1.5rem;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+
+.btn,
+button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.78rem 1.2rem;
+  background: var(--brand);
+  color: var(--brand-ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover,
+button[type="submit"]:hover { filter: brightness(1.08); }
+
+.section-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.45rem, 2.4vw, 2.35rem);
+  line-height: 1.12;
+  font-family: var(--font-display);
+}
+
+.trust,
+.featured,
+.chef,
+.testimonials,
+.reservation,
+.footer {
+  margin-top: clamp(2.2rem, 5vw, 5rem);
+}
+
+.trust__logos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.trust__logos img {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-height: 76px;
+  object-fit: cover;
+}
+
+.trust__reviews blockquote,
+.testimonial {
+  margin: 1rem 0 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-card);
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card__overlay {
+  padding: 0.95rem 1rem 1.1rem;
+}
+
+.chef__content {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 1rem;
+}
+
+.chef__portrait,
+.chef__video {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+
+.testimonials__carousel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.rating {
+  color: #bf8b17;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+}
+
+.reservation__form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem 0.9rem;
+}
+
+label { font-weight: 700; }
+
+input {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 10px;
+  border: 1px solid #d7c8bb;
+  padding: 0.62rem 0.75rem;
+  font: inherit;
+}
+
+.reservation__form button,
+.newsletter__form button {
+  margin-top: 0.25rem;
+}
+
+.footer {
+  margin-bottom: 2.2rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr 1fr;
+  gap: 1rem;
+  background: #201612;
+  color: #f6ede5;
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+}
+
+.footer a { color: #f8d9c5; }
+
+.newsletter__form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 980px) {
+  .featured__grid,
+  .testimonials__carousel,
+  .footer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .chef__content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav { align-items: flex-start; padding: 0.7rem 0; flex-direction: column; }
+  .hero { min-height: 380px; }
+  .featured__grid,
+  .testimonials__carousel,
+  .trust__logos,
+  .reservation__form,
+  .footer,
+  .newsletter__form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -492,11 +492,13 @@ body.neo-mode .scene {
   padding: clamp(1.4rem, 3.2vw, 2.8rem);
   display: grid;
   grid-template-rows: auto auto auto auto 1fr auto;
-  gap: 0.8rem;
+  gap: 0.95rem;
   overflow-y: auto;
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px) top center / 100% 2.2rem,
-    var(--paper);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(244, 240, 231, 0.96)),
+    repeating-linear-gradient(0deg, rgba(9, 14, 22, 0.06) 0 1px, transparent 1px 2.35rem);
+  border: 1px solid rgba(12, 16, 23, 0.08);
+  border-radius: var(--radius);
 }
 
 .label,
@@ -504,8 +506,15 @@ body.neo-mode .scene {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   color: var(--muted);
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  border: 1px solid rgba(26, 33, 44, 0.15);
+  border-radius: 999px;
+  padding: 0.22rem 0.56rem;
+  background: rgba(255, 255, 255, 0.68);
 }
 
 .page-inner h3 {
@@ -522,20 +531,83 @@ body.neo-mode .scene {
   max-width: 55ch;
 }
 
+.project-page h3 {
+  max-width: 100%;
+  font-size: clamp(1.45rem, 3vw, 2.6rem);
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-page > p:not(.page-number):not(.label) {
+  color: #2b3038;
+  font-size: clamp(0.98rem, 1.05vw, 1.08rem);
+}
+
 .page-inner ul {
   margin: 0;
-  padding-left: 1rem;
+  padding-left: 0;
+  list-style: none;
   display: grid;
   gap: 0.55rem;
 }
 
+.project-page ul {
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 0.58rem;
+}
+
+.project-page li {
+  position: relative;
+  border: 1px solid rgba(20, 27, 37, 0.16);
+  border-radius: 999px;
+  padding: 0.5rem 0.68rem 0.5rem 1.45rem;
+  background: rgba(255, 255, 255, 0.74);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.project-page li::before {
+  content: "";
+  position: absolute;
+  left: 0.68rem;
+  top: 50%;
+  width: 0.46rem;
+  height: 0.46rem;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(145deg, #c3393f, #8d1e24);
+}
+
 .project-preview {
   margin: 0;
-  border-radius: 12px;
+  position: relative;
+  border-radius: 15px;
   overflow: hidden;
   background: #11151f;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(12, 16, 23, 0.45);
+  box-shadow: 0 18px 42px rgba(4, 7, 12, 0.28);
+  padding-top: 1.85rem;
+}
+
+.project-preview::before {
+  content: "Live Preview";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1.85rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.72rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: #d4d9e4;
+  background: linear-gradient(90deg, #252c38, #151a23 56%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  pointer-events: none;
 }
 
 .project-preview iframe {
@@ -544,6 +616,7 @@ body.neo-mode .scene {
   aspect-ratio: 16 / 9;
   border: 0;
   background: #ffffff;
+  pointer-events: auto;
 }
 
 .project-preview img {
@@ -556,10 +629,57 @@ body.neo-mode .scene {
 
 .project-preview figcaption {
   padding: 0.45rem 0.65rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.11em;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #ebecef;
+  color: #d7deec;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  background: #11151f;
+}
+
+.image-hover-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 520;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: rgba(6, 8, 13, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.image-hover-preview img {
+  width: min(95vw, 1280px);
+  max-height: 92vh;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  object-fit: contain;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.52);
+  background: #090d14;
+}
+
+.image-hover-preview iframe {
+  display: none;
+  width: min(96vw, 1400px);
+  height: min(92vh, 900px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.52);
+}
+
+.image-hover-preview.image-hover-preview--frame img {
+  display: none;
+}
+
+.image-hover-preview.image-hover-preview--frame iframe {
+  display: block;
+}
+
+.image-hover-preview--visible {
+  opacity: 1;
 }
 
 .contact-page {
@@ -631,20 +751,29 @@ body.neo-mode .scene {
   justify-self: start;
   display: inline-block;
   text-decoration: none;
-  color: var(--paper-ink);
-  border: 1px solid var(--paper-ink);
-  padding: 0.55rem 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  color: #f4f4f4;
+  border: 1px solid #13161d;
+  background: #13161d;
+  border-radius: 999px;
+  padding: 0.58rem 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-size: 0.75rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.67rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 7px 18px rgba(13, 17, 26, 0.2);
 }
 
 .project-link:hover,
 .project-link:focus-visible {
-  background: var(--paper-ink);
-  color: var(--paper);
+  background: transparent;
+  color: var(--paper-ink);
+  transform: translateY(-1px);
+  box-shadow: 0 9px 21px rgba(13, 17, 26, 0.16);
 }
 
 .controls {
@@ -1038,6 +1167,19 @@ body.neo-mode .scene {
   display: grid;
   place-items: center;
   background: #020202;
+}
+
+.neo-walk-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  filter: none;
+  pointer-events: none;
 }
 
 .neo-walk-matrix {
@@ -1447,12 +1589,28 @@ body.neo-mode .scene {
     gap: 0.65rem;
   }
 
+  .project-page ul {
+    grid-template-columns: 1fr;
+  }
+
+  .project-page li {
+    border-radius: 12px;
+    padding: 0.52rem 0.62rem 0.52rem 1.35rem;
+  }
+
   .project-link {
     padding: 0.6rem 0.88rem;
   }
 
   .page-inner h3 {
     font-size: clamp(1.7rem, 7.5vw, 2.5rem);
+  }
+
+  .project-page h3 {
+    font-size: clamp(1.2rem, 4.6vw, 1.85rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .controls {
@@ -1528,6 +1686,16 @@ body.neo-mode .scene {
   .project-preview figcaption {
     font-size: 0.62rem;
     letter-spacing: 0.09em;
+  }
+
+  .project-preview {
+    padding-top: 1.7rem;
+  }
+
+  .project-preview::before {
+    height: 1.7rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
   }
 }
 

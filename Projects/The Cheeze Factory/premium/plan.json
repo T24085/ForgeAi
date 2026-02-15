@@ -1,0 +1,76 @@
+{
+  "summary": "A premium, high-end website for The Cheeze Factory that balances playful brand personality with sophisticated design. The site serves as both an informational showcase (cheese history, production process) and a conversion engine (reservations, ordering, location). The design prioritizes typography-driven elegance, restrained color usage, and subtle motion to create an expensive-feeling experience.",
+  "pages": [
+    "Home",
+    "Cheese Collection",
+    "About & Origins",
+    "Location & Hours"
+  ],
+  "sections": [
+    {
+      "name": "Sticky Navigation",
+      "purpose": "Keep core CTAs always accessible",
+      "type": "utility",
+      "priority": "high"
+    },
+    {
+      "name": "Hero Section",
+      "purpose": "First impression, brand promise, primary CTA",
+      "type": "hero",
+      "priority": "critical"
+    },
+    {
+      "name": "Trust Proof Bar",
+      "purpose": "Establish credibility, certifications, awards",
+      "type": "utility",
+      "priority": "high"
+    },
+    {
+      "name": "Cheese Philosophy",
+      "purpose": "Explain the obsession, differentiate from competitors",
+      "type": "content",
+      "priority": "high"
+    },
+    {
+      "name": "Featured Selection",
+      "purpose": "Showcase top products with premium cards",
+      "type": "catalog",
+      "priority": "high"
+    },
+    {
+      "name": "Production Journey",
+      "purpose": "Educational content, process explanation",
+      "type": "story",
+      "priority": "medium"
+    },
+    {
+      "name": "Testimonials",
+      "purpose": "Social proof, emotional validation",
+      "type": "social",
+      "priority": "medium"
+    },
+    {
+      "name": "Conversion CTA",
+      "purpose": "Final push for reservation, contact, or newsletter",
+      "type": "cta",
+      "priority": "high"
+    },
+    {
+      "name": "Footer",
+      "purpose": "Complete info, navigation, legal",
+      "type": "utility",
+      "priority": "medium"
+    }
+  ],
+  "style_notes": "The design philosophy: 'Elevated Playfulness'\u2014bold, playful personality treated with serious craft. Primary fonts: Playfair Display (Serif, Display) for headings and dramatic statements; DM Sans (Sans-Serif, Body) for readable, modern text. The font pairing creates an elegant foundation for the playful cheese theme without feeling juvenile. All text should have generous line length (60-70 characters), high-contrast headings (weight 600+), and consistent tracking. Avoid decorative fonts for body\u2014prioritize readability and professionalism.",
+  "assets_needed": [
+    "Hero imagery (dramatic cheese photography, hero product shot)",
+    "Product photography (15-20 premium cheese images)",
+    "Production process illustrations (diagrams or photos)",
+    "Trust badges (certifications, awards)",
+    "Testimonial avatars and quotes",
+    "Icon set (navigation, social, feature icons)",
+    "Brand colors (4-6 hex codes with variations)",
+    "Texture overlays (subtle gradients for premium feel)"
+  ]
+}

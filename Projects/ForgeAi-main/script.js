@@ -3,9 +3,14 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const pageStatus = document.getElementById("pageStatus");
 const neoSequence = document.getElementById("neoSequence");
-const neoTypedLine = document.getElementById("neoTypedLine");
-const neoRabbitBtn = document.getElementById("neoRabbitBtn");
+const neoWakeLine = document.getElementById("neoWakeLine");
+const neoInstallLine = document.getElementById("neoInstallLine");
+const neoConfirmLabel = document.getElementById("neoConfirmLabel");
+const neoConfirmInput = document.getElementById("neoConfirmInput");
+const neoConfirmMeta = document.getElementById("neoConfirmMeta");
+const neoConfirmSubmit = document.getElementById("neoConfirmSubmit");
 const neoWalkStage = document.getElementById("neoWalkStage");
+const neoWalkBgVideo = document.getElementById("neoWalkBgVideo");
 const neoWalkMatrix = document.getElementById("neoWalkMatrix");
 const neoWalkVideo = document.getElementById("neoWalkVideo");
 const neoWalkPhase = document.getElementById("neoWalkPhase");
@@ -17,6 +22,7 @@ const dejaVuCat = document.getElementById("dejaVuCat");
 const sourceCodeRain = document.getElementById("sourceCodeRain");
 const titleMatrixVideo = document.getElementById("titleMatrixVideo");
 const WALK_VIDEO_SOURCES = ["./walking.mp4", "./MatrixCodeHero.mp4"];
+const IS_FILE_PROTOCOL = window.location.protocol === "file:";
 
 let currentPage = 0;
 let glitchTimeoutId = null;
@@ -27,6 +33,9 @@ let matrixBubbleCode = null;
 let matrixBubbleTimerId = null;
 let walkVideoSourceIndex = 0;
 let neoReturnInProgress = false;
+let neoConfirmTimeoutId = null;
+let neoConfirmCountdownId = null;
+let neoConfirmDeadline = 0;
 let typeAudioContext = null;
 let sourceRainRunning = false;
 let sourceRainTokens = [];
@@ -35,6 +44,7 @@ let dejaVuPlayed = false;
 let walkMatrixAnimationId = 0;
 let walkMatrixResizeHandler = null;
 const PAGE_TURN_MS = 900;
+const NEO_CONFIRM_TIMEOUT_MS = 12000;
 const mobilePreviewMedia = window.matchMedia("(max-width: 900px), (pointer: coarse)");
 
 function isMobilePreviewBlocked() {
@@ -112,18 +122,105 @@ function typeLineOnce(text, target, speed = 90, onComplete = null) {
   window.setTimeout(step, speed);
 }
 
+function clearNeoConfirmTimers() {
+  if (neoConfirmTimeoutId) {
+    window.clearTimeout(neoConfirmTimeoutId);
+    neoConfirmTimeoutId = null;
+  }
+  if (neoConfirmCountdownId) {
+    window.clearInterval(neoConfirmCountdownId);
+    neoConfirmCountdownId = null;
+  }
+}
+
+function updateNeoConfirmStatus() {
+  if (!neoConfirmMeta) return;
+  const remainingMs = Math.max(0, neoConfirmDeadline - Date.now());
+  const seconds = Math.ceil(remainingMs / 1000);
+  neoConfirmMeta.textContent = `Awaiting input... auto-continue in ${seconds}s`;
+}
+
+function beginNeoInstallPrompt() {
+  if (!neoConfirmLabel || !neoConfirmInput) {
+    startWalkPlayback();
+    return;
+  }
+
+  neoConfirmLabel.hidden = false;
+  neoConfirmInput.disabled = false;
+  neoConfirmInput.value = "";
+  if (neoConfirmSubmit) neoConfirmSubmit.disabled = true;
+  neoConfirmInput.focus({ preventScroll: true });
+
+  neoConfirmDeadline = Date.now() + NEO_CONFIRM_TIMEOUT_MS;
+  updateNeoConfirmStatus();
+
+  clearNeoConfirmTimers();
+  neoConfirmCountdownId = window.setInterval(updateNeoConfirmStatus, 250);
+  neoConfirmTimeoutId = window.setTimeout(() => {
+    if (neoConfirmMeta) {
+      neoConfirmMeta.textContent = "No response detected. Continuing install...";
+    }
+    startWalkPlayback();
+  }, NEO_CONFIRM_TIMEOUT_MS);
+}
+
 function playDejaVuCat() {
   if (!dejaVuCat || dejaVuPlayed) return;
   dejaVuPlayed = true;
-  dejaVuCat.hidden = false;
-  dejaVuCat.classList.remove("deja-vu-cat--run");
-  void dejaVuCat.offsetWidth;
-  dejaVuCat.classList.add("deja-vu-cat--run");
+
+  const burstCount = Math.max(24, Math.min(54, Math.floor(window.innerWidth / 34)));
+  const fragment = document.createDocumentFragment();
+  let maxEndMs = 0;
+
+  const randomEdgeStart = () => {
+    const side = Math.floor(Math.random() * 4);
+    const margin = 180;
+    if (side === 0) return { x: -margin, y: Math.random() * window.innerHeight };
+    if (side === 1) return { x: window.innerWidth + margin, y: Math.random() * window.innerHeight };
+    if (side === 2) return { x: Math.random() * window.innerWidth, y: -margin };
+    return { x: Math.random() * window.innerWidth, y: window.innerHeight + margin };
+  };
+
+  for (let i = 0; i < burstCount; i += 1) {
+    const clone = dejaVuCat.cloneNode(true);
+    clone.removeAttribute("id");
+    clone.removeAttribute("hidden");
+    clone.hidden = false;
+    clone.setAttribute("aria-hidden", "true");
+    clone.classList.add("deja-vu-cat--burst");
+
+    const start = randomEdgeStart();
+    const end = {
+      x: Math.random() * (window.innerWidth + 240) - 120,
+      y: Math.random() * (window.innerHeight + 240) - 120,
+    };
+
+    const delayMs = Math.random() * 1600;
+    const durationMs = 1700 + Math.random() * 2400;
+    maxEndMs = Math.max(maxEndMs, delayMs + durationMs);
+
+    clone.style.setProperty("--dv-start-x", `${start.x}px`);
+    clone.style.setProperty("--dv-start-y", `${start.y}px`);
+    clone.style.setProperty("--dv-end-x", `${end.x}px`);
+    clone.style.setProperty("--dv-end-y", `${end.y}px`);
+    clone.style.setProperty("--dv-delay", `${delayMs.toFixed(0)}ms`);
+    clone.style.setProperty("--dv-duration", `${durationMs.toFixed(0)}ms`);
+    clone.style.setProperty("--dv-hue", `${(-20 + Math.random() * 40).toFixed(1)}deg`);
+    clone.style.setProperty("--dv-start-scale", (0.5 + Math.random() * 0.55).toFixed(2));
+    clone.style.setProperty("--dv-end-scale", (0.9 + Math.random() * 0.8).toFixed(2));
+    clone.style.setProperty("--dv-start-rot", `${(-28 + Math.random() * 56).toFixed(1)}deg`);
+    clone.style.setProperty("--dv-end-rot", `${(-26 + Math.random() * 52).toFixed(1)}deg`);
+
+    fragment.appendChild(clone);
+  }
+
+  document.body.appendChild(fragment);
 
   window.setTimeout(() => {
-    dejaVuCat.classList.remove("deja-vu-cat--run");
-    dejaVuCat.hidden = true;
-  }, 5900);
+    const virusNodes = document.querySelectorAll(".deja-vu-cat--burst");
+    virusNodes.forEach((node) => node.remove());
+  }, maxEndMs + 240);
 }
 
 async function buildSourceCodeTokens() {
@@ -148,6 +245,10 @@ function returnFromNeoSequence() { runMatrixReturnTransition(finishReturnToHome)
       return "";
     }
   };
+
+  if (IS_FILE_PROTOCOL) {
+    return fallbackSource.split("\n").map((line) => line.trim()).filter(Boolean);
+  }
 
   const [htmlText, cssText, jsText] = await Promise.all([
     tryFetch("./index.html"),
@@ -280,22 +381,23 @@ function startNeoSequence() {
   prevBtn.disabled = true;
   nextBtn.disabled = true;
 
-  if (neoTypedLine) neoTypedLine.textContent = "";
-  if (neoRabbitBtn) {
-    neoRabbitBtn.hidden = true;
-    neoRabbitBtn.classList.remove("neo-rabbit-btn--visible");
+  clearNeoConfirmTimers();
+  if (neoWakeLine) neoWakeLine.textContent = "";
+  if (neoInstallLine) neoInstallLine.textContent = "";
+  if (neoConfirmLabel) neoConfirmLabel.hidden = true;
+  if (neoConfirmInput) {
+    neoConfirmInput.disabled = false;
+    neoConfirmInput.value = "";
   }
+  if (neoConfirmSubmit) neoConfirmSubmit.disabled = true;
+  if (neoConfirmMeta) neoConfirmMeta.textContent = "";
 
   window.setTimeout(() => {
     neoSequence.classList.remove("neo-sequence--boot");
-    typeLineOnce("wake up neo...", neoTypedLine, 95, () => {
-      if (!neoRabbitBtn) return;
-      const rabbitDelayMs = 2400;
-      window.setTimeout(() => {
-        neoRabbitBtn.hidden = false;
-        void neoRabbitBtn.offsetWidth;
-        neoRabbitBtn.classList.add("neo-rabbit-btn--visible");
-      }, rabbitDelayMs);
+    typeLineOnce("wake up Neo.", neoWakeLine, 88, () => {
+      typeLineOnce("npm install project NEO. Y/N", neoInstallLine, 58, () => {
+        beginNeoInstallPrompt();
+      });
     });
   }, 1250);
 }
@@ -309,6 +411,11 @@ function showNeoAboutStage() {
 }
 
 function finishReturnToHome() {
+  if (neoWalkBgVideo) {
+    neoWalkBgVideo.pause();
+    neoWalkBgVideo.currentTime = 0;
+  }
+
   if (neoWalkVideo) {
     neoWalkVideo.pause();
     neoWalkVideo.currentTime = 0;
@@ -322,12 +429,16 @@ function finishReturnToHome() {
     neoAboutStage.hidden = true;
   }
 
-  if (neoRabbitBtn) {
-    neoRabbitBtn.hidden = true;
-    neoRabbitBtn.classList.remove("neo-rabbit-btn--visible");
+  clearNeoConfirmTimers();
+  if (neoWakeLine) neoWakeLine.textContent = "";
+  if (neoInstallLine) neoInstallLine.textContent = "";
+  if (neoConfirmLabel) neoConfirmLabel.hidden = true;
+  if (neoConfirmInput) {
+    neoConfirmInput.disabled = false;
+    neoConfirmInput.value = "";
   }
-
-  if (neoTypedLine) neoTypedLine.textContent = "";
+  if (neoConfirmSubmit) neoConfirmSubmit.disabled = true;
+  if (neoConfirmMeta) neoConfirmMeta.textContent = "";
 
   if (neoReturnRain) {
     neoReturnRain.classList.remove("neo-return-rain--active");
@@ -537,8 +648,22 @@ function returnFromNeoSequence() {
 function startWalkPlayback() {
   if (!neoModeActive) return;
   if (!neoWalkStage || !neoWalkVideo) return;
+  clearNeoConfirmTimers();
+  if (neoConfirmLabel) neoConfirmLabel.hidden = true;
+  if (neoConfirmInput) {
+    neoConfirmInput.disabled = true;
+    neoConfirmInput.blur();
+  }
+  if (neoConfirmSubmit) neoConfirmSubmit.disabled = true;
+  if (neoConfirmMeta) neoConfirmMeta.textContent = "Installing project NEO...";
   neoWalkStage.hidden = false;
   startWalkMatrixRain();
+
+  if (neoWalkBgVideo) {
+    neoWalkBgVideo.currentTime = 0;
+    neoWalkBgVideo.play().catch(() => {});
+  }
+
   neoWalkVideo.muted = false;
   neoWalkVideo.volume = 1;
 
@@ -680,8 +805,35 @@ if (neoWalkVideo) {
   });
 }
 
-if (neoRabbitBtn) {
-  neoRabbitBtn.addEventListener("click", () => {
+if (neoConfirmInput) {
+  neoConfirmInput.addEventListener("input", () => {
+    const normalized = (neoConfirmInput.value || "").trim().toLowerCase();
+    if (neoConfirmSubmit) {
+      neoConfirmSubmit.disabled = normalized !== "yes";
+    }
+    if (neoConfirmMeta && normalized !== "yes") {
+      neoConfirmMeta.textContent = 'Type "YES" exactly, then click Enter.';
+    }
+  });
+
+  neoConfirmInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    if (neoConfirmMeta) neoConfirmMeta.textContent = 'Click the Enter button to continue.';
+  });
+}
+
+if (neoConfirmSubmit) {
+  neoConfirmSubmit.addEventListener("click", () => {
+    if (!neoConfirmInput) return;
+    const normalized = (neoConfirmInput.value || "").trim().toLowerCase();
+    if (normalized !== "yes") {
+      if (neoConfirmMeta) neoConfirmMeta.textContent = 'Input rejected. Type "YES" exactly.';
+      neoConfirmSubmit.disabled = true;
+      return;
+    }
+
+    if (neoConfirmMeta) neoConfirmMeta.textContent = "Confirmed. Installing project NEO...";
     startWalkPlayback();
   });
 }
@@ -771,6 +923,91 @@ function applyMobilePreviewMode() {
   hydrateVisibleIframes();
 }
 
+function initImageHoverPreview() {
+  const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!supportsHover) return;
+
+  const imageNodes = document.querySelectorAll(".project-preview img");
+  const frameCards = Array.from(document.querySelectorAll(".project-preview"))
+    .map((card) => ({ card, frame: card.querySelector("iframe") }))
+    .filter((item) => item.frame);
+  if (!imageNodes.length && !frameCards.length) return;
+
+  const overlay = document.createElement("div");
+  overlay.className = "image-hover-preview";
+  overlay.setAttribute("aria-hidden", "true");
+
+  const fullImage = document.createElement("img");
+  fullImage.alt = "";
+  overlay.appendChild(fullImage);
+
+  const fullFrame = document.createElement("iframe");
+  fullFrame.title = "Expanded site preview";
+  fullFrame.loading = "eager";
+  fullFrame.referrerPolicy = "no-referrer";
+  fullFrame.allow = "autoplay 'none'; microphone 'none'; camera 'none'; speaker-selection 'none'";
+  overlay.appendChild(fullFrame);
+  document.body.appendChild(overlay);
+  let hideTimerId = null;
+
+  const showImagePreview = (img) => {
+    if (!img?.src) return;
+    if (hideTimerId) {
+      window.clearTimeout(hideTimerId);
+      hideTimerId = null;
+    }
+    overlay.classList.remove("image-hover-preview--frame");
+    fullImage.src = img.currentSrc || img.src;
+    fullImage.alt = img.alt || "";
+    overlay.classList.add("image-hover-preview--visible");
+  };
+
+  const showFramePreview = (frame) => {
+    const src = frame?.src || frame?.dataset?.src;
+    if (!src) return;
+    if (hideTimerId) {
+      window.clearTimeout(hideTimerId);
+      hideTimerId = null;
+    }
+    overlay.classList.add("image-hover-preview--frame");
+    if (fullFrame.src !== src) fullFrame.src = src;
+    overlay.classList.add("image-hover-preview--visible");
+  };
+
+  const hidePreview = () => {
+    if (hideTimerId) window.clearTimeout(hideTimerId);
+    hideTimerId = window.setTimeout(() => {
+      overlay.classList.remove("image-hover-preview--visible");
+      window.setTimeout(() => {
+        if (!overlay.classList.contains("image-hover-preview--visible")) {
+          fullFrame.removeAttribute("src");
+        }
+      }, 180);
+      hideTimerId = null;
+    }, 220);
+  };
+
+  imageNodes.forEach((img) => {
+    img.addEventListener("mouseenter", () => showImagePreview(img));
+    img.addEventListener("mouseleave", hidePreview);
+  });
+
+  frameCards.forEach(({ card, frame }) => {
+    card.addEventListener("mouseenter", () => showFramePreview(frame));
+    card.addEventListener("mouseleave", hidePreview);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hidePreview();
+  });
+
+  window.addEventListener("scroll", hidePreview, { passive: true });
+  window.addEventListener("blur", hidePreview);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) hidePreview();
+  });
+}
+
 prevBtn.addEventListener("click", () => {
   if (currentPage > 0) {
     const turningPageIndex = currentPage - 1;
@@ -797,6 +1034,7 @@ document.addEventListener("keydown", (event) => {
 
 renderBook(0);
 applyMobilePreviewMode();
+initImageHoverPreview();
 window.addEventListener("resize", applyMobilePreviewMode);
 
 const typedLine = document.getElementById("typed-line");
@@ -828,7 +1066,12 @@ function typeLineLoop(text, target, speed = 52, pause = 1400) {
 
 typeLineLoop(typedText, typedLine);
 
-if (topTitle && titleMatrixVideo && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if (
+  topTitle &&
+  titleMatrixVideo &&
+  !IS_FILE_PROTOCOL &&
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
   const titleCanvas = document.createElement("canvas");
   const titleCtx = titleCanvas.getContext("2d");
   const FRAME_INTERVAL_MS = 85;
@@ -854,9 +1097,13 @@ if (topTitle && titleMatrixVideo && !window.matchMedia("(prefers-reduced-motion:
     if (titleMatrixVideo.readyState >= 2) {
       resizeTitleCanvas();
       titleCtx.drawImage(titleMatrixVideo, 0, 0, titleCanvas.width, titleCanvas.height);
-      topTitle.style.backgroundImage = `url("${titleCanvas.toDataURL("image/jpeg", 0.58)}")`;
-      topTitle.style.backgroundSize = "cover";
-      topTitle.style.backgroundPosition = "center";
+      try {
+        topTitle.style.backgroundImage = `url("${titleCanvas.toDataURL("image/jpeg", 0.58)}")`;
+        topTitle.style.backgroundSize = "cover";
+        topTitle.style.backgroundPosition = "center";
+      } catch {
+        // Media-to-canvas export can fail under restrictive origin rules.
+      }
       lastFrameTime = now;
     }
 
@@ -1039,7 +1286,7 @@ if (coverReveal) {
     if (mask && wrapper) {
       const pointer = { x: 0, y: 0, lastX: 0, lastY: 0, stampX: -9999, stampY: -9999 };
       const GRID_SIZE = 24;
-      const COVERAGE_THRESHOLD = 0.45;
+      const COVERAGE_THRESHOLD = 0.85;
       const MAX_STAMPS = 900;
       const revealedCells = new Set();
       let revealUnlocked = false;

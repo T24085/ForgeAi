@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE MEATS | Crafted for Connoisseurs</title>
+    <meta
+      name="description"
+      content="THE MEATS delivers premium steakhouse craftsmanship with exceptional cuts, reserve selections, curated pairings, and private dining experiences."
+    />
+    <meta property="og:title" content="THE MEATS | Premium Cuts. Exceptional Flavor." />
+    <meta
+      property="og:description"
+      content="Signature steaks, premium beef, pork, lamb, game, and butcher reserve selections for true connoisseurs."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./The Meats banner.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #070605;
+        --bg-elevated: #12100d;
+        --panel: #171410;
+        --panel-soft: #1d1812;
+        --text: #f2eee7;
+        --muted: #b7ab98;
+        --gold: #c6a66c;
+        --gold-soft: rgba(198, 166, 108, 0.28);
+        --line: rgba(198, 166, 108, 0.24);
+        --line-strong: rgba(224, 197, 141, 0.52);
+        --radius: 18px;
+        --shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
+        --wrap: min(1340px, calc(100vw - 2rem));
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background:
+          radial-gradient(1100px 580px at -8% -5%, rgba(198, 166, 108, 0.1), transparent 62%),
+          radial-gradient(1000px 560px at 105% 0%, rgba(153, 39, 16, 0.16), transparent 64%),
+          linear-gradient(180deg, rgba(6, 5, 4, 0.42) 0%, rgba(5, 4, 3, 0.54) 70%),
+          url("./The Meats banner.png") center / cover fixed no-repeat;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(12px);
+        background: rgba(9, 8, 7, 0.84);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav {
+        width: var(--wrap);
+        margin: 0 auto;
+        min-height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.52rem;
+        font-family: "Cinzel", serif;
+        font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .brand-logo {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        box-shadow: 0 0 16px rgba(198, 166, 108, 0.35);
+      }
+
+      .brand span {
+        color: var(--gold);
+      }
+
+      .nav-links {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.15rem;
+      }
+
+      .nav-links a {
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-size: 0.72rem;
+        color: var(--muted);
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: #f8ebd2;
+      }
+
+      .reserve-btn {
+        border: 1px solid var(--line-strong);
+        padding: 0.54rem 0.8rem;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.66rem;
+        background: rgba(198, 166, 108, 0.08);
+      }
+
+      main > section,
+      footer {
+        width: var(--wrap);
+        margin: 0 auto;
+      }
+
+      .hero {
+        margin-top: 1rem;
+        min-height: min(80vh, 740px);
+        display: grid;
+        align-items: center;
+        border-radius: 28px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background:
+          linear-gradient(120deg, rgba(6, 5, 4, 0.3), rgba(6, 5, 4, 0.12)),
+          radial-gradient(circle at 85% 18%, rgba(168, 84, 44, 0.22), rgba(0, 0, 0, 0) 46%);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.28)),
+          repeating-linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.012) 0 1px,
+            rgba(0, 0, 0, 0) 1px 4px
+          );
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 22px;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        width: min(1280px, calc(100% - 1rem));
+        padding: clamp(2.1rem, 4.8vw, 4.4rem);
+        margin: clamp(1rem, 2.5vw, 2rem);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 20px;
+        background: linear-gradient(145deg, rgba(8, 7, 6, 0.78), rgba(8, 7, 6, 0.58));
+        backdrop-filter: blur(6px);
+        box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
+      }
+
+      .eyebrow {
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.72rem;
+        color: var(--gold);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Cinzel", serif;
+        line-height: 1.08;
+        letter-spacing: 0.01em;
+      }
+
+      h1 {
+        margin-top: 0.7rem;
+        font-size: clamp(2rem, 4.6vw, 4.2rem);
+        max-width: 14ch;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+      }
+
+      .hero p {
+        margin: 1rem 0 0;
+        max-width: 56ch;
+        color: #d9cfbf;
+        text-shadow: 0 1px 14px rgba(0, 0, 0, 0.38);
+      }
+
+      .hero-actions {
+        margin-top: 1.6rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.68rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0.66rem 1rem;
+        border: 1px solid var(--line);
+        background: rgba(13, 11, 9, 0.7);
+        color: var(--text);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.67rem;
+        transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-1px);
+        border-color: var(--line-strong);
+      }
+
+      .btn--gold {
+        background: linear-gradient(135deg, #b79259, #d3b67f);
+        color: #1f1610;
+        border-color: rgba(255, 233, 192, 0.74);
+        font-weight: 700;
+      }
+
+      .hero-metrics {
+        margin-top: 1.45rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.6rem;
+        max-width: 1020px;
+      }
+
+      .hero-metrics div {
+        padding: 0.58rem 0.62rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 7, 6, 0.72);
+      }
+
+      .hero-metrics strong {
+        display: block;
+        font-size: 1.02rem;
+        color: #f8ecd6;
+      }
+
+      .hero-metrics span {
+        display: block;
+        margin-top: 0.1rem;
+        font-size: 0.66rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      .section-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: end;
+        margin-bottom: 1.2rem;
+      }
+
+      .section-head p {
+        margin: 0;
+        max-width: 60ch;
+        color: var(--muted);
+      }
+
+      .intro {
+        margin-top: clamp(2.2rem, 5.4vw, 5rem);
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1rem;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: linear-gradient(170deg, rgba(18, 15, 12, 0.92), rgba(12, 10, 8, 0.96));
+        padding: clamp(1rem, 2.3vw, 1.6rem);
+      }
+
+      .panel p {
+        margin: 0;
+        color: #d0c4b3;
+      }
+
+      .panel + .panel {
+        background: linear-gradient(170deg, rgba(24, 19, 14, 0.92), rgba(14, 11, 8, 0.98));
+      }
+
+      .values {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .values div {
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 0.66rem 0.7rem;
+        background: rgba(198, 166, 108, 0.06);
+      }
+
+      .values strong {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.7rem;
+        color: #f1dec0;
+      }
+
+      .values span {
+        display: block;
+        margin-top: 0.2rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .menu {
+        margin-top: clamp(2.2rem, 5.4vw, 5rem);
+      }
+
+      .menu-visual {
+        margin: 0 0 1rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: #0f0c09;
+        box-shadow: var(--shadow);
+      }
+
+      .menu-visual img {
+        width: 100%;
+        max-height: 420px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .menu-visual figcaption {
+        margin: 0;
+        padding: 0.58rem 0.72rem;
+        border-top: 1px solid var(--line);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.64rem;
+        color: var(--muted);
+        background: rgba(14, 11, 8, 0.9);
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+      }
+
+      .menu-category {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: var(--radius);
+        padding: 0.98rem 0.95rem 1rem;
+      }
+
+      .menu-category h3 {
+        font-size: clamp(1rem, 1.5vw, 1.35rem);
+        margin-bottom: 0.2rem;
+      }
+
+      .menu-label {
+        margin: 0 0 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+        font-size: 0.64rem;
+      }
+
+      .item-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.72rem;
+      }
+
+      .item-list li {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 0.68rem;
+      }
+
+      .item-list li:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: baseline;
+      }
+
+      .item-head strong {
+        color: #f6eee1;
+      }
+
+      .price {
+        color: #f4d6a1;
+        font-family: "Cinzel", serif;
+        white-space: nowrap;
+      }
+
+      .item-desc {
+        margin: 0.2rem 0 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .addons {
+        margin-top: 0.9rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.9rem;
+      }
+
+      .addon-box {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--panel-soft);
+        padding: 0.9rem;
+      }
+
+      .addon-box h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.55rem;
+      }
+
+      .addon-box ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .addon-box li {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        color: #dacdbb;
+        font-size: 0.92rem;
+      }
+
+      .experience {
+        margin-top: clamp(2.2rem, 5.4vw, 5rem);
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 1rem;
+      }
+
+      .reserve-feature {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background:
+          linear-gradient(120deg, rgba(10, 8, 7, 0.9), rgba(10, 8, 7, 0.5)),
+          linear-gradient(35deg, rgba(122, 51, 19, 0.38), rgba(0, 0, 0, 0));
+        padding: clamp(1.2rem, 2.6vw, 1.8rem);
+      }
+
+      .reserve-feature p {
+        margin: 0.8rem 0 0;
+        color: #d4c7b5;
+      }
+
+      .reserve-list {
+        margin: 1rem 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .reserve-list li {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0.55rem 0.64rem;
+        background: rgba(198, 166, 108, 0.07);
+      }
+
+      .booking-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #110e0b;
+        padding: clamp(1rem, 2.2vw, 1.6rem);
+      }
+
+      .booking-card p {
+        margin: 0.5rem 0 0;
+        color: var(--muted);
+      }
+
+      .booking-grid {
+        margin-top: 0.9rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.58rem;
+      }
+
+      .booking-grid div {
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(255, 255, 255, 0.02);
+        padding: 0.5rem 0.56rem;
+      }
+
+      .booking-grid strong {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.62rem;
+        color: #f1dbb2;
+      }
+
+      .booking-grid span {
+        display: block;
+        margin-top: 0.12rem;
+        color: #d1c3ae;
+      }
+
+      .booking-actions {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.58rem;
+      }
+
+      .quotes {
+        margin-top: clamp(2.2rem, 5vw, 4rem);
+      }
+
+      .quote-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+
+      blockquote {
+        margin: 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #120f0c;
+        padding: 0.92rem;
+      }
+
+      blockquote p {
+        margin: 0;
+        color: #d7cab8;
+      }
+
+      cite {
+        display: block;
+        margin-top: 0.52rem;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-style: normal;
+        color: #f4ddb6;
+        font-size: 0.66rem;
+      }
+
+      .final-cta {
+        margin-top: clamp(2.2rem, 5.4vw, 5rem);
+        margin-bottom: 2.2rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 22px;
+        background:
+          linear-gradient(145deg, rgba(19, 15, 11, 0.9), rgba(16, 13, 10, 0.95)),
+          radial-gradient(circle at 80% 8%, rgba(198, 166, 108, 0.16), transparent 60%);
+        padding: clamp(1.1rem, 2.6vw, 1.9rem);
+      }
+
+      .final-cta h2 {
+        font-size: clamp(1.5rem, 3vw, 2.4rem);
+      }
+
+      .final-cta p {
+        margin: 0.7rem 0 0;
+        color: var(--muted);
+      }
+
+      footer {
+        margin-bottom: 1.3rem;
+        padding-bottom: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        font-size: 0.8rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1080px) {
+        .category-grid,
+        .experience,
+        .quote-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 880px) {
+        .intro,
+        .addons,
+        .category-grid,
+        .experience,
+        .quote-grid,
+        .booking-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-metrics {
+          grid-template-columns: 1fr;
+          max-width: 320px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        body {
+          background:
+            radial-gradient(900px 420px at -8% -5%, rgba(198, 166, 108, 0.09), transparent 58%),
+            radial-gradient(820px 420px at 105% 0%, rgba(153, 39, 16, 0.14), transparent 60%),
+            linear-gradient(180deg, rgba(6, 5, 4, 0.36) 0%, rgba(5, 4, 3, 0.48) 70%),
+            url("./The Meats banner.png") center / cover no-repeat;
+        }
+
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0.7rem 0;
+        }
+
+        .nav-links {
+          gap: 0.8rem;
+        }
+
+        .hero {
+          min-height: 66vh;
+        }
+
+        .hero-content {
+          margin: 0.8rem;
+          width: calc(100% - 1.6rem);
+          max-width: none;
+          padding: 1.3rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a href="#top" class="brand">
+          <img class="brand-logo" src="../The Meats Logo.png" alt="The Meats logo" />
+          THE <span>MEATS</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#story">Philosophy</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reserve">Butcher's Reserve</a></li>
+          <li><a href="#booking">Reservations</a></li>
+        </ul>
+        <a class="reserve-btn" href="mailto:reservations@themeats.com?subject=Reserve%20at%20THE%20MEATS"
+          >Reserve</a
+        >
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal">
+        <div class="hero-content">
+          <p class="eyebrow">Premium Cuts. Exceptional Flavor.</p>
+          <h1>Crafted for Connoisseurs.</h1>
+          <p>
+            THE MEATS is a premium cut house built around precision butchery, disciplined fire,
+            and flavor depth that respects the product. Every plate is curated, not rushed.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn--gold" href="#menu">Explore Full Menu</a>
+            <a
+              class="btn"
+              href="mailto:reservations@themeats.com?subject=Private%20Dining%20Inquiry"
+              >Private Dining</a
+            >
+          </div>
+          <div class="hero-metrics" aria-label="Key quality markers">
+            <div><strong>28 Day</strong><span>Dry-Age Program</span></div>
+            <div><strong>A5</strong><span>Wagyu Availability</span></div>
+            <div><strong>Chef-Led</strong><span>Weekly Reserve Cuts</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro" id="story">
+        <article class="panel reveal">
+          <div class="section-head">
+            <h2>THE MEATS Standard</h2>
+          </div>
+          <p>
+            We source with intention, age with patience, and finish with exact heat control.
+            Whether it's a classic prime cut or rotating reserve selection, each piece is treated
+            as a featured performance.
+          </p>
+        </article>
+        <aside class="panel reveal">
+          <h3>Service Values</h3>
+          <div class="values">
+            <div>
+              <strong>Product Integrity</strong>
+              <span>No shortcuts. No compromise in sourcing or handling.</span>
+            </div>
+            <div>
+              <strong>Fire Precision</strong>
+              <span>Accurate sear profiles tuned cut-by-cut.</span>
+            </div>
+            <div>
+              <strong>Connoisseur Hospitality</strong>
+              <span>Guided pairings and personalized recommendations.</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="menu" id="menu">
+        <div class="section-head reveal">
+          <h2>Signature Menu</h2>
+          <p>
+            Built around premium proteins and elevated enhancements. Availability of reserve cuts
+            may vary nightly.
+          </p>
+        </div>
+        <figure class="menu-visual reveal">
+          <img src="./The Meats Menu Picture.png" alt="The Meats curated premium menu presentation" />
+          <figcaption>Curated menu showcase</figcaption>
+        </figure>
+
+        <div class="category-grid">
+          <article class="menu-category reveal">
+            <p class="menu-label">Signature Steaks</p>
+            <ul class="item-list">
+              <li>
+                <div class="item-head">
+                  <strong>Wagyu Ribeye (12oz / 16oz)</strong>
+                  <span class="price">$89 / $129</span>
+                </div>
+                <p class="item-desc">
+                  Ultra-marbled, buttery texture, rich finish. Grade A5 available.
+                </p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <strong>Prime Tomahawk (32oz)</strong>
+                  <span class="price">$115</span>
+                </div>
+                <p class="item-desc">Bone-in masterpiece, dry-aged 28 days. Perfect for sharing.</p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <strong>Filet Mignon (8oz / 10oz)</strong>
+                  <span class="price">$52 / $64</span>
+                </div>
+                <p class="item-desc">Center-cut tenderness with velvet texture.</p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <strong>New York Strip (14oz)</strong>
+                  <span class="price">$48</span>
+                </div>
+                <p class="item-desc">Bold, beef-forward flavor with firm bite.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-category reveal">
+            <p class="menu-label">Premium Beef Selection</p>
+            <ul class="item-list">
+              <li>
+                <div class="item-head">
+                  <strong>Dry-Aged Ribeye (45-Day)</strong>
+                  <span class="price">$78</span>
+                </div>
+                <p class="item-desc">Deep umami character with intensified richness.</p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <strong>Flat Iron Steak</strong>
+                  <span class="price">$34</span>
+                </div>
+                <p class="item-desc">Incredibly tender with a perfect sear profile.</p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <strong>Beef Tenderloin Roast (Per lb)</strong>
+                  <span class="price">$38/lb</span>
+                </div>
+                <p class="item-desc">Elegant centerpiece cut for private tables.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-category reveal">
+            <p class="menu-label">Pork Collection</p>
+            <ul class="item-list">
+              <li>
+                <div class="item-head">
+                  <strong>Heritage Pork Chop (16oz Bone-In)</strong>
+                  <span class="price">$36</span>
+                </div>
+                <p class="item-desc">Thick cut, pasture-raised, carefully rested.</p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <strong>Smoked Berkshire Bacon</strong>
+                  <span class="price">$18</span>
+                </div>
+                <p class="item-desc">Hand-cured and hardwood smoked.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-category reveal">
+            <p class="menu-label">Lamb & Game</p>
+            <ul class="item-list">
+              <li>
+                <div class="item-head">
+                  <strong>Colorado Lamb Chops (Double Cut)</strong>
+                  <span class="price">$49</span>
+                </div>
+                <p class="item-desc">Grass-fed and herb-finished.</p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <strong>Venison Loin</strong>
+                  <span class="price">$58</span>
+                </div>
+                <p class="item-desc">Lean, earthy, and refined in flavor.</p>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="addons">
+          <article class="addon-box reveal" id="reserve">
+            <h3>Butcher's Reserve</h3>
+            <ul>
+              <li><span>House Dry-Aged Selection</span><span>Market Price</span></li>
+              <li><span>Chef's Cut of the Week</span><span>Market Price</span></li>
+            </ul>
+          </article>
+          <article class="addon-box reveal">
+            <h3>Add-Ons & Enhancements</h3>
+            <ul>
+              <li><span>Black Truffle Butter</span><span>$6</span></li>
+              <li><span>Garlic Herb Butter</span><span>$4</span></li>
+              <li><span>Bone Marrow</span><span>$12</span></li>
+              <li><span>Grilled Lobster Tail</span><span>$22</span></li>
+              <li><span>Au Poivre Sauce</span><span>$5</span></li>
+            </ul>
+          </article>
+          <article class="addon-box reveal">
+            <h3>Pairings</h3>
+            <ul>
+              <li><span>Signature Steak Rub</span><span>$14</span></li>
+              <li><span>House Chimichurri</span><span>$9</span></li>
+              <li><span>Smoked Sea Salt Blend</span><span>$12</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience">
+        <article class="reserve-feature reveal">
+          <p class="eyebrow">Private Table Experience</p>
+          <h2>Designed for serious steak nights.</h2>
+          <p>
+            For celebrations, client dinners, and curated tasting evenings, our team can build a
+            custom progression centered on reserve cuts and chef-guided enhancements.
+          </p>
+          <ul class="reserve-list">
+            <li>Multi-course cut progression</li>
+            <li>Dedicated carving service</li>
+            <li>Custom pairing and sauce flight</li>
+            <li>Priority access to reserve inventory</li>
+          </ul>
+        </article>
+
+        <article class="booking-card reveal" id="booking">
+          <p class="eyebrow">Reservations</p>
+          <h2>Book Your Table</h2>
+          <p>Secure your preferred time and cut availability with direct concierge booking.</p>
+          <div class="booking-grid" aria-label="Reservation details">
+            <div><strong>Hours</strong><span>Tue-Sun · 5:00 PM - 11:00 PM</span></div>
+            <div><strong>Phone</strong><span>(555) 214-8890</span></div>
+            <div><strong>Email</strong><span>reservations@themeats.com</span></div>
+            <div><strong>Address</strong><span>1180 Foundry Row, Kansas City</span></div>
+          </div>
+          <div class="booking-actions">
+            <a class="btn btn--gold" href="tel:+15552148890">Call to Reserve</a>
+            <a
+              class="btn"
+              href="mailto:reservations@themeats.com?subject=Reservation%20Request%20-%20THE%20MEATS"
+              >Email Request</a
+            >
+          </div>
+        </article>
+      </section>
+
+      <section class="quotes">
+        <div class="section-head reveal">
+          <h2>Guest Notes</h2>
+          <p>Trusted by guests who care about quality, detail, and serious protein craftsmanship.</p>
+        </div>
+        <div class="quote-grid">
+          <blockquote class="reveal">
+            <p>
+              "The Wagyu service was flawless. Every bite felt deliberate, from seasoning to rest
+              to final finish."
+            </p>
+            <cite>Connoisseur Table</cite>
+          </blockquote>
+          <blockquote class="reveal">
+            <p>
+              "The reserve selection changes the game. This is the first place I ask clients to
+              dinner."
+            </p>
+            <cite>Private Dining Guest</cite>
+          </blockquote>
+          <blockquote class="reveal">
+            <p>
+              "You can taste the standards. It is premium without pretension and incredibly
+              consistent."
+            </p>
+            <cite>Weekend Regular</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="final-cta reveal">
+        <p class="eyebrow">THE MEATS</p>
+        <h2>Premium Cuts. Exceptional Flavor.</h2>
+        <p>
+          Crafted for connoisseurs. Reserve now and request your preferred signature or reserve
+          cuts ahead of service.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--gold" href="mailto:reservations@themeats.com?subject=Priority%20Cut%20Request"
+            >Request Priority Cut</a
+          >
+          <a class="btn" href="#menu">View Full Menu</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 THE MEATS. All rights reserved.</p>
+      <p>Crafted for Connoisseurs.</p>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.14 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

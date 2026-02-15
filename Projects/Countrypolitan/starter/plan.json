@@ -1,0 +1,25 @@
+{
+  "summary": "Starter tier website plan for Countrypolitan: a quick, template\u2011based site featuring minimal copy and essential sections to showcase the antique, home & garden emporium.",
+  "pages": [
+    "Home",
+    "About",
+    "Shop Highlights",
+    "Contact"
+  ],
+  "sections": [
+    "Hero (store front image with tagline)",
+    "About Us (short intro, mission, history)",
+    "Featured Products (carousel of 4\u20136 key items)",
+    "Shop Highlights (services & seasonal d\u00e9cor focus)",
+    "Contact Information (address, phone, hours, map link)",
+    "Social Media Links (Facebook feed or icon)"
+  ],
+  "style_notes": "Classic country vibe \u2013 earthy color palette (browns, muted greens, cream), serif type for headings, sans\u2011serif body text, subtle wood\u2011texture background, clean layout with generous whitespace.",
+  "assets_needed": [
+    "Store front image (hero)",
+    "Interior photos (shop highlights)",
+    "Product images (featured carousel)",
+    "Logo or brand mark",
+    "Map snippet or location icon"
+  ]
+}

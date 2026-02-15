@@ -1,0 +1,21 @@
+{
+  "job_id": "2026-02-01_225635_the-flower-box",
+  "company_name": "The Flower Box",
+  "category": "Retail",
+  "details": {
+    "tagline": "",
+    "address": "",
+    "phone": "",
+    "hours": "",
+    "services": [],
+    "notes": "The Flower Box \u2013 Family-owned floral shop offering flowers, candles, gifts, and home d\u00e9cor. Address: 421 N Spruce St, Abilene, KS 67410. Phone: (785) 263-2828. Web Presence: No independent website (Facebook page serves as main online presence)"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "media_dir": "media"
+  },
+  "status": "running",
+  "created_at": "2026-02-01T22:56:35",
+  "error": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=1800)"
+}

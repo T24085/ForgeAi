@@ -1,0 +1,10 @@
+{
+  "tier": "starter",
+  "company": "Countrypolitan",
+  "created_files": [
+    "index.html",
+    "styles.css",
+    "app.js"
+  ],
+  "summary": "Starter tier website for Countrypolitan featuring a minimalistic, classic country design with essential sections and a basic product carousel."
+}

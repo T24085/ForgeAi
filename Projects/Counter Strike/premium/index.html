@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nightfall Esports | Counter-Strike Team</title>
+    <meta
+      name="description"
+      content="Nightfall Esports is a premium Counter-Strike team focused on disciplined executes, tactical depth, and tournament consistency."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Rajdhani:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./index.html" aria-label="Nightfall home">
+          <span class="brand-mark">NF</span>
+          <span class="brand-text">
+            <strong>Nightfall Esports</strong>
+            <span>Counter-Strike Division</span>
+          </span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+        <nav class="site-nav" id="siteNav">
+          <a href="./index.html" aria-current="page">Home</a>
+          <a href="./roster.html">Roster</a>
+          <a href="./about.html">About</a>
+          <a href="./news.html">News</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-content reveal is-visible">
+          <p class="kicker">Tier One Competitive Program</p>
+          <h1>Precision Wins Rounds. Discipline Wins Tournaments.</h1>
+          <p>
+            Nightfall Esports fields a high-intensity Counter-Strike roster built around structure,
+            confidence, and repeatable clutch performance under pressure.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="./contact.html">Book A Scrim</a>
+            <a class="btn" href="./roster.html">Meet The Team</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Active Roster</h2>
+          <p>Five specialists. One tactical identity. Constant VOD review and map-pool refinement.</p>
+        </div>
+        <div class="card-grid roster">
+          <article class="player-card">
+            <div class="player-media">
+              <img src="./assets/player-vex.svg" alt="VEX portrait" loading="lazy" />
+            </div>
+            <div class="player-body">
+              <h3>VEX</h3>
+              <p class="player-role">In-Game Leader</p>
+              <div class="stats"><span>ADR 84.1</span><span>Clutch 67%</span></div>
+            </div>
+          </article>
+          <article class="player-card">
+            <div class="player-media">
+              <img src="./assets/player-trace.svg" alt="TRACE portrait" loading="lazy" />
+            </div>
+            <div class="player-body">
+              <h3>TRACE</h3>
+              <p class="player-role">AWPer</p>
+              <div class="stats"><span>K/D 1.28</span><span>Entry 59%</span></div>
+            </div>
+          </article>
+          <article class="player-card">
+            <div class="player-media">
+              <img src="./assets/player-rift.svg" alt="RIFT portrait" loading="lazy" />
+            </div>
+            <div class="player-body">
+              <h3>RIFT</h3>
+              <p class="player-role">Entry Frag</p>
+              <div class="stats"><span>Opening +32</span><span>HS 54%</span></div>
+            </div>
+          </article>
+          <article class="player-card">
+            <div class="player-media">
+              <img src="./assets/player-echo.svg" alt="ECHO portrait" loading="lazy" />
+            </div>
+            <div class="player-body">
+              <h3>ECHO</h3>
+              <p class="player-role">Support</p>
+              <div class="stats"><span>Utility 91</span><span>KAST 72%</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Recent Matches</h2>
+          <p>Performance snapshots from the latest bracket runs and qualifiers.</p>
+        </div>
+        <div class="match-list">
+          <article class="match">
+            <div class="match-top">
+              <strong>NIGHTFALL vs ARC UNIT</strong>
+              <span class="result win">Win</span>
+            </div>
+            <div class="match-score">2 : 0</div>
+            <div class="meta">Mirage 13:8, Ancient 13:10 | February 10, 2026</div>
+          </article>
+          <article class="match">
+            <div class="match-top">
+              <strong>NIGHTFALL vs KESTREL</strong>
+              <span class="result loss">Loss</span>
+            </div>
+            <div class="match-score">1 : 2</div>
+            <div class="meta">Nuke 13:11, Inferno 8:13, Anubis 10:13 | February 4, 2026</div>
+          </article>
+          <article class="match">
+            <div class="match-top">
+              <strong>NIGHTFALL vs IRON REIGN</strong>
+              <span class="result win">Win</span>
+            </div>
+            <div class="match-score">2 : 1</div>
+            <div class="meta">Vertigo 13:9, Overpass 7:13, Dust II 13:6 | January 31, 2026</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Partners</h2>
+          <p>Organizations helping Nightfall maintain elite-level operations and player support.</p>
+        </div>
+        <div class="partner-grid">
+          <div class="partner">Steelpoint</div>
+          <div class="partner">HexaTech</div>
+          <div class="partner">Axiom Fuel</div>
+          <div class="partner">Pulse Arena</div>
+          <div class="partner">Radian Audio</div>
+          <div class="partner">Vector Chairs</div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="newsletter">
+          <h2>Get Team Updates</h2>
+          <p>Receive roster news, match schedules, and behind-the-scenes practice insights.</p>
+          <form action="#" method="post">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" type="email" placeholder="you@domain.com" required />
+            <button class="btn btn-primary" type="submit">Join Newsletter</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Nightfall Esports - Counter-Strike Team</span>
+      <span>Contact: ops@nightfall.gg</span>
+    </footer>
+
+    <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

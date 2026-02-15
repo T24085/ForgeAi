@@ -1,0 +1,44 @@
+/* Global Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Navbar */
+.navbar .navbar-brand img {
+  width: 120px;
+  height: auto;
+}
+
+/* Hero Section */
+#hero {
+  background: url('https://via.placeholder.com/1600x600') center/cover no-repeat;
+  color: #fff;
+  padding: 120px 0;
+}
+#hero h1 {
+  color: #fff;
+}
+
+/* Product Card Hover */
+.product-card img {
+  transition: transform 0.3s ease;
+}
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer a {
+  color: #777;
+}
+footer a:hover {
+  color: #333;
+}
+
+/* Contact Form Feedback */
+#contactForm .was-validated .form-control:invalid,
+#contactForm .was-validated .form-control:valid {
+  border-color: transparent;
+}

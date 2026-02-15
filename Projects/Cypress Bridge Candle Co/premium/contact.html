@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact – Cypress Bridge Candle Co.</title>
+<meta name="description" content="Contact Cypress Bridge Candle Co. with questions, feedback, or support requests. Find our location, phone, and hours.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+<main>
+  <section class="contact-form" aria-label="Contact Form">
+    <h1>Get in Touch</h1>
+    <form id="contact-form" action="#" method="post">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </section>
+  <section class="contact-info" aria-label="Contact Information">
+    <h2>Visit Us</h2>
+    <p>110 NW 3rd St, Abilene, KS 67410</p>
+    <p>Phone: (785) 263‑1963</p>
+    <p>Hours: Mon‑Sat 9:00 AM – 6:00 PM</p>
+    <div class="map">
+      <iframe src="https://maps.google.com/maps?q=110%20NW%203rd%20St%20Abilene%20KS%2067410&amp;t=&amp;z=15&amp;output=embed" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <p>&copy; 2026 Cypress Bridge Candle Co.</p>
+</footer>
+<script>
+// Simple form submission placeholder
+document.getElementById('contact-form').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Thank you for contacting us!');
+});
+</script>
+</body>
+</html>

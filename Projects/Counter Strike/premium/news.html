@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nightfall News | Counter-Strike</title>
+    <meta name="description" content="Latest Counter-Strike match reports, roster updates, and event announcements from Nightfall Esports." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./index.html" aria-label="Nightfall home">
+          <span class="brand-mark">NF</span>
+          <span class="brand-text"><strong>Nightfall Esports</strong><span>Counter-Strike Division</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+        <nav class="site-nav" id="siteNav">
+          <a href="./index.html">Home</a>
+          <a href="./roster.html">Roster</a>
+          <a href="./about.html">About</a>
+          <a href="./news.html" aria-current="page">News</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="section reveal is-visible">
+        <div class="section-head">
+          <h1>Team News</h1>
+          <p>Match recaps, schedule updates, and official organization announcements.</p>
+        </div>
+        <div class="news-grid">
+          <article class="news-card"><div class="news-media"><img src="./assets/news-qualifier.svg" alt="Nightfall qualifier match visual" loading="lazy" /></div><time datetime="2026-02-11">February 11, 2026</time><h3>Nightfall Qualifies For Spring Closed</h3><p>Clean 2-0 in final open qualifier with strong CT-side percentage on Mirage and Ancient.</p></article>
+          <article class="news-card"><div class="news-media"><img src="./assets/news-analyst.svg" alt="Nightfall tactical review visual" loading="lazy" /></div><time datetime="2026-02-08">February 8, 2026</time><h3>Analyst Team Expanded</h3><p>Added assistant analyst to improve anti-strat prep and fast adaptation between maps.</p></article>
+          <article class="news-card"><div class="news-media"><img src="./assets/news-scrim.svg" alt="Nightfall scrim schedule visual" loading="lazy" /></div><time datetime="2026-02-01">February 1, 2026</time><h3>Weekly Scrim Block Published</h3><p>Practice week includes top-eight regional opponents and focused Inferno rework.</p></article>
+          <article class="news-card"><div class="news-media"><img src="./assets/news-partner.svg" alt="Nightfall sponsorship visual" loading="lazy" /></div><time datetime="2026-01-26">January 26, 2026</time><h3>Partner Announcement: Axiom Fuel</h3><p>Axiom joins as nutrition and performance partner supporting player routines on bootcamp days.</p></article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="newsletter">
+          <h2>Want Match Alerts?</h2>
+          <p>Get instant notifications for bracket runs, live stream times, and roster announcements.</p>
+          <form action="#" method="post">
+            <label class="sr-only" for="news-email">Email</label>
+            <input id="news-email" type="email" placeholder="team-updates@you.com" required />
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Nightfall Esports - Official Updates</span>
+      <span>Broadcast: media@nightfall.gg</span>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

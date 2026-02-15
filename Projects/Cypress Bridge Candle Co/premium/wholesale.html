@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wholesale – Cypress Bridge Candle Co.</title>
+<meta name="description" content="Wholesale application for retailers. Learn about pricing, minimum orders, and shipping. Submit your request to join our partner network.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="wholesale.html" class="active">Wholesale</a>
+  </nav>
+</header>
+<main>
+  <section class="wholesale-form" aria-label="Wholesale Application">
+    <h1>Wholesale Application</h1>
+    <form id="wholesale-form" action="#" method="post">
+      <label for="company-name">Company Name</label>
+      <input type="text" id="company-name" name="companyName" required>
+      <label for="contact-name">Contact Name</label>
+      <input type="text" id="contact-name" name="contactName" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" required>
+      <label for="min-order">Minimum Order Value (USD)</label>
+      <input type="number" id="min-order" name="minOrder" min="100" required>
+      <button type="submit" class="btn primary">Submit Application</button>
+    </form>
+  </section>
+</main>
+<footer class="footer">
+  <p>&copy; 2026 Cypress Bridge Candle Co.</p>
+</footer>
+<script>
+// Placeholder wholesale form submission
+document.getElementById('wholesale-form').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Application submitted!');
+});
+</script>
+</body>
+</html>

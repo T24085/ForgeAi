@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Shop – Cypress Bridge Candle Co.</title>
+<meta name="description" content="Browse our collection of hand‑poured candles, home décor, and gift sets. Shop by category and filter by scent, size, and price.">
+<link rel="stylesheet" href="styles.css">
+<script src="scripts.js" defer></script>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html" class="active">Shop</a>
+  </nav>
+</header>
+<main>
+  <section class="shop-filters" aria-label="Shop Filters">
+    <label for="category-filter">Category:</label>
+    <select id="category-filter">
+      <option value="all">All</option>
+      <option value="candles">Candles</option>
+      <option value="decor">Home Décor</option>
+      <option value="gifts">Gift Sets</option>
+    </select>
+    <label for="price-filter">Price:</label>
+    <select id="price-filter">
+      <option value="all">All</option>
+      <option value="under-20">Under $20</option>
+      <option value="20-40">$20–$40</option>
+      <option value="over-40">Over $40</option>
+    </select>
+  </section>
+  <section class="product-grid" id="product-grid" aria-label="Products">
+    <article class="product-item">
+      <img src="assets/logo.png" alt="Lavender Serenity Candle">
+      <h4>Lavender Serenity</h4>
+      <p class="price">$29.99</p>
+      <a href="product.html" class="btn secondary">View Details</a>
+    </article>
+    <article class="product-item">
+      <img src="assets/logo.png" alt="Cozy Fireside Candle">
+      <h4>Cozy Fireside</h4>
+      <p class="price">$34.99</p>
+      <a href="product.html" class="btn secondary">View Details</a>
+    </article>
+    <!-- Additional product items would be injected here -->
+  </section>
+</main>
+<footer class="footer">
+  <p>&copy; 2026 Cypress Bridge Candle Co.</p>
+</footer>
+<script>
+// Basic filter logic (placeholder)
+const filterProducts = () => {
+  const category = document.getElementById('category-filter').value;
+  const price = document.getElementById('price-filter').value;
+  const items = document.querySelectorAll('.product-item');
+  items.forEach(item => {
+    let visible = true;
+    if (category !== 'all' && !item.classList.contains(category)) visible = false;
+    if (price !== 'all') {
+      const priceText = item.querySelector('.price').textContent.replace('$', '');
+      const priceVal = parseFloat(priceText);
+      if (price === 'under-20' && priceVal >= 20) visible = false;
+      if (price === '20-40' && (priceVal < 20 || priceVal > 40)) visible = false;
+      if (price === 'over-40' && priceVal <= 40) visible = false;
+    }
+    item.style.display = visible ? 'block' : 'none';
+  });
+};
+
+document.getElementById('category-filter').addEventListener('change', filterProducts);
+document.getElementById('price-filter').addEventListener('change', filterProducts);
+</script>
+</body>
+</html>

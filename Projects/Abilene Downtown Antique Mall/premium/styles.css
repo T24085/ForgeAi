@@ -1,0 +1,36 @@
+/* Web IDE generated stylesheet */
+
+
+/* Web IDE targeted edit */
+@keyframes shine {
+  0% { background-position: -200%; }
+  100% { background-position: 200%; }
+}
+
+.shimmer-text {
+  background-image: linear-gradient(to right, #ffffff 30%, #e0e0e0 50%, #ffffff 70%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4s infinite linear;
+}
+
+
+
+/* Web IDE targeted edit */
+.gradient-text {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b, #8E2DE2, #4A00E0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 300% 300%;
+    animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+

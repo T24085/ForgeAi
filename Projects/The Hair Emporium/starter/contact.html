@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | The Hair Emporium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body data-page="contact">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="logo-wrap">
+        <strong>The Hair Emporium</strong>
+        <span>Salon + Boutique Studio</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
+      <ul class="nav-links">
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="services.html" data-page="services">Services</a></li>
+        <li><a href="boutique.html" data-page="boutique">Boutique</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="contact.html" data-page="contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <main>
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Book your next appointment</h2>
+          <p>Call us directly or send your request below and our team will confirm timing, service length, and your stylist match.</p>
+        </div>
+        <div class="grid-2">
+          <article class="info-panel">
+            <h2>Visit + call</h2>
+            <ul class="info-list">
+              <li>106 NW 3rd St, Abilene, KS 67410</li>
+              <li>(785) 263-3132</li>
+              <li>Mon-Fri: 10am-7pm</li>
+              <li>Saturday: 10am-4pm</li>
+              <li>Sunday: Closed</li>
+            </ul>
+            <div class="hero-actions" style="margin-top:1rem;">
+              <a class="btn btn-secondary" href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+              <a class="btn btn-secondary" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </article>
+
+          <form class="form-wrap" action="#" method="post">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" required>
+              </div>
+              <div class="form-field">
+                <label for="service">Service</label>
+                <select id="service" name="service">
+                  <option>Haircut + style</option>
+                  <option>Color service</option>
+                  <option>Nails</option>
+                  <option>Lashes</option>
+                  <option>Massage</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="date">Preferred date</label>
+                <input id="date" name="date" type="date">
+              </div>
+              <div class="form-field form-full">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" placeholder="Tell us your goals, hair history, or timing preferences."></textarea>
+              </div>
+              <div class="form-field form-full">
+                <button class="btn btn-primary" type="submit">Send Request</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <h2>Find us in Abilene</h2>
+          <p>Located in the downtown district with easy street parking.</p>
+        </div>
+        <div class="map-frame">
+          <iframe loading="lazy" allowfullscreen src="https://www.google.com/maps?q=106%20NW%203rd%20St%2C%20Abilene%2C%20KS%2067410&output=embed" title="Map to The Hair Emporium"></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>&copy; 2026 The Hair Emporium</span>
+      <span>Appointments + walk-ins available</span>
+    </footer>
+  </div>
+</body>
+</html>

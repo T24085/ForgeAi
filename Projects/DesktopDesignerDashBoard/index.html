@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desktop Designer Dashboard</title>
+  <meta name="description" content="Classic desktop style launchpad for links and projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="desktop" aria-label="Desktop links">
+    <header class="top-strip" aria-label="Desktop status">
+      <p class="title">Desktop Designer Dashboard</p>
+      <p class="hint">Tip: drag, box-select, right-click, or double-click icons</p>
+    </header>
+
+    <section id="workspace" class="workspace" aria-label="Desktop workspace"></section>
+    <div id="selection-box" class="selection-box" aria-hidden="true"></div>
+    <section id="windows-layer" class="windows-layer" aria-label="Folder windows"></section>
+  </main>
+
+  <footer class="taskbar" aria-label="Taskbar">
+    <button id="start-btn" class="start" type="button">Start</button>
+    <button id="new-project-btn" class="new-project" type="button">New Project</button>
+    <button id="export-json-btn" class="data-btn" type="button">Export JSON</button>
+    <button id="import-json-btn" class="data-btn" type="button">Import JSON</button>
+    <input id="import-json-input" type="file" accept="application/json,.json" hidden />
+    <p class="taskbar-text">DesktopDesignerDashBoard</p>
+    <time id="clock" class="clock" aria-live="polite"></time>
+  </footer>
+
+  <div id="context-menu" class="context-menu" aria-label="Context menu">
+    <button type="button" data-action="open">Open</button>
+    <button type="button" data-action="open-new">Open in new tab</button>
+    <button type="button" data-action="open-folder">Open folder</button>
+    <button type="button" data-action="copy-link">Copy link</button>
+    <button type="button" data-action="rename">Rename</button>
+    <button type="button" data-action="delete-project">Delete custom project</button>
+    <button type="button" data-action="new-project">New project</button>
+    <button type="button" data-action="reset-icon">Reset icon position</button>
+    <button type="button" data-action="reset-all">Reset all icon positions</button>
+  </div>
+
+  <div id="project-modal" class="modal" aria-hidden="true">
+    <div class="modal-window" role="dialog" aria-modal="true" aria-label="Add project">
+      <p class="window-title">Add New Project</p>
+      <form id="project-form" class="project-form">
+        <label>
+          Project name
+          <input id="project-name" name="name" type="text" maxlength="60" required />
+        </label>
+        <label>
+          URL
+          <input id="project-url" name="url" type="url" placeholder="https://example.com" required />
+        </label>
+        <label>
+          Category
+          <select id="project-category" name="category">
+            <option value="project">Projects</option>
+            <option value="team">Teams</option>
+            <option value="store">Stores</option>
+          </select>
+        </label>
+        <label>
+          Icon text (optional, auto if blank)
+          <input id="project-abbr" name="abbr" type="text" maxlength="4" placeholder="ABR" />
+        </label>
+        <div class="form-actions">
+          <button type="submit">Save project</button>
+          <button id="cancel-project" type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

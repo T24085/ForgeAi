@@ -1,0 +1,28 @@
+{
+  "job_id": "2026-02-11_173410_counter-strike",
+  "company_name": "Counter Strike",
+  "category": "Gaming",
+  "build_type": "website",
+  "details": {
+    "tagline": "",
+    "address": "",
+    "phone": "",
+    "hours": "",
+    "services": [],
+    "notes": "Build a high end three.js counterstrike team website"
+  },
+  "software": {
+    "project_type": "",
+    "platform": "",
+    "stack": "",
+    "features": "",
+    "prompt": ""
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "media_dir": "media"
+  },
+  "status": "running",
+  "created_at": "2026-02-11T17:34:10"
+}

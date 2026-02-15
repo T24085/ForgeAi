@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --bg: #f8f4ee;
+  --surface: #fffdfa;
+  --ink: #1f1712;
+  --muted: #6f6259;
+  --brand: #a24c2f;
+  --brand-soft: #f2d9cb;
+  --line: #e9ddd2;
+  --shadow-lg: 0 22px 48px rgba(43, 24, 14, 0.16);
+  --shadow-md: 0 12px 26px rgba(43, 24, 14, 0.1);
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --wrap: min(1120px, calc(100vw - 3rem));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(920px 480px at 8% -8%, rgba(162, 76, 47, 0.13), transparent 58%),
+    radial-gradient(760px 420px at 90% -6%, rgba(111, 98, 89, 0.14), transparent 56%),
+    var(--bg);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+a { color: inherit; text-decoration: none; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+main > section,
+footer {
+  width: var(--wrap);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(8px);
+  background: rgba(248, 244, 238, 0.86);
+  border-bottom: 1px solid rgba(233, 221, 210, 0.75);
+}
+
+.nav {
+  width: var(--wrap);
+  margin: 0 auto;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: clamp(1.08rem, 1.05vw + 0.88rem, 1.82rem);
+  font-weight: 700;
+}
+
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.95rem;
+}
+
+.nav__list a {
+  color: var(--muted);
+  font-weight: 600;
+  transition: color .2s ease;
+}
+
+.nav__list a:hover { color: var(--ink); }
+
+.hero {
+  margin-top: 1.1rem;
+  min-height: clamp(420px, 70vh, 640px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background:
+    linear-gradient(112deg, rgba(22, 12, 8, 0.7), rgba(22, 12, 8, 0.28)),
+    url('assets/images/high-resolution-cooking-scene-01.jpg') center / cover no-repeat;
+}
+
+.hero__content {
+  padding: clamp(2rem, 5vw, 4rem);
+  max-width: 640px;
+  color: #fff7f1;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 4.2rem);
+  line-height: 1.04;
+}
+
+.hero__subtitle {
+  margin: 1rem 0 1.6rem;
+  font-size: clamp(1rem, 1.35vw, 1.23rem);
+  color: rgba(255, 247, 241, 0.92);
+}
+
+.btn,
+button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff6f1;
+  min-height: 44px;
+  padding: 0.7rem 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.btn:hover,
+button[type="submit"]:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.section-title {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+  line-height: 1.1;
+}
+
+.trust,
+.featured,
+.chef,
+.testimonials,
+.reservation,
+.faq,
+.footer { margin-top: clamp(2.2rem, 5vw, 5rem); }
+
+.trust__logos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.trust__logos img {
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+}
+
+.trust__reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.trust__reviews blockquote,
+.testimonial {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card__overlay { padding: 0.92rem 1rem 1.08rem; }
+.card__title { margin: 0 0 0.35rem; }
+.card__desc { margin: 0; color: var(--muted); }
+
+.chef__content {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 1rem;
+}
+
+.chef__portrait,
+.chef__video {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+
+.chef__bio {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.05rem;
+}
+
+.chef__note {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+}
+
+.testimonials__carousel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.rating {
+  color: #ba861a;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+}
+
+.reservation__form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.68rem 0.9rem;
+}
+
+label { font-weight: 700; }
+
+input {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 10px;
+  border: 1px solid #d8cabb;
+  padding: 0.62rem 0.78rem;
+  font: inherit;
+  background: #fff;
+}
+
+.reservation__form button,
+.newsletter__form button {
+  margin-top: 0.2rem;
+}
+
+.faq {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  box-shadow: var(--shadow-md);
+}
+
+.faq details {
+  border-top: 1px solid var(--line);
+  padding: 0.75rem 0;
+}
+
+.faq details:first-of-type { border-top: 0; }
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.faq p { margin: 0.45rem 0 0; color: var(--muted); }
+
+.footer {
+  margin-bottom: 2.3rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.7fr 1fr;
+  gap: 1rem;
+  background: #211712;
+  color: #f8efe6;
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+}
+
+.footer a { color: #f9dcc9; }
+
+.newsletter__form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.58rem;
+}
+
+.newsletter__form input {
+  background: #fff7f1;
+  border-color: #66534a;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 980px) {
+  .featured__grid,
+  .testimonials__carousel,
+  .footer,
+  .trust__reviews {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chef__content { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.7rem 0;
+  }
+
+  .hero { min-height: 380px; }
+
+  .featured__grid,
+  .testimonials__carousel,
+  .trust__logos,
+  .trust__reviews,
+  .reservation__form,
+  .footer,
+  .newsletter__form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

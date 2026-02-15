@@ -1,0 +1,48 @@
+{
+  "summary": "Premium tier website plan for Cypress Bridge Candle Co. featuring high\u2011quality visuals, subtle animations, in\u2011depth content, robust SEO, lead capture, and optional integrations for e\u2011commerce, social, and analytics.",
+  "pages": [
+    "Home",
+    "About Us",
+    "Shop",
+    "Product Detail",
+    "Blog",
+    "FAQs",
+    "Contact",
+    "Gift Registry",
+    "Wholesale",
+    "Terms & Privacy"
+  ],
+  "sections": [
+    "Hero Banner (animated background, tagline, CTA)",
+    "Featured Products Carousel",
+    "Brand Story with parallax imagery",
+    "Production Process Timeline",
+    "Sustainability Commitment",
+    "Customer Testimonials (video & text)",
+    "Newsletter Signup with opt\u2011in",
+    "Shop Category Grid with filter & sort",
+    "Product Detail Layout (image zoom, video, spec, add to cart, upsell)",
+    "Blog Posts Grid with categories & tags",
+    "FAQs Accordion",
+    "Contact Form + Map + Store Hours",
+    "Gift Registry Builder",
+    "Wholesale Application Form",
+    "Footer (social links, navigation, copyright)"
+  ],
+  "style_notes": "Warm neutral palette (beige, amber, charcoal) with subtle gold accents. Use of high\u2011resolution product and lifestyle images, slow\u2011motion video backgrounds, parallax scrolling, micro\u2011interactions (hover fades, button press animations), and CSS grid for responsive layout. Typography: modern sans\u2011serif (e.g., Montserrat) for headings, serif (e.g., Playfair Display) for body text. Dark mode option. SEO\u2011optimized meta tags, schema markup, and structured data for products.",
+  "assets_needed": [
+    "High\u2011resolution product photos (front, back, close\u2011up, lifestyle)",
+    "Lifestyle images of candles in home settings",
+    "Brand logo (vector files)",
+    "Short promotional video (30\u201160s) for Hero section",
+    "Customer testimonial videos & quotes",
+    "Copy for brand story, production process, sustainability, FAQs, terms, privacy",
+    "Product catalog (SKUs, pricing, descriptions, variations)",
+    "Icon set for UI elements (cart, wishlist, filters)",
+    "Micro\u2011interaction designs (SVGs or CSS snippets)",
+    "SEO keyword list & meta description drafts",
+    "Analytics tracking IDs (Google Analytics, Facebook Pixel, optional e\u2011commerce tracking)",
+    "Email template for newsletter signup confirmation",
+    "Favicon and Apple touch icons"
+  ]
+}

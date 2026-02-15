@@ -1,0 +1,103 @@
+{
+  "summary": "A polished, brand\u2011focused website for Cypress Bridge Candle Co. featuring a modern layout, expanded content, and ecommerce capabilities to showcase hand\u2011poured candles and home d\u00e9cor gifts. The design will emphasize the company\u2019s heritage, artisanal quality, and local presence, providing clear navigation, engaging visuals, and a seamless shopping experience.",
+  "pages": [
+    "Home",
+    "Shop",
+    "Collections",
+    "Gift Ideas",
+    "About Us",
+    "FAQ",
+    "Blog",
+    "Contact"
+  ],
+  "sections": [
+    {
+      "page": "Home",
+      "sections": [
+        "Hero Banner (featured candle & tagline)",
+        "Featured Collections (grid)",
+        "New Arrivals (carousel)",
+        "Why Choose Us (values & heritage)",
+        "Customer Testimonials (slider)",
+        "Social Proof (Facebook feed)",
+        "Newsletter Sign\u2011up"
+      ]
+    },
+    {
+      "page": "Shop",
+      "sections": [
+        "Product Filter Sidebar (category, price, scent)",
+        "Product Grid (with hover details)",
+        "Pagination / Infinite Scroll",
+        "Quick View Modal",
+        "Add to Cart"
+      ]
+    },
+    {
+      "page": "Collections",
+      "sections": [
+        "Collection Overview (hero & intro)",
+        "Collection Gallery (large images)",
+        "Individual Collection Pages (product list + description)",
+        "Best Sellers Highlight"
+      ]
+    },
+    {
+      "page": "Gift Ideas",
+      "sections": [
+        "Gift Guides (occasion based)",
+        "Gift Card Purchase",
+        "Custom Gift Box Builder"
+      ]
+    },
+    {
+      "page": "About Us",
+      "sections": [
+        "Company Story (timeline)",
+        "Meet the Team (bios & photos)",
+        "Sustainability & Craftsmanship",
+        "Press & Awards"
+      ]
+    },
+    {
+      "page": "FAQ",
+      "sections": [
+        "Ordering & Shipping",
+        "Returns & Exchanges",
+        "Care & Usage",
+        "Custom Orders"
+      ]
+    },
+    {
+      "page": "Blog",
+      "sections": [
+        "Latest Posts (excerpt grid)",
+        "Category Filters",
+        "Post Detail (image carousel + comments)",
+        "Subscribe to Blog"
+      ]
+    },
+    {
+      "page": "Contact",
+      "sections": [
+        "Contact Form",
+        "Store Hours & Address",
+        "Phone & Email",
+        "Map (Google)",
+        "Social Links"
+      ]
+    }
+  ],
+  "style_notes": "Branding: Warm, earthy palette (deep greens, muted golds, soft neutrals). Typography: Serif for headings (e.g., Playfair Display) and clean sans-serif body (e.g., Lato). Imagery: High\u2011resolution product shots with natural lighting; lifestyle images featuring the candles in home settings. Layout: Consistent grid system with generous whitespace, responsive design. Interaction: Subtle hover effects, smooth transitions, and micro\u2011animations for call\u2011to\u2011actions. Tone: Friendly, artisanal, community\u2011focused.",
+  "assets_needed": [
+    "High\u2011resolution product photos (front, back, close\u2011ups)",
+    "Lifestyle images of candles in home d\u00e9cor settings",
+    "Logo files (SVG & PNG)",
+    "Favicon",
+    "Social media icons (custom)",
+    "Hero banner images for each page",
+    "Custom icons for FAQ categories",
+    "Iconography for navigation elements",
+    "Video or GIF for hero animation (optional)"
+  ]
+}

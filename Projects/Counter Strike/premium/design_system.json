@@ -1,0 +1,223 @@
+{
+  "summary": "High-end tactical gaming team website with Three.js hero, premium dark theme, competitive aesthetic, focused lead capture",
+  "pages": [
+    "Home",
+    "Roster",
+    "About",
+    "News",
+    "Contact"
+  ],
+  "sections": [
+    "Hero Three.js",
+    "Team Roster",
+    "Recent Matches",
+    "Partners",
+    "Newsletter CTA",
+    "Footer"
+  ],
+  "style_notes": "Counter-Strike-inspired tactical aesthetic: sharp angles, dark surfaces, subtle green accent, high-contrast typography, measured motion. Design prioritizes competitive credibility, player showcases, match results, and team partnerships. Three.js hero creates immersive tactical atmosphere with subtle particle or tactical grid effects.",
+  "assets_needed": [
+    "Team roster photos (4-5 players)",
+    "Match result banners",
+    "Partner logos",
+    "Team logo (transparent PNG)",
+    "Background textures (subtle tactical patterns)",
+    "Game footage snippets (short loops)",
+    "Social media icons"
+  ],
+  "design_system": {
+    "colors": {
+      "brand": {
+        "primary": "#10B981",
+        "primary-dark": "#059669",
+        "primary-light": "#34D399"
+      },
+      "dark": {
+        "surface": "#0A0A0A",
+        "surface-elevated": "#141414",
+        "surface-pressed": "#1A1A1A",
+        "surface-card": "#1F1F1F"
+      },
+      "text": {
+        "heading": "#FFFFFF",
+        "body": "#B0B0B0",
+        "muted": "#707070"
+      },
+      "accent": {
+        "highlight": "#F59E0B",
+        "alert": "#EF4444"
+      },
+      "neutral": {
+        "border": "#333333",
+        "divider": "#444444"
+      }
+    },
+    "typography": {
+      "display": {
+        "font_family": "Rajdhani, system-ui, -apple-system, sans-serif",
+        "font_weight": "700",
+        "letter_spacing": "0.02em",
+        "text_transform": "uppercase"
+      },
+      "body": {
+        "font_family": "Inter, system-ui, -apple-system, sans-serif",
+        "font_weight": "400",
+        "letter_spacing": "0.01em"
+      },
+      "scale": {
+        "h1": {
+          "font_size": "64px",
+          "line_height": "1.1"
+        },
+        "h2": {
+          "font_size": "48px",
+          "line_height": "1.15"
+        },
+        "h3": {
+          "font_size": "32px",
+          "line_height": "1.25"
+        },
+        "h4": {
+          "font_size": "24px",
+          "line_height": "1.3"
+        },
+        "body-lg": {
+          "font_size": "18px",
+          "line_height": "1.6"
+        },
+        "body-md": {
+          "font_size": "16px",
+          "line_height": "1.5"
+        },
+        "body-sm": {
+          "font_size": "14px",
+          "line_height": "1.5"
+        },
+        "caption": {
+          "font_size": "12px",
+          "line_height": "1.4"
+        }
+      }
+    },
+    "spacing": {
+      "scale": {
+        "0": "0px",
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "5": "24px",
+        "6": "32px",
+        "8": "48px",
+        "10": "64px",
+        "12": "96px",
+        "16": "128px",
+        "20": "160px"
+      }
+    },
+    "radius": {
+      "none": "0px",
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "xl": "16px",
+      "full": "9999px"
+    },
+    "shadows": {
+      "sm": "0 2px 4px rgba(0,0,0,0.3)",
+      "md": "0 4px 12px rgba(0,0,0,0.4)",
+      "lg": "0 8px 24px rgba(0,0,0,0.5)",
+      "glow-primary": "0 0 20px rgba(16,185,129,0.3)",
+      "glow-primary-strong": "0 0 40px rgba(16,185,129,0.5)"
+    },
+    "motion": {
+      "hero_entry": {
+        "duration": "1000ms",
+        "easing": "ease-out",
+        "stagger": "200ms"
+      },
+      "player_card": {
+        "duration": "600ms",
+        "easing": "ease-out"
+      },
+      "partner_logo": {
+        "duration": "500ms",
+        "easing": "ease-out"
+      },
+      "cta_input": {
+        "focus_ring": "glow-primary"
+      }
+    },
+    "components": [
+      {
+        "name": "Hero",
+        "description": "Three.js immersive section with tactical background, headline, and primary CTA",
+        "structure": {
+          "bg": "dark surface with tactical grid overlay",
+          "three_js": "interactive particle or mesh effect",
+          "content": {
+            "headline": "H1 display with tactical accent",
+            "subheadline": "body-lg muted",
+            "ctas": "primary button + secondary button"
+          },
+          "position": "z-index 1, centered horizontally, top aligned"
+        }
+      },
+      {
+        "name": "Player Card",
+        "description": "Player profile with position, stats, and team role",
+        "structure": {
+          "bg": "surface-card",
+          "border": "border with subtle opacity",
+          "image": "headshot with border radius lg",
+          "content": {
+            "name": "h4 heading",
+            "position": "caption accent",
+            "stats": "flex row of small metric cards",
+            "role_badge": "small pill tag"
+          }
+        }
+      },
+      {
+        "name": "Match Banner",
+        "description": "Match result display with opponent, score, and result indicator",
+        "structure": {
+          "bg": "surface-elevated",
+          "layout": "team1 | score | team2",
+          "result": "highlight for win, muted for loss",
+          "date": "caption muted"
+        }
+      },
+      {
+        "name": "Partner Grid",
+        "description": "Logo grid with hover lift and glow effect",
+        "structure": {
+          "bg": "surface with subtle pattern",
+          "items": "3-6 logos in 2-column or 3-column grid",
+          "hover": "transform translate-y -2px shadow-glow-primary"
+        }
+      },
+      {
+        "name": "CTA Band",
+        "description": "Compact call-to-action section for newsletter or engagement",
+        "structure": {
+          "bg": "brand-primary with gradient",
+          "text": "heading white, body body-md white",
+          "input": "body-sm bg-white text-brand-primary with radius md",
+          "button": "body-sm bg-brand-dark text-white with glow"
+        }
+      }
+    ],
+    "voice": "Tactical, professional, confident. Uses concise phrasing, competitive terminology, and direct CTAs. Tone balances team prestige with accessibility\u2014celebrating achievements while welcoming newcomers.",
+    "imagery": {
+      "style": "Dark, high-contrast, editorial",
+      "rules": [
+        "Team photos with clean backgrounds",
+        "Match results with bold typography",
+        "Partners with centered logos",
+        "No stock gaming imagery\u2014custom player photography only"
+      ],
+      "tone": "Professional athlete portraits, tactical surface textures, subtle particle effects"
+    }
+  }
+}

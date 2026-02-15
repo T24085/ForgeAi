@@ -1,0 +1,21 @@
+{
+  "job_id": "2026-02-01_225502_countrypolitan",
+  "company_name": "Countrypolitan",
+  "category": "Retail",
+  "details": {
+    "tagline": "",
+    "address": "",
+    "phone": "",
+    "hours": "",
+    "services": [],
+    "notes": "Countrypolitan \u2013 Antique, home & garden emporium with architectural and country furnishings (mix of old and new items; seasonal d\u00e9cor). Address: 317 N Broadway St, Abilene, KS 67410. Phone: (785) 263-2113. Web Presence: No official website (Facebook-only)"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "media_dir": "media"
+  },
+  "status": "running",
+  "created_at": "2026-02-01T22:55:02",
+  "error": "HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=1800)"
+}

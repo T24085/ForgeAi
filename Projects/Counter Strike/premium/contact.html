@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Nightfall | Counter-Strike</title>
+    <meta name="description" content="Contact Nightfall Esports for scrims, sponsorship inquiries, and media opportunities." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./index.html" aria-label="Nightfall home">
+          <span class="brand-mark">NF</span>
+          <span class="brand-text"><strong>Nightfall Esports</strong><span>Counter-Strike Division</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+        <nav class="site-nav" id="siteNav">
+          <a href="./index.html">Home</a>
+          <a href="./roster.html">Roster</a>
+          <a href="./about.html">About</a>
+          <a href="./news.html">News</a>
+          <a href="./contact.html" aria-current="page">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="section reveal is-visible">
+        <div class="section-head">
+          <h1>Contact Operations</h1>
+          <p>Use this form for scrims, sponsorship packages, and tournament bookings.</p>
+        </div>
+        <div class="contact-layout">
+          <form class="contact-form panel" action="#" method="post">
+            <div class="split">
+              <label>Name<input type="text" name="name" required /></label>
+              <label>Email<input type="email" name="email" required /></label>
+            </div>
+            <div class="split">
+              <label>Organization<input type="text" name="org" /></label>
+              <label>Inquiry Type
+                <select name="type">
+                  <option>Scrim Request</option>
+                  <option>Sponsorship</option>
+                  <option>Media Interview</option>
+                  <option>Event Booking</option>
+                </select>
+              </label>
+            </div>
+            <label>Details<textarea name="message" placeholder="Share dates, scope, and budget details."></textarea></label>
+            <button class="btn btn-primary" type="submit">Send Inquiry</button>
+          </form>
+
+          <aside class="panel">
+            <h2>Direct Channels</h2>
+            <p><strong>Team Ops:</strong> ops@nightfall.gg</p>
+            <p><strong>Sponsorship:</strong> partners@nightfall.gg</p>
+            <p><strong>Media:</strong> press@nightfall.gg</p>
+            <p class="meta">Response target: within one business day.</p>
+            <div class="cta-row">
+              <a class="btn" href="./news.html">Recent Updates</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Nightfall Esports - Contact & Partnerships</span>
+      <span>All requests routed through operations desk</span>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

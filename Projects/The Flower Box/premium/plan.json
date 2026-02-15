@@ -1,0 +1,46 @@
+{
+  "summary": "Premium, visually rich e\u2011commerce website for The Flower Box featuring dynamic animations, deep product storytelling, SEO\u2011optimized content, lead capture forms, and optional integrations such as Shopify or WooCommerce, email marketing, and local SEO tools.",
+  "pages": [
+    "Home",
+    "Shop",
+    "About Us",
+    "Services",
+    "Custom Orders",
+    "Blog",
+    "Gallery",
+    "Contact Us",
+    "FAQ",
+    "Privacy Policy",
+    "Terms of Service"
+  ],
+  "sections": [
+    "Hero with animated banner",
+    "Featured collections carousel",
+    "About story & values",
+    "Service highlights (flowers, candles, gifts, decor)",
+    "Custom order process with step\u2011by\u2011step guide",
+    "Product detail pages with 360\u00b0 view and video",
+    "Blog carousel with latest posts",
+    "Gallery with high\u2011resolution images & video reels",
+    "Client testimonials slider",
+    "Lead capture opt\u2011in (newsletter & discount)",
+    "Map & store locator",
+    "Contact form with map and business hours",
+    "FAQ accordion",
+    "Footer with links, social icons, privacy & terms"
+  ],
+  "style_notes": "Premium aesthetic using soft floral palettes (lavender, blush, sage) paired with crisp typography (serif for headings, sans\u2011serif for body). Subtle hover animations, scroll\u2011triggered parallax effects, and micro\u2011interactions on product cards. Fully responsive grid, dark mode option, and accessibility\u2011first design (WCAG 2.1 AA).",
+  "assets_needed": [
+    "High\u2011resolution product photos (front, back, close\u2011up, lifestyle)",
+    "Lifestyle images of arrangements in home settings",
+    "Short promotional videos (30\u201160s) showcasing bouquet making",
+    "Custom logo & favicon",
+    "Social media icons (customized), \"Shop Now\" button graphics",
+    "SEO keyword list & meta tag templates",
+    "Copy for all pages (including SEO\u2011friendly headings)",
+    "FAQ content",
+    "Privacy & Terms text",
+    "Email marketing template (newsletter, cart abandonment)",
+    "API keys/credentials for optional integrations (Shopify/WooCommerce, Mailchimp, Google Maps)"
+  ]
+}

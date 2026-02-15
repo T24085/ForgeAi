@@ -1,0 +1,582 @@
+{
+  "colors": {
+    "primary": {
+      "value": "#C17D2D",
+      "description": "Warm amber-orange, inspired by premium aged cheeses",
+      "background": "#FFEDD4",
+      "foreground": "#7C4015"
+    },
+    "secondary": {
+      "value": "#FDF8F2",
+      "description": "Rich cream/off-white for premium backgrounds",
+      "foreground": "#2D2D2D"
+    },
+    "tertiary": {
+      "value": "#8B5E3C",
+      "description": "Deep chocolate for text and strong CTAs",
+      "foreground": "#FFFFFF"
+    },
+    "accent": {
+      "value": "#D4A574",
+      "description": "Muted gold for secondary accents",
+      "foreground": "#FFFFFF"
+    },
+    "neutral": {
+      "value": "#F5F5F5",
+      "description": "Light neutral for section backgrounds",
+      "foreground": "#1A1A1A"
+    }
+  },
+  "typography": {
+    "display": {
+      "font_family": "Playfair Display",
+      "font_weight": "600",
+      "font_size": "42px",
+      "line_height": "1.2",
+      "letter_spacing": "-0.02em",
+      "fallback": "Georgia, 'Times New Roman', serif"
+    },
+    "heading_small": {
+      "font_family": "Playfair Display",
+      "font_weight": "600",
+      "font_size": "32px",
+      "line_height": "1.3",
+      "letter_spacing": "-0.01em",
+      "fallback": "Georgia, 'Times New Roman', serif"
+    },
+    "body": {
+      "font_family": "DM Sans",
+      "font_weight": "400",
+      "font_size": "16px",
+      "line_height": "1.6",
+      "letter_spacing": "0.01em",
+      "fallback": "'Segoe UI', system-ui, sans-serif"
+    },
+    "body_large": {
+      "font_family": "DM Sans",
+      "font_weight": "400",
+      "font_size": "18px",
+      "line_height": "1.7",
+      "letter_spacing": "0.01em",
+      "fallback": "'Segoe UI', system-ui, sans-serif"
+    },
+    "caption": {
+      "font_family": "DM Sans",
+      "font_weight": "400",
+      "font_size": "13px",
+      "line_height": "1.5",
+      "letter_spacing": "0.02em",
+      "text_transform": "uppercase",
+      "fallback": "'Segoe UI', system-ui, sans-serif"
+    },
+    "button_primary": {
+      "font_family": "DM Sans",
+      "font_weight": "500",
+      "font_size": "14px",
+      "line_height": "1.4",
+      "letter_spacing": "0.02em",
+      "text_transform": "uppercase",
+      "fallback": "'Segoe UI', system-ui, sans-serif"
+    },
+    "button_secondary": {
+      "font_family": "DM Sans",
+      "font_weight": "400",
+      "font_size": "14px",
+      "line_height": "1.4",
+      "letter_spacing": "0.02em",
+      "text_transform": "uppercase",
+      "fallback": "'Segoe UI', system-ui, sans-serif"
+    }
+  },
+  "spacing": {
+    "scale": {
+      "0": "0px",
+      "4": "4px",
+      "8": "8px",
+      "12": "12px",
+      "16": "16px",
+      "20": "20px",
+      "24": "24px",
+      "32": "32px",
+      "40": "40px",
+      "48": "48px",
+      "64": "64px",
+      "80": "80px",
+      "96": "96px",
+      "128": "128px",
+      "160": "160px"
+    },
+    "section": {
+      "small": "64px",
+      "medium": "96px",
+      "large": "128px",
+      "xlarge": "160px"
+    },
+    "container": {
+      "small": "640px",
+      "medium": "1024px",
+      "large": "1280px"
+    }
+  },
+  "radius": {
+    "scale": {
+      "0": "0px",
+      "2": "2px",
+      "4": "4px",
+      "6": "6px",
+      "8": "8px",
+      "12": "12px",
+      "16": "16px",
+      "24": "24px"
+    },
+    "card": "12px",
+    "button": "6px",
+    "badge": "4px"
+  },
+  "shadow": {
+    "scale": {
+      "none": "none",
+      "sm": "0 2px 4px rgba(0, 0, 0, 0.04)",
+      "md": "0 4px 12px rgba(0, 0, 0, 0.08)",
+      "lg": "0 8px 24px rgba(0, 0, 0, 0.12)",
+      "xl": "0 16px 40px rgba(0, 0, 0, 0.16)",
+      "floating": "0 8px 32px rgba(193, 125, 45, 0.25)"
+    }
+  },
+  "motion": {
+    "guidelines": {
+      "approach": "Subtle, intentional, and performance-focused. No flashy animations\u2014every motion serves a purpose.",
+      "principles": [
+        "Scroll-triggered reveals with staggered delays",
+        "Hover states with micro-interactions",
+        "Page transitions with fade and slide effects",
+        "Button states with color and shadow changes",
+        "Form inputs with focus states and subtle animations"
+      ],
+      "constraints": [
+        "All animations should be performant and accessible",
+        "Avoid animations on mobile devices where appropriate",
+        "Provide reduced motion preference support",
+        "Use hardware-accelerated properties (transform, opacity)",
+        "Keep animation durations under 500ms for interaction states"
+      ],
+      "patterns": [
+        {
+          "name": "Fade In Up",
+          "description": "Content fades in from below with a subtle upward motion. Ideal for section headings and cards.",
+          "timing": "base",
+          "easing": "ease_out",
+          "delay": "0ms"
+        },
+        {
+          "name": "Staggered Reveal",
+          "description": "Multiple items reveal sequentially for visual interest and improved information hierarchy.",
+          "timing": "base",
+          "easing": "ease_out",
+          "stagger": "100ms"
+        },
+        {
+          "name": "Hover Lift",
+          "description": "Elements gently lift and cast a deeper shadow on hover for tactile feedback.",
+          "timing": "fast",
+          "easing": "ease_out"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Sticky Navigation",
+      "description": "Fixed navigation bar with brand, navigation links, and primary CTA. Minimalist design with transparent-to-solid background on scroll.",
+      "attributes": {
+        "height": "64px",
+        "padding_horizontal": "24px",
+        "background": "rgba(253, 248, 242, 0.95)",
+        "backdrop_filter": "blur(12px)",
+        "shadow_sm": "true",
+        "border_bottom": "1px solid rgba(193, 125, 45, 0.1)"
+      },
+      "elements": {
+        "logo": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "20px",
+          "letter_spacing": "-0.01em"
+        },
+        "nav_links": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "14px",
+          "letter_spacing": "0.02em",
+          "text_transform": "uppercase",
+          "margin_right": "32px"
+        },
+        "cta_button": {
+          "type": "primary",
+          "padding": "8px 20px"
+        }
+      }
+    },
+    {
+      "name": "Hero Section",
+      "description": "Full-width hero with dramatic imagery, bold headline, subheadline, and primary/secondary CTAs. Premium feel with generous white space.",
+      "attributes": {
+        "min_height": "80vh",
+        "padding_vertical": "48px",
+        "background": "secondary",
+        "text_alignment": "center",
+        "content_alignment": "center"
+      },
+      "elements": {
+        "headline": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "64px",
+          "line_height": "1.15",
+          "letter_spacing": "-0.02em"
+        },
+        "subheadline": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "20px",
+          "line_height": "1.6",
+          "color": "tertiary",
+          "max_width": "540px",
+          "margin_top": "16px"
+        },
+        "primary_cta": {
+          "type": "primary",
+          "padding": "12px 32px",
+          "margin_top": "32px"
+        },
+        "secondary_cta": {
+          "type": "secondary",
+          "padding": "12px 32px",
+          "margin_top": "16px"
+        }
+      }
+    },
+    {
+      "name": "Trust Proof Bar",
+      "description": "Horizontal bar showcasing certifications, awards, and trust signals. Subtle background with centered content.",
+      "attributes": {
+        "background": "neutral",
+        "padding_vertical": "32px",
+        "padding_horizontal": "24px"
+      },
+      "elements": {
+        "badges": {
+          "display": "flex",
+          "gap": "48px",
+          "justify_content": "center",
+          "align_items": "center"
+        },
+        "badge_icon": {
+          "width": "48px",
+          "height": "48px"
+        },
+        "badge_label": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "12px",
+          "letter_spacing": "0.02em",
+          "text_transform": "uppercase"
+        }
+      }
+    },
+    {
+      "name": "Cheese Philosophy",
+      "description": "Two-column layout with prominent serif heading and body text. Content-first design with supporting visual element.",
+      "attributes": {
+        "padding_vertical": "96px",
+        "padding_horizontal": "24px"
+      },
+      "elements": {
+        "heading": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "42px",
+          "line_height": "1.3",
+          "letter_spacing": "-0.01em",
+          "margin_bottom": "32px"
+        },
+        "body_text": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "18px",
+          "line_height": "1.7",
+          "max_width": "600px"
+        }
+      }
+    },
+    {
+      "name": "Featured Selection",
+      "description": "Grid of premium product cards with image, title, description, and CTA. Hover effects with subtle lift and shadow.",
+      "attributes": {
+        "grid_columns": "3",
+        "grid_gap": "32px",
+        "padding_horizontal": "24px"
+      },
+      "card": {
+        "background": "white",
+        "border_radius": "12px",
+        "overflow": "hidden",
+        "shadow_md": "true",
+        "transition": "transform 300ms ease, shadow 300ms ease"
+      },
+      "card_hover": {
+        "transform": "translateY(-8px)",
+        "shadow_lg": "true"
+      },
+      "elements": {
+        "product_image": {
+          "width": "100%",
+          "aspect_ratio": "3/4",
+          "object_fit": "cover"
+        },
+        "product_title": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "18px",
+          "margin_top": "16px"
+        },
+        "product_description": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "14px",
+          "line_height": "1.5",
+          "margin_top": "8px",
+          "color": "tertiary"
+        },
+        "product_cta": {
+          "type": "secondary",
+          "padding": "8px 20px",
+          "margin_top": "16px"
+        }
+      }
+    },
+    {
+      "name": "Production Journey",
+      "description": "Vertical timeline or step-by-step layout showcasing the cheese production process. Educational content with visual progression.",
+      "attributes": {
+        "padding_vertical": "96px",
+        "padding_horizontal": "24px"
+      },
+      "elements": {
+        "section_heading": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "42px",
+          "line_height": "1.3",
+          "letter_spacing": "-0.01em",
+          "margin_bottom": "48px"
+        },
+        "step_card": {
+          "border_left": "2px solid primary",
+          "padding_left": "24px",
+          "margin_bottom": "48px"
+        },
+        "step_number": {
+          "font_family": "DM Sans",
+          "font_weight": "600",
+          "font_size": "48px",
+          "color": "primary",
+          "opacity": "0.3",
+          "margin_bottom": "16px"
+        },
+        "step_title": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "24px",
+          "margin_bottom": "8px"
+        },
+        "step_description": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "16px",
+          "line_height": "1.6",
+          "color": "tertiary"
+        }
+      }
+    },
+    {
+      "name": "Testimonials",
+      "description": "Carousel or grid of customer testimonials with avatars, quotes, and star ratings. Social proof section with elegant typography.",
+      "attributes": {
+        "background": "neutral",
+        "padding_vertical": "96px",
+        "padding_horizontal": "24px"
+      },
+      "elements": {
+        "section_heading": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "36px",
+          "line_height": "1.3",
+          "letter_spacing": "-0.01em",
+          "margin_bottom": "48px"
+        },
+        "testimonial_card": {
+          "background": "secondary",
+          "border_radius": "12px",
+          "padding": "32px"
+        },
+        "testimonial_quote": {
+          "font_family": "Playfair Display",
+          "font_weight": "400",
+          "font_size": "20px",
+          "line_height": "1.5",
+          "margin_bottom": "16px"
+        },
+        "testimonial_author": {
+          "font_family": "DM Sans",
+          "font_weight": "500",
+          "font_size": "14px",
+          "letter_spacing": "0.02em",
+          "text_transform": "uppercase"
+        }
+      }
+    },
+    {
+      "name": "Conversion CTA",
+      "description": "Bold, centered CTA section with primary call-to-action. Designed to drive reservations, contact, or newsletter signups.",
+      "attributes": {
+        "background": "primary",
+        "padding_vertical": "96px",
+        "padding_horizontal": "24px",
+        "text_alignment": "center"
+      },
+      "elements": {
+        "heading": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "48px",
+          "line_height": "1.2",
+          "letter_spacing": "-0.02em",
+          "margin_bottom": "16px"
+        },
+        "subheading": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "18px",
+          "line_height": "1.6",
+          "color": "secondary",
+          "margin_bottom": "32px"
+        },
+        "cta_button": {
+          "type": "secondary",
+          "padding": "14px 40px"
+        }
+      }
+    },
+    {
+      "name": "Footer",
+      "description": "Multi-column footer with navigation, contact info, social links, and legal text. Comprehensive footer with clear hierarchy.",
+      "attributes": {
+        "background": "secondary",
+        "padding_vertical": "64px",
+        "padding_horizontal": "24px"
+      },
+      "elements": {
+        "footer_brand": {
+          "font_family": "Playfair Display",
+          "font_weight": "600",
+          "font_size": "20px",
+          "margin_bottom": "16px"
+        },
+        "footer_tagline": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "14px",
+          "color": "tertiary"
+        },
+        "footer_columns": {
+          "display": "grid",
+          "grid_template_columns": "repeat(4, 1fr)",
+          "gap": "48px",
+          "margin_top": "48px"
+        },
+        "footer_column_title": {
+          "font_family": "DM Sans",
+          "font_weight": "500",
+          "font_size": "12px",
+          "letter_spacing": "0.02em",
+          "text_transform": "uppercase",
+          "margin_bottom": "16px"
+        },
+        "footer_link": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "14px",
+          "color": "tertiary",
+          "display": "block",
+          "margin_bottom": "8px"
+        },
+        "footer_social": {
+          "display": "flex",
+          "gap": "16px"
+        },
+        "footer_legal": {
+          "font_family": "DM Sans",
+          "font_weight": "400",
+          "font_size": "12px",
+          "color": "tertiary",
+          "margin_top": "48px",
+          "padding_top": "32px",
+          "border_top": "1px solid rgba(193, 125, 45, 0.1)"
+        }
+      }
+    }
+  ],
+  "voice": "Elevated Playfulness: A sophisticated brand voice that balances playful cheese enthusiasm with premium craftsmanship. We speak with authority, warmth, and a touch of whimsy\u2014like a knowledgeable cheesemaker sharing their passion. The tone is confident but accessible, sophisticated but not pretentious.",
+  "imagery": {
+    "guidelines": {
+      "approach": "Professional, high-quality imagery that conveys premium quality and craftsmanship. Every image should feel intentional and curated.",
+      "principles": [
+        "Use high-resolution images (minimum 1920x1080 for hero, 1200x1600 for products)",
+        "Apply subtle color grading for consistency",
+        "Include shallow depth of field for product images",
+        "Use natural lighting to convey authenticity",
+        "Maintain aspect ratio consistency across similar images"
+      ],
+      "content_types": {
+        "hero": {
+          "description": "Full-width hero image with dramatic cheese photography, product shot, or restaurant ambiance",
+          "style": "Bold, high-contrast with shallow depth of field",
+          "color_tone": "Warm, rich colors with golden lighting"
+        },
+        "product": {
+          "description": "Close-up product shots with texture and details",
+          "style": "Minimalist composition with negative space",
+          "color_tone": "Natural, warm tones emphasizing texture"
+        },
+        "production": {
+          "description": "Process photos showing cheese-making, aging, or preparation",
+          "style": "Candid, authentic with natural lighting",
+          "color_tone": "Rich, warm tones with depth"
+        },
+        "restaurant": {
+          "description": "Interior shots of the dining space, plates, and ambiance",
+          "style": "Warm, inviting with attention to lighting and details",
+          "color_tone": "Warm, rich tones with golden hour feel"
+        },
+        "people": {
+          "description": "Team members, chefs, or customers (when appropriate)",
+          "style": "Natural, candid with genuine expressions",
+          "color_tone": "Warm, authentic tones"
+        },
+        "backgrounds": {
+          "description": "Subtle texture overlays for premium feel",
+          "style": "Minimal, subtle grain or gradient",
+          "color_tone": "Neutral, warm tones"
+        }
+      },
+      "color_grading": {
+        "warm_gold": "Increased yellow and orange tones for rich, golden feel",
+        "deep_brown": "Enhanced browns and reds for depth and warmth",
+        "creamy": "Increased white and light cream for softness",
+        "vibrant": "Slight saturation boost for freshness"
+      }
+    }
+  }
+}
