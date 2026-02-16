@@ -22,6 +22,8 @@ const neoReturnRain = document.getElementById("neoReturnRain");
 const dejaVuCat = document.getElementById("dejaVuCat");
 const sourceCodeRain = document.getElementById("sourceCodeRain");
 const titleMatrixVideo = document.getElementById("titleMatrixVideo");
+const coverReveal = document.getElementById("coverReveal");
+const coverVideo = document.querySelector(".cover-reveal-video");
 const WALK_VIDEO_SOURCES = ["./walking.mp4", "./MatrixCodeHero.mp4"];
 const IS_FILE_PROTOCOL = window.location.protocol === "file:";
 
@@ -140,6 +142,24 @@ function renderBook(glitchIndex = null) {
   prevBtn.disabled = neoModeActive || currentPage === 0;
   nextBtn.disabled = neoModeActive;
   pageStatus.textContent = `Page ${currentPage + 1} of ${pages.length}`;
+  syncCoverVideoPlayback();
+}
+
+function syncCoverVideoPlayback() {
+  if (!coverVideo) return;
+  coverVideo.loop = true;
+
+  // Some browsers leave videos in an ended state after visibility/page transitions.
+  if (coverVideo.ended) {
+    coverVideo.currentTime = 0;
+  }
+
+  if (document.hidden) return;
+  if (currentPage !== 0) return;
+
+  if (coverVideo.paused || coverVideo.ended) {
+    coverVideo.play().catch(() => {});
+  }
 }
 
 function ensureTypeAudioContext() {
@@ -243,10 +263,15 @@ function beginNeoInstallPrompt() {
 
 function playDejaVuCat() {
   if (!dejaVuCat || dejaVuPlayed) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   dejaVuPlayed = true;
 
-  const burstCount = Math.max(24, Math.min(54, Math.floor(window.innerWidth / 34)));
-  const fragment = document.createDocumentFragment();
+  const onCoverPage = currentPage === 0;
+  const burstCount = onCoverPage
+    ? Math.max(10, Math.min(20, Math.floor(window.innerWidth / 64)))
+    : Math.max(18, Math.min(40, Math.floor(window.innerWidth / 46)));
+  const batchSize = onCoverPage ? 4 : 7;
+  const clones = [];
   let maxEndMs = 0;
 
   const randomEdgeStart = () => {
@@ -288,14 +313,30 @@ function playDejaVuCat() {
     clone.style.setProperty("--dv-start-rot", `${(-28 + Math.random() * 56).toFixed(1)}deg`);
     clone.style.setProperty("--dv-end-rot", `${(-26 + Math.random() * 52).toFixed(1)}deg`);
 
-    fragment.appendChild(clone);
+    clones.push(clone);
   }
 
-  document.body.appendChild(fragment);
+  let appendIndex = 0;
+  const appendBatch = () => {
+    const fragment = document.createDocumentFragment();
+    const end = Math.min(appendIndex + batchSize, clones.length);
+    for (; appendIndex < end; appendIndex += 1) {
+      fragment.appendChild(clones[appendIndex]);
+    }
+    document.body.appendChild(fragment);
+    if (appendIndex < clones.length) {
+      window.requestAnimationFrame(appendBatch);
+      return;
+    }
+    syncCoverVideoPlayback();
+  };
+
+  window.requestAnimationFrame(appendBatch);
 
   window.setTimeout(() => {
     const virusNodes = document.querySelectorAll(".deja-vu-cat--burst");
     virusNodes.forEach((node) => node.remove());
+    syncCoverVideoPlayback();
   }, maxEndMs + 240);
 }
 
@@ -932,11 +973,6 @@ function turnNextPage() {
     if (pageLoopCount === 1) {
       playDejaVuCat();
     }
-    if (pageLoopCount >= 2) {
-      renderBook(turningPageIndex);
-      startNeoSequence();
-      return;
-    }
   }
 
   renderBook(turningPageIndex);
@@ -1296,9 +1332,6 @@ if (topTitle && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) 
   }, PAGE_TURN_MS);
 }
 
-const coverReveal = document.getElementById("coverReveal");
-const coverVideo = document.querySelector(".cover-reveal-video");
-
 if (coverVideo) {
   let lastRecovery = 0;
   let lastTime = -1;
@@ -1343,11 +1376,28 @@ if (coverVideo) {
       coverVideo.pause();
       return;
     }
+    syncCoverVideoPlayback();
+  });
+
+  window.addEventListener("pageshow", syncCoverVideoPlayback);
+  window.addEventListener("focus", syncCoverVideoPlayback);
+  coverVideo.addEventListener("pause", () => {
+    if (document.hidden) return;
+    if (currentPage !== 0) return;
     playVideo();
   });
 
   window.setInterval(() => {
-    if (document.hidden || coverVideo.paused || coverVideo.ended || coverVideo.seeking) return;
+    if (document.hidden) return;
+    if (currentPage !== 0) return;
+
+    // Some browsers pause media after heavy animation bursts without emitting reliable events.
+    if (coverVideo.paused || coverVideo.ended) {
+      syncCoverVideoPlayback();
+      return;
+    }
+
+    if (coverVideo.seeking) return;
 
     const nowTime = coverVideo.currentTime || 0;
     if (Math.abs(nowTime - lastTime) < 0.01) {
