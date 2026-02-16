@@ -1063,6 +1063,15 @@ function initImageHoverPreview() {
     }, 220);
   };
 
+  overlay.addEventListener("mouseenter", () => {
+    if (hideTimerId) {
+      window.clearTimeout(hideTimerId);
+      hideTimerId = null;
+    }
+  });
+
+  overlay.addEventListener("mouseleave", hidePreview);
+
   imageNodes.forEach((img) => {
     img.addEventListener("mouseenter", () => showImagePreview(img));
     img.addEventListener("mouseleave", hidePreview);
