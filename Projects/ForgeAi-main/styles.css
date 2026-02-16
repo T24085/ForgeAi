@@ -682,6 +682,10 @@ body.neo-mode .scene {
   opacity: 1;
 }
 
+.image-hover-preview.image-hover-preview--visible.image-hover-preview--frame {
+  pointer-events: auto;
+}
+
 .contact-page {
   gap: 1.1rem;
 }
