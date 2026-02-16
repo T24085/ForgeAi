@@ -1,4 +1,5 @@
 const pages = Array.from(document.querySelectorAll(".page"));
+const book = document.getElementById("book");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const pageStatus = document.getElementById("pageStatus");
@@ -46,6 +47,81 @@ let walkMatrixResizeHandler = null;
 const PAGE_TURN_MS = 900;
 const NEO_CONFIRM_TIMEOUT_MS = 12000;
 const mobilePreviewMedia = window.matchMedia("(max-width: 900px), (pointer: coarse)");
+const swipeMedia = window.matchMedia("(max-width: 900px), (pointer: coarse)");
+const SWIPE_DISTANCE_PX = 42;
+const SWIPE_AXIS_TOLERANCE_RATIO = 0.75;
+
+let swipeStartX = 0;
+let swipeStartY = 0;
+let swipeTracking = false;
+let swipeLockedToHorizontal = false;
+
+function isInteractiveSwipeTarget(target) {
+  if (!target || !(target instanceof Element)) return false;
+  return Boolean(target.closest("a, button, input, textarea, select, iframe, [contenteditable='true']"));
+}
+
+function beginSwipeGesture(event) {
+  if (!swipeMedia.matches) return;
+  const touch = event.touches?.[0];
+  if (!touch) return;
+  if (isInteractiveSwipeTarget(event.target)) return;
+
+  swipeStartX = touch.clientX;
+  swipeStartY = touch.clientY;
+  swipeTracking = true;
+  swipeLockedToHorizontal = false;
+}
+
+function moveSwipeGesture(event) {
+  if (!swipeTracking || !swipeMedia.matches) return;
+  const touch = event.touches?.[0];
+  if (!touch) return;
+
+  const deltaX = touch.clientX - swipeStartX;
+  const deltaY = touch.clientY - swipeStartY;
+  const absX = Math.abs(deltaX);
+  const absY = Math.abs(deltaY);
+
+  if (!swipeLockedToHorizontal) {
+    if (absX < 8 && absY < 8) return;
+    swipeLockedToHorizontal = absX > absY / SWIPE_AXIS_TOLERANCE_RATIO;
+  }
+
+  if (swipeLockedToHorizontal && event.cancelable) {
+    event.preventDefault();
+  }
+}
+
+function endSwipeGesture(event) {
+  if (!swipeTracking || !swipeMedia.matches) return;
+  const touch = event.changedTouches?.[0];
+  swipeTracking = false;
+  if (!touch) return;
+
+  const deltaX = touch.clientX - swipeStartX;
+  const deltaY = touch.clientY - swipeStartY;
+
+  if (!swipeLockedToHorizontal) return;
+  if (Math.abs(deltaX) < SWIPE_DISTANCE_PX) return;
+  if (Math.abs(deltaX) < Math.abs(deltaY) * SWIPE_AXIS_TOLERANCE_RATIO) return;
+
+  if (deltaX < 0) {
+    turnNextPage();
+    return;
+  }
+
+  if (currentPage > 0) {
+    const turningPageIndex = currentPage - 1;
+    currentPage -= 1;
+    renderBook(turningPageIndex);
+  }
+}
+
+function cancelSwipeGesture() {
+  swipeTracking = false;
+  swipeLockedToHorizontal = false;
+}
 
 function isMobilePreviewBlocked() {
   return mobilePreviewMedia.matches;
@@ -1036,6 +1112,13 @@ renderBook(0);
 applyMobilePreviewMode();
 initImageHoverPreview();
 window.addEventListener("resize", applyMobilePreviewMode);
+
+if (book) {
+  book.addEventListener("touchstart", beginSwipeGesture, { passive: true });
+  book.addEventListener("touchmove", moveSwipeGesture, { passive: false });
+  book.addEventListener("touchend", endSwipeGesture, { passive: true });
+  book.addEventListener("touchcancel", cancelSwipeGesture, { passive: true });
+}
 
 const typedLine = document.getElementById("typed-line");
 const topTitle = document.querySelector(".book-top h1");
